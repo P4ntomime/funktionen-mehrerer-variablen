@@ -88,7 +88,7 @@
 \setcounter{tocdepth}{2}            % only display sections and subsections in toc
 % \setcounter{secnumdepth}{0}       % uncomment to disable section numbering
 
-\DeclareMathSizes{8}{8}{5}{4}       % set math font sizes for 8pt document
+\DeclareMathSizes{8}{8}{6}{4}       % set math font sizes for 8pt document
 
 
 % --------------------------------------- COLOR DEFINITIONS ---------------------------------------
@@ -101,11 +101,11 @@
 
 % TODO: define color palette
 % color palette: https://colorkit.co/color-palette-generator/FF8552-9e22bd-404E7C-C32E15-225A28/
-\definecolor{green}{HTML}{225A28}
-\definecolor{red}{HTML}{C32E15}
-\definecolor{blue}{HTML}{404E7C}
-\definecolor{orange}{HTML}{FF8552}
-\definecolor{violet}{HTML}{9e22bd}
+\definecolor{green}{HTML}{1af430}
+\definecolor{red}{HTML}{f90d09}
+\definecolor{blue}{HTML}{093ce5}
+\definecolor{orange}{HTML}{f7730e}
+\definecolor{violet}{HTML}{a516c9}
 
 % colors for listings (code)
 % \definecolor{commentcolour}{HTML}{404E7C}
@@ -270,6 +270,9 @@
 % centered math column type
 \newcolumntype{M}{>{$}c<{$}}
 
+% right aligned math column type
+\newcolumntype{O}{>{$}r<{$}}
+
 
 % inline tikz node for later referencing
 \newcommand{\tikznode}[2]{% from https://tex.stackexchange.com/a/402466/121799
@@ -428,6 +431,9 @@
 % custom command for differential operator d
 \newcommand{\diff}{\ensuremath{\mathop{} \! \mathrm{d}}}
 
+\newcommand{\rreal}{\ensuremath{\mathbb{R}}}
+\newcommand{\nnatural}{\ensuremath{\mathbb{N}}}
+
 % custom command for underset limes operator
 \newcommand{\limes}[1]{\ensuremath{\underset{#1}{\lim}}}
 
@@ -442,6 +448,19 @@
 \newcommand{\cor}[1]{{\color{orange}#1}}
 \newcommand{\cvt}[1]{{\color{violet}#1}}
 
+
+\newcommand{\warn}[1]{
+    \tikz[baseline=($(current bounding box.center)!0.65!(current bounding box.south)$)]{
+        \node[isosceles triangle, 
+              isosceles triangle stretches, 
+              shape border rotate=90, 
+              draw=red, 
+              text=red,
+              semithick,
+              inner sep=0mm,
+              minimum width=3mm, 
+              minimum height=2.5mm, 
+              rounded corners=0.5mm] {\bfseries \raisebox{0.1mm}{\footnotesize !}};}\crd{\textbf{ #1}}}
 
 
 % bullet command for items in tables
@@ -541,6 +560,10 @@
                          {\end{multicols*}}
 
 
+% new environment for centered tabulars
+\NewDocumentEnvironment{ctabular}{m}
+                        {\center\tabular{#1}}
+                        {\endtabular\endcenter}
 % ---------------------------------------- LISTINGS SETUP -----------------------------------------
 
 % % hack to fix asterisk in lstlisting
