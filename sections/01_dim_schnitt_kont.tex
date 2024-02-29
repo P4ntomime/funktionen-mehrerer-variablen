@@ -1,6 +1,6 @@
 \section{Dimensionen, Schnitte und Konturen}
 \subsection{Dimensionen}
-$$f: \mathbb{D}_f \subset \rreal^{\cbl{\bm{m}}} \longrightarrow \mathbb{W}_f \subset \rreal^{\cgn{\bm{n}}}$$
+$$f: \mathbb{D}_f (\subseteqq  \rreal^{\cbl{\bm{m}}}) \longrightarrow \mathbb{W}_f (\subseteqq  \rreal^{\cgn{\bm{n}}})$$
 
 
 \begin{ctabular}{O l}
@@ -10,8 +10,68 @@ $$f: \mathbb{D}_f \subset \rreal^{\cbl{\bm{m}}} \longrightarrow \mathbb{W}_f \su
 \end{ctabular}
 
 \warn{Variablen sind abhängig von einander!}\\[2mm]
-Eine Funktion ist "Multi-Variat", wenn Input und/oder Output mehrdimensional sind/ist.
-\example{Multi-Variat}
+
+\textbf{Multi-Variat:}\\
+Die Funktion ${f}$ ist "Multi-Variat", wenn:\\
+- Input, Output oder beides mehrdimensional ist.\\
+(Nur wenn Input und Output Skalare sind ist eine Funktion nicht Multi-Variat.)\\
+%\example{Multi-Variat}
+%\begin{ctabular}{O l}
+%    (x;y) \mapsto \text{Skalar} \Rightarrow \text{Multi-Variat}\\
+%    (x;y;z) \mapsto \text{Skalar} \Rightarrow \text{Multi-Variat}\\
+%    (t;x;y;z) \mapsto \text{Skalar} \Rightarrow \text{Multi-Variat}\\
+%\end{ctabular}
+
+\subsubsection{Raumzeit}
+
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+\begin{equation*}
+    \begin{rcases}
+      \text{Raum 3D ${(x;y;z)}$ }\rreal^3\\
+      \text{Zeit 1D ${(t)}$ }\rreal^1
+    \end{rcases}
+    \rreal^1 \times \rreal^3 (t;x;y;z) = \text{4D Raumzeit}
+\end{equation*}
+
+\subsubsection{Stationärer Fall}
+$${t \rightarrow \infty \rightarrow \text{Stationär}}$$
+$${\crd{T(x;y;z) \enspace\frac{\Delta{T}}{\Delta{t}} \rightarrow 0 }}$$
+
+\subsubsection{Koordinatenvektoren = Einheitsvektoren}
+$\vec{i}=\hat{i}=\vec{{e}_1}=
+\begin{pmatrix}
+    1 \\
+    0 \\
+    0
+\end{pmatrix},\enspace
+\vec{j}=\hat{j}=\vec{{e}_2}=
+\begin{pmatrix}
+    0 \\
+    1 \\
+    0
+\end{pmatrix},\enspace
+\vec{k}=\hat{k}=\vec{{e}_3}=
+\begin{pmatrix}
+    0 \\
+    0 \\
+    1
+\end{pmatrix}$
 
 \subsection{Schnitte}
-\subsection{Konturen}
+Schnitt = Restriktion $\rightarrow$ Teilmenge vom Definitionsbereich ${\mathbb{D}_f}$\\
+
+\subsubsection{Partielle Funktion}
+$\triangleright$ Nur EINE Variable ist frei! (wählbar)\\
+$\triangleright$ ALLE anderen Variabeln sind fix!\\
+\crd{$\triangleright$ \warn{$\mathbb{W}_f$ Analyse!}}\\[2mm]
+
+\subsection{Konturen, Levelsets, Niveaulinien, ...}
+Output = konstant = const. = fix: 
+$$\vec{y} = \vec{f}(\vec{x}) = \text{const. wobei } \vec{x} \subset \mathbb{D}_f$$
+Man spricht von "Konturen, Levelsets oder Niveaulinien",\\
+wenn der Output von ${f}$ konstant ist.\\
+\crd{Hier wäre ein Bild von Höhenlinien aus dem Skript cool}
+
