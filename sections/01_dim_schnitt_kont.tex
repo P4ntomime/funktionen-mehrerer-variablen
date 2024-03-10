@@ -1,20 +1,26 @@
 \section{Dimensionen, Schnitte und Konturen}
+
 \subsection{Dimensionen}
+
 $$f: \mathbb{D}_f (\subseteqq  \rreal^{\cbl{\bm{m}}}) \longrightarrow \mathbb{W}_f (\subseteqq  \rreal^{\cgn{\bm{n}}})$$
 
 
 \begin{ctabular}{O l}
-    \cbl{\bm{m}} & Anzahl Dimensionen von ${\mathbb{D}_f}$, wobei $\cbl{\bm{m}}$ ${\in \nnatural }$\\
-    \cgn{\bm{n}} & Anzahl Dimensionen von ${\mathbb{W}_f}$, wobei $\cgn{\bm{n}}$ ${\in \nnatural }$\\
-    \vec{f} & wenn Output vektoriell
+    \cbl{\bm{m}}    & Anzahl Dimensionen von ${\mathbb{D}_f}$, wobei $\cbl{\bm{m}}$ ${\in \nnatural }$\\
+    \cgn{\bm{n}}    & Anzahl Dimensionen von ${\mathbb{W}_f}$, wobei $\cgn{\bm{n}}$ ${\in \nnatural }$\\
+    \vec{f}         & wenn Output vektoriell
 \end{ctabular}
 
-\warn{Variablen sind abhängig von einander!}\\[2mm]
+\warn{Variablen sind abhängig von einander!}
 
-\textbf{Multi-Variat:}\\
-Die Funktion ${f}$ ist "Multi-Variat", wenn:\\
-- Input, Output oder beides mehrdimensional ist.\\
-(Nur wenn Input und Output Skalare sind ist eine Funktion nicht Multi-Variat.)\\
+
+\subsubsection*{Multi-Variat:}
+
+Die Funktion ${f}$ ist "Multi-Variat", wenn:
+\begin{itemize}
+    \item Input, Output oder beides mehrdimensional ist.\\
+    (Nur wenn Input \textbf{und} Output Skalare sind ist eine Funktion nicht Multi-Variat.)
+\end{itemize}
 %\example{Multi-Variat}
 %\begin{ctabular}{O l}
 %    (x;y) \mapsto \text{Skalar} \Rightarrow \text{Multi-Variat}\\
@@ -22,23 +28,19 @@ Die Funktion ${f}$ ist "Multi-Variat", wenn:\\
 %    (t;x;y;z) \mapsto \text{Skalar} \Rightarrow \text{Multi-Variat}\\
 %\end{ctabular}
 
+
 \subsubsection{Raumzeit}
 
-\newenvironment{rcases}
-  {\left.\begin{aligned}}
-  {\end{aligned}\right\rbrace}
+$$\left.\begin{array}{r@{}}
+    \text{Raum 3D ${(x;y;z)}$ }\rreal^3\\
+    \text{Zeit 1D ${(t)}$ }\rreal^1
+\end{array}\right\rbrace \rreal^{1}\times \rreal^3 (t;x;y;z) = \text{4D Raumzeit}$$
 
-\begin{equation*}
-    \begin{rcases}
-      \text{Raum 3D ${(x;y;z)}$ }\rreal^3\\
-      \text{Zeit 1D ${(t)}$ }\rreal^1
-    \end{rcases}
-    \rreal^1 \times \rreal^3 (t;x;y;z) = \text{4D Raumzeit}
-\end{equation*}
 
 \subsubsection{Stationärer Fall}
 $${t \rightarrow \infty \rightarrow \text{Stationär}}$$
 $${\crd{T(x;y;z) \enspace\frac{\Delta{T}}{\Delta{t}} \rightarrow 0 }}$$
+
 
 \subsubsection{Koordinatenvektoren = Einheitsvektoren}
 $\vec{i}=\hat{i}=\vec{{e}_1}=
@@ -60,13 +62,19 @@ $\vec{i}=\hat{i}=\vec{{e}_1}=
     1
 \end{pmatrix}$
 
+
 \subsection{Schnitte}
-Schnitt = Restriktion $\rightarrow$ Teilmenge vom Definitionsbereich ${\mathbb{D}_f}$\\
+Schnitt = Restriktion $\rightarrow$ Teilmenge vom Definitionsbereich ${\mathbb{D}_f}$
+
 
 \subsubsection{Partielle Funktion}
-$\triangleright$ Nur EINE Variable ist frei! (wählbar)\\
-$\triangleright$ ALLE anderen Variabeln sind fix!\\
-\crd{$\triangleright$ \warn{$\mathbb{W}_f$ Analyse!}}\\[2mm]
+
+\begin{itemize}
+    \item Nur \textbf{eine} Variable ist frei! (wählbar)
+    \item \textbf{Alle} anderen Variablen sind fix!
+    \item[] \warn{$\mathbb{W}_f$ Analyse!}
+\end{itemize}
+
 
 \subsection{Konturen, Levelsets, Niveaulinien, ...}
 Output = konstant = const. = fix: 

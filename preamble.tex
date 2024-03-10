@@ -18,6 +18,9 @@
 
 \usepackage{amsmath}                % math symbols
 \usepackage{amssymb}                % more math symbols
+\usepackage{mathtools}
+\usepackage{mhsetup}
+\usepackage{txfonts}
 \usepackage[squaren]{SIunits}       % SI-units
 \usepackage{bm}                     % bold math symbols
 \usepackage{trfsigns}               % needed for "Laplace" symbol (Korrespondenz)
@@ -203,8 +206,8 @@
 
 \titlespacing{\section}
              {0mm}
-             {.2ex}
-             {.2ex}
+             {.8ex}
+             {.8ex}
 
 
 % subsection formatting
@@ -237,22 +240,23 @@
 
 \titlespacing{\subsection}
              {0mm}
-             {1ex}
-             {.2ex}
+             {.8ex}
+             {.8ex}
 
 
 % subsubsection formatting
 \titleformat{\subsubsection}
+            {\fontsize{10}{9}\selectfont\bfseries}
             % {\fontsize{9}{8}\selectfont\bfseries}
-            {\normalsize\bfseries}
-            {\thesubsubsection}
+            % {\normalsize\bfseries}
+            {\myul{\thesubsubsection\ }}
             {0mm}
-            {\phantomsection{} #1}
+            {\phantomsection{}\myul{#1}}
 
 \titlespacing{\subsubsection}
              {0mm}
-             {.2ex}
-             {.2ex}
+             {.8ex}
+             {.8ex}
 
 
 % custom command for examples
@@ -462,6 +466,20 @@
               minimum height=2.5mm, 
               rounded corners=0.5mm] {\bfseries \raisebox{0.1mm}{\footnotesize !}};}\crd{\textbf{ #1}}}
 
+% \newcommand{\warnsymbol}{
+%     \hspace{0.5mm}
+%     \tikz[baseline=($(current bounding box.center)!0.65!(current bounding box.south)$)]{
+%         \node[isosceles triangle, 
+%               isosceles triangle stretches, 
+%               shape border rotate=90, 
+%               draw=red, 
+%               text=red,
+%               semithick,
+%               inner sep=0mm,
+%               minimum width=3mm, 
+%               minimum height=2.5mm, 
+%               rounded corners=0.5mm] {\bfseries \raisebox{0.1mm}{\footnotesize !}};}
+% }
 
 % bullet command for items in tables
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
@@ -564,6 +582,11 @@
 \NewDocumentEnvironment{ctabular}{m}
                         {\center\tabular{#1}}
                         {\endtabular\endcenter}
+
+
+\NewDocumentEnvironment{rcases}{}
+                        {\left.\begin{aligned}}
+                        {\end{aligned}\right\rbrace}
 % ---------------------------------------- LISTINGS SETUP -----------------------------------------
 
 % % hack to fix asterisk in lstlisting
