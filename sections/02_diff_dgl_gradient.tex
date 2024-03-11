@@ -1,18 +1,89 @@
 \section{Ableitungen, DGL und Gradienten}
 
 \subsection{Partielle Ableitung}
+Ableitung einer Partiellen Funktion. 
+
+\example{Bi-Variate Funktion}
+\[
+    f(x, y):\, y \text{ fixieren} = \text{const.} = y_{0};\quad x \text{ \textbf{einzige} freie Variable}
+\]
+
+\subsubsection*{Notationen}
+
+\begin{ctabular}{l l}
+    1. Ordnung: & $\displaystyle f(x; y_{0})\Rightarrow \frac{\partial f}{\partial x} = f_{x}(x; y_{0})$ \\
+    \multirow{2}*{2. Ordnung:}  &  $\displaystyle \frac{\partial}{\partial x}
+                                    \left\lgroup\frac{\partial f}{\partial x}\right\rgroup = 
+                                    \frac{\partial^{2}f}{\partial x^{2}} = f_{xx}$\\
+                                &  $\displaystyle \frac{\partial}{\partial y}
+                                    \left\lgroup\frac{\partial f}{\partial x}\right\rgroup = 
+                                    \frac{\partial^{2}f}{\partial y \partial x} = f_{xy}$
+\end{ctabular}
+
+
+\subsubsection{Schwarz-Symmetrie}
+Wenn \cor{$f_{xx}, f_{yy}, f_{xy}$ \& $f_{yx}$} \textbf{stetig} (sprungfrei) sind, dann gilt:
+\[
+    f_{xy} \overset{!}{=} f_{yx}
+\]
+
+
+\subsection{Gradient (Nabla-Operator)}
+Spaltenvektor mit partiellen Ableitungen
+\[
+    \tikznode{grad}{\nabla} f = \begin{pmatrix}
+        \frac{\partial f^{\mathstrut}}{\partial x}\\
+        \frac{\partial f^{\mathstrut}}{\partial y}\\
+        \vdots      % TODO: reformat vdots. They look like shit
+    \end{pmatrix} \hat{=} \text{Vektorfeld}
+\]
+
+% TODO: some TikZ. Might not be needed and could be removed if unnecessary
+\begin{tikzpicture}[overlay, remember picture, >={Latex}]
+    \node[inner sep=0pt, ellipse, fit=(grad), draw, densely dotted]{};
+    \node[below left= 2mm and 5mm of grad] (gtext) {\txtqt{Gradient}};
+    \draw[->, rounded corners] (gtext.east) -| ($(grad.south)+(0,-1mm)$);
+\end{tikzpicture}
+
+
+\subsection{Totale Ableitung}
+Für Fehlerrechnung benützt, da man hierbei die Abstände von $(x; y; z)$ 
+zu einem festen Punkt $(x_{0}; y_{0}; z_{0})$ erhält. (relative Koordinaten)
+
+\[
+    D(f\underbrace{(x_{0}, y_{0}, \ldots)}_{\text{Arbeitspunkt}}):\, 
+    \rreal^{\tikznode{somea}{\scriptstyle 2}} \rightarrow \rreal^{\tikznode{someb}{\scriptstyle 1}};\, 
+    \text{\txtqt{gute Approximation}}
+\]
+\[
+    f(x = x_{0} + \Delta x; y = y_{0} + \Delta y; \ldots) = (D_{11}; D_{12})\cdot \begin{pmatrix}
+        \Delta x\\
+        \Delta y
+    \end{pmatrix} + f(x_{0}; y_{0}) + \cgn{R_{1}}
+\]
+Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
+\[
+    \frac{\cgn{R_{1}}}{\cor{d = \sqrt{\Delta x^{2} + \Delta y^{2}}}} \rightarrow 0 \text{ (\txtqt{gut}, \txtqt{schneller gegen 0 als $\cor{d}$})}
+\]
+
+\[
+    \begin{split}
+        D(f(x_{0}; y_{0})) &= \left\lgroup D_{11} = \frac{\partial f}{\partial x}(x_{0}; y_{0}; D_{12} = \frac{\partial f}{\partial y}(x_{0}; y_{0}))\right\rgroup
+        & (\nabla f)^{t} \text{ \cbl{wenn $\frac{\partial f}{\partial x}; \frac{\partial f}{\partial y}$ stetig bei $A$}} % TODO: A noch nicht vorhanden
+    \end{split}
+     
+\]
+
+
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[tips, -{Latex}] (someb) to[out=135, in=45, edge node={node[above=0mm]{\tiny $1\times 2$ Matrix}}] (somea);
+\end{tikzpicture}
 
 
 \subsection{Differential}
 
 
 \subsubsection{Differential-Trick (\texorpdfstring{$\diff f$}{df} Trick)}
-
-
-\subsection{Gradient (Nabla-Operator)}
-
-
-\subsection{Totale Ableitung}
 
 
 \subsection{Linearapproximation}
@@ -25,7 +96,7 @@
 
 \subsection{Richtungselement (Tangentiallinie an Kontouren)}
 
-\subsection{Schwarz-Symmetrie}
+
 
 
 \subsection{DGL}
