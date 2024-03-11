@@ -32,8 +32,8 @@ Wenn \cor{$f_{xx}, f_{yy}, f_{xy}$ \& $f_{yx}$} \textbf{stetig} (sprungfrei) sin
 Spaltenvektor mit partiellen Ableitungen
 \[
     \tikznode{grad}{\nabla} f = \begin{pmatrix}
-        \frac{\partial f^{\mathstrut}}{\partial x}\\
-        \frac{\partial f^{\mathstrut}}{\partial y}\\
+        \frac{\partial f^{\mathstrut}}{\partial^{\mathstrut} x}\\
+        \frac{\partial f^{\mathstrut}}{\partial^{\mathstrut} y}\\
         \vdots      % TODO: reformat vdots. They look like shit
     \end{pmatrix} \hat{=} \text{Vektorfeld}
 \]
@@ -86,33 +86,57 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
 \[
     \begin{split}
         D(f;(x_{0}; y_{0})) &= \left\lgroup D_{11} = \frac{\partial f}{\partial x}(x_{0}; y_{0}); D_{12} = \frac{\partial f}{\partial y}(x_{0}; y_{0})\right\rgroup\\
-        & (\nabla f)^{tr} \text{ \cbl{wenn $\frac{\partial f}{\partial x}; \frac{\partial f}{\partial y}$ stetig bei $A$}}
+        &= (\nabla f)^{tr} \text{ \cbl{wenn $\frac{\partial f}{\partial x}; \frac{\partial f}{\partial y}$ stetig bei $A$}}
     \end{split}
 \]
-
 
 \begin{tikzpicture}[overlay, remember picture]
     \draw[tips, -{Latex}] (someb) to[out=135, in=45, edge node={node[above=0mm]{\tiny $1\times 2$ Matrix}}] (somea);
 \end{tikzpicture}
 
 
-\subsection{Differential}
+\subsection{Linearapproximation (Tangentialapproximation)}
+\[
+    f(x;y) \approx f(x_{0}; y_{0}) + D(f;(x_{0}; y_{0}))\cdot \begin{pmatrix}
+        \Delta x\\
+        \Delta y
+    \end{pmatrix}
+    \quad\text{ linear in $\Delta x$ und $\Delta y$}
+\]
 
-
-\subsubsection{Differential-Trick (\texorpdfstring{$\diff f$}{df} Trick)}
-
-
-\subsection{Linearapproximation}
 
 \subsubsection{Tangentialebene}
+\[
+    \crd{g(x; y) = f(x_{0}; y_{0}) + D(f;(x_{0}; y_{0}))\cdot \begin{pmatrix}
+        x - x_{0}\\
+        y - y_{0}
+    \end{pmatrix}}
+\]
+
 
 \subsubsection{Tangentialer Anstieg (Totale Differential)}
+\[
+    \cvt{\diff f \overset{!}{=} 
+        \frac{\partial f}{\partial \tikznode{ptx}{x}}\diff x + 
+        \frac{\partial f}{\partial \tikznode{pty}{y}}\diff y} 
+        \quad \text{bezüglich } A=\underbrace{(x_{0}; y_{0})}_{\tikznode{axy}{}}
+\]
+\begin{tikzpicture}[overlay, remember picture, >={Latex[width=1mm, length=1mm]}]
+    \draw[->] ($(axy)+(0, 1.8mm)$) to[bend left=10] (ptx.south east);
+    \draw[->] ($(axy)+(0, 1.8mm)$) to[bend left=10] (pty.south east);
+\end{tikzpicture}
+
 
 \subsubsection{Implizite (Steigungs-)Funktion}
+
 
 \subsection{Richtungselement (Tangentiallinie an Kontouren)}
 
 
+\subsection{Differential}
+
+
+\subsubsection{Differential-Trick (\texorpdfstring{$\diff f$}{df} Trick)}
 
 
 \subsection{DGL}
