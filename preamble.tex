@@ -13,6 +13,7 @@
 \usepackage{enumitem}               % list customization
 \usepackage{outlines}               % easy nested lists
 \usepackage{tabularx}               % some nicer tables with X columns
+\usepackage{multirow}               % multirow in tables
 \usepackage{hhline}                 % double lines in tables
 
 
@@ -249,7 +250,7 @@
             {\fontsize{10}{9}\selectfont\bfseries}
             % {\fontsize{9}{8}\selectfont\bfseries}
             % {\normalsize\bfseries}
-            {\myul{\thesubsubsection\ }}
+            {\hspace{2pt}\myul{\thesubsubsection\ }}
             {0mm}
             {\phantomsection{}\myul{#1}}
 
@@ -428,6 +429,22 @@
                 (0,0) to (0.4,0);}}
 
 
+% renews the pmatrix environment to use \lgroup and \rgroup instead of \left( and \right)
+\renewenvironment{pmatrix}{%
+    \left\lgroup%
+    \matrix@check\pmatrix\env@matrix%
+}{
+    \endmatrix\right\rgroup%
+}
+
+% renews the pmatrix* environment to use \lgroup and \rgroup instead of \left( and \right)
+\MHInternalSyntaxOn%
+\renewenvironment{pmatrix*}[1][c]
+  {\left\lgroup\MT_matrix_begin:N #1}
+  {\MT_matrix_end:\right\rgroup}
+\MHInternalSyntaxOff%
+
+
 % custom command for size matched colored brackets
 \newcommand{\bbr}[2]{\colorlet{saved}{.}\color{#1}\left(\color{saved}#2\color{#1}\right)\color{saved}}
 
@@ -584,7 +601,7 @@
                         {\endtabular\endcenter}
 
 
-\NewDocumentEnvironment{rcases}{}
+\NewDocumentEnvironment{rrcases}{}
                         {\left.\begin{aligned}}
                         {\end{aligned}\right\rbrace}
 % ---------------------------------------- LISTINGS SETUP -----------------------------------------
