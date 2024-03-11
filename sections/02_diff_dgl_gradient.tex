@@ -51,7 +51,7 @@ Für Fehlerrechnung benützt, da man hierbei die Abstände von $(x; y; z)$
 zu einem festen Punkt $(x_{0}; y_{0}; z_{0})$ erhält. (relative Koordinaten)
 
 \[
-    D(f\underbrace{(x_{0}, y_{0}, \ldots)}_{\text{Arbeitspunkt}}):\, 
+    D(f;\underbrace{(x_{0}, y_{0}, \ldots)}_{\text{Arbeitspunkt}}):\, 
     \rreal^{\tikznode{somea}{\scriptstyle 2}} \rightarrow \rreal^{\tikznode{someb}{\scriptstyle 1}};\, 
     \text{\txtqt{gute Approximation}}
 \]
@@ -62,16 +62,32 @@ zu einem festen Punkt $(x_{0}; y_{0}; z_{0})$ erhält. (relative Koordinaten)
     \end{pmatrix} + f(x_{0}; y_{0}) + \cgn{R_{1}}
 \]
 Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
-\[
-    \frac{\cgn{R_{1}}}{\cor{d = \sqrt{\Delta x^{2} + \Delta y^{2}}}} \rightarrow 0 \text{ (\txtqt{gut}, \txtqt{schneller gegen 0 als $\cor{d}$})}
-\]
+
+\begin{minipage}[c]{0.7\columnwidth}
+    \[
+        \frac{\cgn{R_{1}}}{\cor{d = \sqrt{\Delta x^{2} + \Delta y^{2}}}} \rightarrow 0 \text{ (\txtqt{gut}, \txtqt{schneller gegen 0 als $\cor{d}$})}
+    \]
+\end{minipage}\hfill
+\begin{minipage}[c]{0.29\columnwidth}
+    \begin{tikzpicture}[baseline=(current bounding box.center), >={Latex[width=1mm, length=1mm]}, scale=0.5, font=\tiny]
+        \draw[->] (0,0) -- (4,0) node[below]{$x$};
+        \draw[->] (0,0) -- (0,2.5) node[left]{$y$};
+        \node[circle, fill=black, inner sep=0pt, minimum size=2pt] (A) at (1.7,0.7) {};
+        \node[circle, fill=black, inner sep=0pt, minimum size=2pt] (P) at (0.7,1.7) {};
+    
+        \node[inner sep=1pt, right=1mm of A] {$A=(x_{0}; y_{0})$};
+        \node[inner sep=1pt, above right=0.1mm and -1ex of P] {$P=(x;y)$};
+    
+        \draw (P) -- (A-|P) node[midway, left]{$\Delta y$} -- (A) node[midway, below]{$\Delta x$};
+        \draw[orange] (P) -- (A) node[midway, above right, inner sep=1pt]{\cor{$d$}};
+    \end{tikzpicture}
+\end{minipage}
 
 \[
     \begin{split}
-        D(f(x_{0}; y_{0})) &= \left\lgroup D_{11} = \frac{\partial f}{\partial x}(x_{0}; y_{0}; D_{12} = \frac{\partial f}{\partial y}(x_{0}; y_{0}))\right\rgroup
-        & (\nabla f)^{t} \text{ \cbl{wenn $\frac{\partial f}{\partial x}; \frac{\partial f}{\partial y}$ stetig bei $A$}} % TODO: A noch nicht vorhanden
+        D(f;(x_{0}; y_{0})) &= \left\lgroup D_{11} = \frac{\partial f}{\partial x}(x_{0}; y_{0}); D_{12} = \frac{\partial f}{\partial y}(x_{0}; y_{0})\right\rgroup\\
+        & (\nabla f)^{tr} \text{ \cbl{wenn $\frac{\partial f}{\partial x}; \frac{\partial f}{\partial y}$ stetig bei $A$}}
     \end{split}
-     
 \]
 
 
