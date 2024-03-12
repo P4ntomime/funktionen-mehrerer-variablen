@@ -194,11 +194,31 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
 
 \subsection{DGL}
 \[
-    y' = \tikznode{rhsfn}{\bbr{orange}{-\frac{f_{x}}{f_{y}}}};\, y(x_{0}) = y_{0}
+    y' = \tikznode{rhsfn}{\bbr{violet}{-\frac{f_{x}}{f_{y}}}};\, y(x_{0}) = y_{0}
 \]
-\tikz[overlay, remember picture] {\node[below=1mm of rhsfn, inner sep=0pt, font=\tiny, text=orange] {right-hand-side (r.h.s.) Funktion};}
+\begin{tikzpicture}[overlay, 
+                    remember picture] 
+    \node[below=1mm of rhsfn, inner sep=0pt, font=\tiny, text=violet] {right-hand-side (r.h.s.) Funktion};
+\end{tikzpicture}
+
 
 \subsection{Richtungselement (Tangentiallinie an Kontouren)}
+\[
+    \vec{r} = \left\lgroup\diff x = h; \diff y = y'\diff x = -\frac{f_{x}}{f_{y}}\diff x\right\rgroup^{tr}
+\]
 
 
 \subsection{Gradientenfeld \texorpdfstring{$\perp$}{\_|\_} Kontouren}
+\[
+    \nabla f \tikznode{scprd}{\bullet} \begin{pmatrix}
+        \diff x\\
+        \diff y = y'\diff x
+    \end{pmatrix} \overset{!}{=} 0
+\]
+\begin{tikzpicture}[overlay,
+                    remember picture,
+                    >={Latex[width=1mm, 
+                             length=1mm]}]
+    \node[above left=2mm and 4mm of scprd, inner sep=0pt, anchor=south east] (spnode) {Skalarprodukt};
+    \draw[->] (spnode.east) to[out=0, in=90] ($(scprd.north)+(0,0.2mm)$);
+\end{tikzpicture}
