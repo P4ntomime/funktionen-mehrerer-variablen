@@ -69,15 +69,23 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
     \]
 \end{minipage}\hfill
 \begin{minipage}[c]{0.29\columnwidth}
-    \begin{tikzpicture}[baseline=(current bounding box.center), >={Latex[width=1mm, length=1mm]}, scale=0.5, font=\tiny]
+    \begin{tikzpicture}[baseline=(current bounding box.center), 
+                        >={Latex[width=1mm, 
+                                 length=1mm]}, 
+                        scale=0.5, 
+                        font=\tiny]
+
+        % Koordinatensystem
         \draw[->] (0,0) -- (4,0) node[below]{$x$};
         \draw[->] (0,0) -- (0,2.5) node[left]{$y$};
+
+        % Punkte
         \node[circle, fill=black, inner sep=0pt, minimum size=2pt] (A) at (1.7,0.7) {};
         \node[circle, fill=black, inner sep=0pt, minimum size=2pt] (P) at (0.7,1.7) {};
-    
         \node[inner sep=1pt, right=1mm of A] {$A=(x_{0}; y_{0})$};
         \node[inner sep=1pt, above right=0.1mm and -1ex of P] {$P=(x;y)$};
     
+        % Differenz
         \draw (P) -- (A-|P) node[midway, left]{$\Delta y$} -- (A) node[midway, below]{$\Delta x$};
         \draw[orange] (P) -- (A) node[midway, above right, inner sep=1pt]{\cor{$d$}};
     \end{tikzpicture}
@@ -85,7 +93,8 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
 
 \[
     \begin{split}
-        D(f;(x_{0}; y_{0})) &= \left\lgroup D_{11} = \frac{\partial f}{\partial x}(x_{0}; y_{0}); D_{12} = \frac{\partial f}{\partial y}(x_{0}; y_{0})\right\rgroup\\
+        D(f;(x_{0}; y_{0})) &= \left\lgroup D_{11} = \frac{\partial f}{\partial x}(x_{0}; y_{0}); 
+                                            D_{12} = \frac{\partial f}{\partial y}(x_{0}; y_{0})\right\rgroup\\
         &= (\nabla f)^{tr} \text{ \cbl{wenn $\frac{\partial f}{\partial x}; \frac{\partial f}{\partial y}$ stetig bei $A$}}
     \end{split}
 \]
@@ -121,25 +130,72 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
         \frac{\partial f}{\partial \tikznode{pty}{y}}\diff y} 
         \quad \text{bezüglich } A=\underbrace{(x_{0}; y_{0})}_{\tikznode{axy}{}}
 \]
-\begin{tikzpicture}[overlay, remember picture, >={Latex[width=1mm, length=1mm]}]
+\begin{tikzpicture}[overlay, 
+                    remember picture, 
+                    >={Latex[width=1mm, 
+                             length=1mm]}]
+
     \draw[->] ($(axy)+(0, 1.8mm)$) to[bend left=10] (ptx.south east);
     \draw[->] ($(axy)+(0, 1.8mm)$) to[bend left=10] (pty.south east);
 \end{tikzpicture}
 
 
-\subsubsection{Implizite (Steigungs-)Funktion}
-
-
-\subsection{Richtungselement (Tangentiallinie an Kontouren)}
-
-
-\subsection{Differential}
-
-
 \subsubsection{Differential-Trick (\texorpdfstring{$\diff f$}{df} Trick)}
+\begin{minipage}[c]{0.5\columnwidth}
+    \[\left\lgroup\begin{aligned}
+        f &= c = \mathrm{const.} \quad | \diff(\ldots)\\
+        \diff f &= \diff c \overset{!}{=} 0
+    \end{aligned}\right\rgroup\]
+\end{minipage}\hfill
+\begin{minipage}[c]{0.5\columnwidth}
+    \[
+        f_{x}\diff x + f_{y}\diff y = 0 \quad \text{für Kontourlinien}
+    \]
+\end{minipage}
+
+
+\subsubsection{Implizite (Steigungs-)Funktion}
+\begin{minipage}[c]{0.6\columnwidth}
+    \[
+        \cbl{y'(x)} = \frac{\diff y}{\diff x} = -\frac{f_{x}}{f_{y}\crd{\neq 0}} \lor 
+        \cbl{x'(y)} = \frac{\diff x}{\diff y} = -\frac{f_{y}}{f_{x}\crd{\neq 0}}
+    \]
+\end{minipage}\hfill
+\begin{minipage}[c]{0.39\columnwidth}
+    \begin{tikzpicture}[>={Latex[width=1mm,
+                                 length=1mm]}, 
+                        scale=0.75, 
+                        font=\small]
+
+        % Koordinatensystem
+        \draw[->] (0,0) -- (3,0) node[below]{$x$};
+        \draw[->] (0,0) -- (0,2) node[left]{$y$};
+        
+        % Funktionen
+        \draw[color=green] plot[domain=0.55:1.5] (\x, {-((\x-1.5)*(\x-1.5))+1}) node[right]{$y$}; % y = -((x-1.5)^2)+1
+        \draw[color=blue] node[above right]{$y'$} plot[domain=0.25:1.5] (\x, {\x-0.25}); % y = x-0.25
+
+        % Arbeitspunkt
+        \node[circle, fill=black, inner sep=0pt, minimum size=1.5pt] (P) at (1,0.75) {};
+        \node[inner sep=0pt, above left=0.25mm and 0mm of P] {$P_{0}$};
+        \draw[gray, dashed] (P) -- (P-|0,0) node[left]{$y_{0}$};
+        \draw[gray, dashed] (P) -- (P|-0,0) node[below]{$x_{0}$};
+
+        % Richtungselemente
+        \draw[orange, semithick, ->] (P) -- (2,1.75) node[above, midway, rotate=45]{$\vec{r}$};
+        \draw[->] (P) -- (P-|2,0) node[midway, below]{$\diff x$};
+        \draw[->] (P-|2,0) -- (2,1.75) node[midway, right]{$\diff y$};
+    \end{tikzpicture}
+\end{minipage}
+
+
+% \subsection{Differential}
 
 
 \subsection{DGL}
+
+
+\subsection{Richtungselement (Tangentiallinie an Kontouren)}
 
 
 \subsection{Gradientenfeld \texorpdfstring{$\perp$}{\_|\_} Kontouren}
