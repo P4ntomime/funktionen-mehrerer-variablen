@@ -222,3 +222,15 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
     \node[above left=2mm and 4mm of scprd, inner sep=0pt, anchor=south east] (spnode) {Skalarprodukt};
     \draw[->] (spnode.east) to[out=0, in=90] ($(scprd.north)+(0,0.2mm)$);
 \end{tikzpicture}
+
+
+\subsection{Richtungs-Ableitung}
+
+\begin{tikzpicture}[>={Latex[width=1mm,
+                       length=1mm]}]
+    \draw[->] (-1,0) -- (3,0) node[below]{$x$};
+    \draw[->] (0,-0.5) -- (0,2) node[left]{$y$};
+
+    % Schnitt
+    \draw[green] (-1,-0.5) -- (1, 0.75);
+\end{tikzpicture}
