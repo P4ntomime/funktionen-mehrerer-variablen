@@ -1,5 +1,4 @@
 \section{Dimensionen, Schnitte und Kontouren}
-
 \subsection{Dimensionen}
 
 $$f: \mathbb{D}_f (\subseteqq  \rreal^{\cbl{\bm{m}}}) \longrightarrow \mathbb{W}_f (\subseteqq  \rreal^{\cgn{\bm{n}}})$$
@@ -16,25 +15,30 @@ $$f: \mathbb{D}_f (\subseteqq  \rreal^{\cbl{\bm{m}}}) \longrightarrow \mathbb{W}
 
 \subsubsection*{Multi-Variat:}
 
-Die Funktion ${f}$ ist "Multi-Variat", wenn:
+\begin{minipage}[t]{0.48\columnwidth}
+    \textbf{${f}$} ist "Multi-Variat", wenn:
 \begin{itemize}
-    \item Input, Output oder beides mehrdimensional ist.\\
-    (Nur wenn Input \textbf{und} Output Skalare sind ist eine Funktion nicht Multi-Variat.)
+    \item Input mehrdimensional ist
+    \item Output mehrdimensional ist
+    \item Input \textbf{und} Output\\
+    mehrdimensional sind
 \end{itemize}
-%\example{Multi-Variat}
-%\begin{ctabular}{O l}
-%    (x;y) \mapsto \text{Skalar} \Rightarrow \text{Multi-Variat}\\
-%    (x;y;z) \mapsto \text{Skalar} \Rightarrow \text{Multi-Variat}\\
-%    (t;x;y;z) \mapsto \text{Skalar} \Rightarrow \text{Multi-Variat}\\
-%\end{ctabular}
 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    \textbf{${f}$} ist \crd{nicht} "Multi-Variat", wenn:
+\begin{itemize}
+    \item Input \textbf{und} Output Skalare sind
+\end{itemize}
+\end{minipage}
 
 \subsubsection{Raumzeit}
 
 $$\left.\begin{array}{r@{}}
     \text{Raum 3D ${(x;y;z)}$ }\rreal^3\\
     \text{Zeit 1D ${(t)}$ }\rreal^1
-\end{array}\right\rbrace \rreal^{1}\times \rreal^3 (t;x;y;z) = \text{4D Raumzeit}$$
+\end{array}\right\rbrace \rreal^{1}\times \rreal^3 = \text{Raumzeit 4D} \text{ } (t;x;y;z)$$
 
 
 \subsubsection{Stationärer Fall}
@@ -42,25 +46,34 @@ $${t \rightarrow \infty \rightarrow \text{Stationär}}$$
 $${\crd{T(x;y;z) \enspace\frac{\Delta{T}}{\Delta{t}} \rightarrow 0 }}$$
 
 
-\subsubsection{Koordinatenvektoren = Einheitsvektoren}
-$\vec{i}=\hat{i}=\vec{{e}_1}=
-\begin{pmatrix}
+\subsubsection{Einheitsvektoren (Koordinatenvektoren)}
+
+\begin{minipage}[c]{0.48\columnwidth}
+    $$\hat{x}=\vec{i}=\cbl{\hat{i}}=\vec{{e}_1}=
+\cbl{\begin{pmatrix}
     1 \\
     0 \\
     0
-\end{pmatrix},\enspace
-\vec{j}=\hat{j}=\vec{{e}_2}=
-\begin{pmatrix}
+\end{pmatrix}}$$\\
+$$\hat{y}=\vec{j}=\cgn{\hat{j}}=\vec{{e}_2}=
+\cgn{\begin{pmatrix}
     0 \\
     1 \\
     0
-\end{pmatrix},\enspace
-\vec{k}=\hat{k}=\vec{{e}_3}=
-\begin{pmatrix}
+\end{pmatrix}}$$\\
+$$\hat{z}=\vec{k}=\crd{\hat{k}}=\vec{{e}_3}=
+\crd{\begin{pmatrix}
     0 \\
     0 \\
     1
-\end{pmatrix}$
+\end{pmatrix}}$$
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/einheitsvektoren.pdf}
+\end{minipage}
+
+
 
 
 \subsection{Schnitte}
@@ -75,11 +88,54 @@ Schnitt = Restriktion $\rightarrow$ Teilmenge vom Definitionsbereich ${\mathbb{D
     \item[] \warn{$\mathbb{W}_f$ Analyse!}
 \end{itemize}
 
+\example{Schnitte}
 
-\subsection{Konturen, Levelsets, Niveaulinien, ...}
-Output = konstant = const. = fix: 
+\begin{minipage}[t]{0.48\columnwidth}
+    \textbf{\crd{x-Linien}}
+    \begin{itemize}
+        \item Fläche wird \crd{geschnitten mit} Ebene, die parallel zur \crd{x,z-Ebene} liegt
+        \item Bestehen aus den $(x;y;z)$ Punkten\\
+        $(\cgn{x} ; \cbl{y_0} ; \crd{f(}\cgn{x};\cbl{y_0}\crd{)})$
+        \item \cgn{${x}$-Wert} ist \cgn{variabel}
+        \item \cbl{${y}$-Wert} ist \crd{fixiert} $\Leftrightarrow$ ${\cbl{y_0} = \cbl{2}}$
+    \end{itemize}
+    
+    \includegraphics[width=\columnwidth]{images/schnitt_y0.png}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    \textbf{\crd{y-Linien}}
+    \begin{itemize}
+        \item Fläche wird \crd{geschnitten mit} Ebene, die parallel zur \crd{y,z-Ebene} liegt.
+        \item Bestehen aus den $(x;y;z)$ Punkten\\
+        $(\cbl{x_0};\cgn{y};\crd{f(}\cbl{x_0};\cgn{y}\crd{)})$
+        \item \cgn{${y}$-Wert} ist \cgn{variabel}
+        \item \cbl{${x}$-Wert} ist \crd{fixiert} $\Leftrightarrow$ ${\cbl{x_0} = \cbl{3}}$
+    \end{itemize}
+    \includegraphics[width=\columnwidth]{images/schnitt_x0.png}
+\end{minipage}
+
+\subsection{Kontouren, Levelsets, Niveaulinien, Höhenlinen, ...}
+Bei \textbf{Kontouren}, \textbf{Levelsets}, \textbf{Niveaulinien} oder \textbf{Höhenlinien} ist der \crd{Output} \\
+der Funktion ${f}$ \crd{konstant}\\
 $$\vec{y} = \vec{f}(\vec{x}) = \text{const. wobei } \vec{x} \subset \mathbb{D}_f$$
-Man spricht von "Konturen, Levelsets oder Niveaulinien",\\
-wenn der Output von ${f}$ konstant ist.\\
-\crd{Hier wäre ein Bild von Höhenlinien aus dem Skript cool}
 
+\example{Höhenlinien}
+
+
+    \textbf{\crd{Kontouren (Höhenlinien)}}
+    \begin{itemize}
+        \item Fläche wird \crd{geschnitten mit} Ebene, die parallel zur \crd{x,y-Ebene} liegt
+        \item Bestehen aus den $(x;y;z)$ Punkten $(\cgn{x} ; \cgn{y} ; \crd{f(}\cgn{x};\cgn{y}\crd{)} \text{ = } \cbl{z_0})$
+        \item \cgn{${x}$-Wert} und \cgn{${y}$-Wert} sind \cgn{variabel}
+        \item \cbl{${z}$-Wert} ist \crd{fixiert} $\Leftrightarrow$ ${\cbl{z_0} = \cbl{3}}$
+    \end{itemize} 
+
+
+\begin{minipage}[t]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/niveaulinien1.png}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/niveaulinien2.png}
+\end{minipage}
