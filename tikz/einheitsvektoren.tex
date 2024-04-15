@@ -1,0 +1,69 @@
+\documentclass[border=0pt,tikz]{standalone}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage[outline]{contour} % glow around text
+\usepackage{xcolor}
+
+\colorlet{veccol}{green!50!black}
+\colorlet{projcol}{blue!70!black}
+\colorlet{myblue}{blue!80!black}
+\colorlet{myred}{red!90!black}
+\colorlet{mydarkblue}{blue!50!black}
+\tikzset{>=latex} % for LaTeX arrow head
+\tikzset{
+    proj/.style={projcol!80,line width=0.08}, %very thin
+    area/.style={draw=veccol,fill=veccol!80,fill opacity=0.6},
+    vector/.style={-stealth,myblue,thick,line cap=round},
+    unit vector/.style={->,veccol,thick,line cap=round},
+    dark unit vector/.style={unit vector,veccol!70!black}
+}
+\usetikzlibrary{angles,quotes} % for pic (angle labels)
+\contourlength{1.3pt}
+
+\begin{document}
+
+% 3D AXIS with spherical coordinates
+\tdplotsetmaincoords{60}{140}
+\begin{tikzpicture}[scale=2,tdplot_main_coords]
+
+  % Raster in der x-z-Ebene
+  \pgfmathsetmacro{\mvone}{1.4} 
+  \pgfmathsetmacro{\step}{0.5} % Schrittlänge
+  \foreach \x in {0,\step,...,\mvone} {
+    \draw[gray] (\x,0,0) -- (\x,0,\mvone);}
+  \foreach \z in {0,\step,...,\mvone} {
+    \draw[gray] (0,0,\z) -- (\mvone,0,\z);}
+
+  % Raster in der x-y-Ebene
+  \pgfmathsetmacro{\mvone}{1.4} 
+  \pgfmathsetmacro{\step}{0.5} % Schrittlänge
+  \foreach \x in {0,\step,...,\mvone} {
+    \draw[gray] (\x,0,0) -- (\x,\mvone,0);}
+  \foreach \y in {0,\step,...,\mvone} {
+    \draw[gray] (0,\y,0) -- (\mvone,\y,0);}
+
+  % Raster in der z-y-Ebene
+  \pgfmathsetmacro{\mvone}{1.4} 
+  \pgfmathsetmacro{\step}{0.5} % Schrittlänge
+  \foreach \y in {0,\step,...,\mvone} {
+    \draw[gray] (0,\y,0) -- (0,\y,\mvone);}
+  \foreach \z in {0,\step,...,\mvone} {
+    \draw[gray] (0,0,\z) -- (0,\mvone,\z);}
+  
+  % AXES
+  \coordinate (O) at (0,0,0);
+  \draw[thick,->] (0,0,0) -- (1.5,0,0) node[below left]{$x$};
+  \draw[thick,->] (0,0,0) -- (0,1.5,0) node[right=-1]{$y$};
+  \draw[thick,->] (0,0,0) -- (0,0,1.5) node[above=-1]{$z$};
+  
+  \draw[very thick,->, blue] (0,0,0) -- (1,0,0) node[midway, above, xshift=-0.25mm, yshift=1mm]{\contour{white}{$\hat{i}$}};
+  \draw[very thick,->, green] (0,0,0) -- (0,1,0) node[midway, above, xshift=0mm, yshift=0mm]{\contour{white}{$\hat{j}$}};
+  \draw[very thick,->, red] (0,0,0) -- (0,0,1) node[midway, right]{\contour{white}{$\hat{k}$}};
+
+  \coordinate (P0) at (0,0,0);
+    \node[draw,circle,inner sep=1.5pt,fill=black] at (P0) {};
+  %  \node[below ,xshift=2.5mm,yshift=-2mm] at (P0) {\contour{white}{$(0,0,0)$}};
+
+\end{tikzpicture}
+\end{document}
