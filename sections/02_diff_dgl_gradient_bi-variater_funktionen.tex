@@ -1,5 +1,7 @@
 \section{Ableitungen, DGL und Gradienten (bi-variat)}
-
+\[
+    f:\mathbb{D}_f\subseteq \mathbb{R}^2\rightarrow \mathbb{W}_f\subseteq \mathbb{R}\quad\mathrm{skalar}
+\]
 \subsection{Partielle Ableitung}
 Ableitung einer Partiellen Funktion. 
 
@@ -191,6 +193,8 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
 \end{minipage}
 
 
+
+
 % \subsection{Differential}
 
 
@@ -226,7 +230,7 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
 \end{tikzpicture}
 
 
-\subsection{Richtungs-Ableitung}
+\subsection{?Wie heisst dieser Abschnitt?}
 
 \begin{tikzpicture}[>={Latex[width=1mm,
                        length=1mm]}]
@@ -236,3 +240,31 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
     % Schnitt
     \draw[green] (-1,-0.5) -- (1, 0.75);
 \end{tikzpicture}
+
+
+\begin{ctabular}{r l}
+    $s(t) :$ & $P_0 + t \cdot \hat{v} \mid t\in \mathbb{R}$\\
+    $s(t) :$&$f(x_0 + t \cdot \hat{v}_1\text{ };\text{ }y_0 + t \cdot \hat{v}_2)$\\
+    &\\
+    $\frac{\text{d }s(t)}{\text{d}t}=\dot{s}(t) :$&$t\mapsto\overbrace{\begin{pmatrix}x_0+t\cdot v_1\\y_0+t\cdot v_2\end{pmatrix}}^{\begin{pmatrix}x\\y\end{pmatrix}}\mapsto f(x,y)$
+\end{ctabular}
+
+\subsection{Richtungs-Ableitung}
+\[
+    \frac{\partial f}{\partial\hat{v}}\overset{!}=D(f;(x_{0};y_{0}))\cdot\hat{v}\overset{Def.}\Leftrightarrow grad(f)^{tr}\cdot\hat{v}=f_{x}\cdot v_{1}+f_{y}\cdot v_{2}
+\]
+
+\example{Richtungs-Ableitung}
+
+\[
+    \vec{x} : \vec{v} = 
+\begin{pmatrix}
+    1\\
+    0
+\end{pmatrix}
+= \hat{e}_1
+\]
+
+\[
+    \frac{\partial f}{\partial\hat{e}_{1}}=f_{x}\cdot1+f_{y}\cdot0=\uuline{f_{x}}
+\]
