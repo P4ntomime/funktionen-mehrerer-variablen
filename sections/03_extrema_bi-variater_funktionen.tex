@@ -1,1 +1,53 @@
-\section{Extrema von Funktionen (bi-variat)}
+\newpage
+\section{Extrema von Funktionen zweier Variabeln finden}
+
+\begin{enumerate}
+    \item \textbf{Gradient von $f$ Null-setzten und kritische Stellen finden:}\\
+    $\nabla f=
+    \begin{pmatrix}
+        f_x\\
+        f_y
+    \end{pmatrix} \stackrel{!}{=}
+    \begin{pmatrix}
+        0\\
+        0
+    \end{pmatrix}
+    \, \, \, \, \, \,
+    \Rightarrow 
+    \begin{matrix}
+        f_{x}=0\\
+        f_{y}=0
+    \end{matrix}
+    \, \, \, \, \, \,
+    \Rightarrow
+    x_0 \text{ und } y_0 \text{ bestimmen}
+    $\\\\
+
+    \item \textbf{Zweite Partielle Ableitungen bestimmen:}
+    
+    $f_{xx} = \dots$\\
+    $f_{xy} = f_{yx} = \dots$\\
+    $f_{yy} = \dots$\\
+
+    \item \textbf{Determinante $\Delta$ der Hesse-Matrix H bestimmen:}\\
+    $\Delta = f_{xx}(x_0;y_0) \cdot f_{yy}(x_0;y_0) - \left(f_{xy}(x_0;y_0)\right)^2 $\\
+
+    \item \textbf{Auswertung:}\\
+    
+    \begin{tabular}{lllcl}
+        \hline
+        $\Delta > 0$ &AND& $f_{xx}(x_0;y_0) < 0$ &$\Longrightarrow$& $\text{lokales Maximum}$\\
+        \hline
+        $\Delta > 0$ &AND& $f_{yy}(x_0;y_0) < 0$ &$\Longrightarrow$& $\text{lokales Maximum}$\\
+        \hline
+        $\Delta > 0$ &AND& $f_{xx}(x_0;y_0) > 0$ &$\Longrightarrow$& $\text{lokales Minimum}$\\
+        \hline
+        $\Delta > 0$ &AND& $f_{yy}(x_0;y_0) > 0$ &$\Longrightarrow$& $\text{lokales Minimum}$\\
+        \hline
+        $\Delta < 0$ &&&$\Longrightarrow$& $\text{Sattelpunkt}$\\
+        \hline
+        $\Delta = 0$ &&&?& $\text{Multi-variate-Taylor-logik ...}$\\
+        \hline
+    \end{tabular}
+
+\end{enumerate}
