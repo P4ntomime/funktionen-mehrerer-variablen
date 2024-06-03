@@ -98,7 +98,7 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
     \begin{split}
         D(f;(x_{0}; y_{0})) &= \left\lgroup D_{11} = \frac{\partial f}{\partial x}(x_{0}; y_{0}); 
                                             D_{12} = \frac{\partial f}{\partial y}(x_{0}; y_{0})\right\rgroup\\
-        &= (\nabla f)^{tr} \text{ \cbl{wenn $\frac{\partial f}{\partial x}; \frac{\partial f}{\partial y}$ stetig bei $A$}}
+        &= (\nabla f)^{\tr} \text{ \cbl{wenn $\frac{\partial f}{\partial x}; \frac{\partial f}{\partial y}$ stetig bei $A$}}
     \end{split}
 \]
 
@@ -211,7 +211,7 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
 
 \subsection{Richtungselement (Tangentiallinie an Kontouren)}
 \[
-    \vec{r} = \left\lgroup\diff x = h; \diff y = y'\diff x = -\frac{f_{x}}{f_{y}}\diff x\right\rgroup^{tr}
+    \vec{r} = \left\lgroup\diff x = h; \diff y = y'\diff x = -\frac{f_{x}}{f_{y}}\diff x\right\rgroup^{\tr}
 \]
 
 
@@ -244,15 +244,16 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
 
 
 \begin{ctabular}{r l}
-    $s(t) :$ & $P_0 + t \cdot \hat{v} \mid t\in \mathbb{R}$\\
-    $s(t) :$&$f(x_0 + t \cdot \hat{v}_1\text{ };\text{ }y_0 + t \cdot \hat{v}_2)$\\
+    $s(t) :$    &$P_0 + t \cdot \hat{v} \mid t\in \rreal$\\
+    $s(t) :$    &$f(x_0 + t \cdot \hat{v}_1\, ;\, y_0 + t \cdot \hat{v}_2)$\\
     &\\
-    $\frac{\text{d }s(t)}{\text{d}t}=\dot{s}(t) :$&$t\mapsto\overbrace{\begin{pmatrix}x_0+t\cdot v_1\\y_0+t\cdot v_2\end{pmatrix}}^{\begin{pmatrix}x\\y\end{pmatrix}}\mapsto f(x,y)$
+    $\frac{\diff s(t)}{\diff t}=\dot{s}(t) :$&$t\mapsto\overbrace{\begin{pmatrix}x_0+t\cdot v_1\\y_0+t\cdot v_2\end{pmatrix}}^{\begin{pmatrix}x\\y\end{pmatrix}}\mapsto f(x,y)$
 \end{ctabular}
+
 
 \subsection{Richtungs-Ableitung}
 \[
-    \frac{\partial f}{\partial\hat{v}}\overset{!}=D(f;(x_{0};y_{0}))\cdot\hat{v}\overset{Def.}\Leftrightarrow grad(f)^{tr}\cdot\hat{v}=f_{x}\cdot v_{1}+f_{y}\cdot v_{2}
+    \frac{\partial f}{\partial\hat{v}}\overset{!}=D(f;(x_{0};y_{0}))\cdot\hat{v}\overset{\text{Def.}}\Leftrightarrow \grad(f)^{\tr}\cdot\hat{v}=f_{x}\cdot v_{1}+f_{y}\cdot v_{2}
 \]
 
 \example{Richtungs-Ableitung}
@@ -264,8 +265,45 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
     0
 \end{pmatrix}
 = \hat{e}_1
+\quad\Rightarrow\quad
+    \frac{\partial f}{\partial\hat{e}_{1}}=f_{x}\cdot1+f_{y}\cdot0=\uuline{f_{x}\strut}
 \]
 
-\[
-    \frac{\partial f}{\partial\hat{e}_{1}}=f_{x}\cdot1+f_{y}\cdot0=\uuline{f_{x}}
-\]
+
+\subsubsection{Spezialfälle}
+
+
+\begin{minipage}[c]{.72\columnwidth}
+    \begin{outline}
+        \1 $\alpha = \frac{\pi}{2}$ \textrightarrow\ rechter Winkel % TODO: fix \pi --> should be upright
+        \1 $\frac{\partial f}{\partial \hat{v}}$ extremal
+            \2 $\alpha = 0$ (max):   $\nabla f \cdot\hat{v} > 0$ \textrightarrow\ \cbl{$\grad(f)$} liegt auf $\hat{v}$
+            \2 $\alpha = \pi$ (min): $\nabla f \cdot\hat{v} < 0$ \textrightarrow\ \cbl{$\grad(f)$} liegt invers auf $\hat{v}$
+    \end{outline}
+\end{minipage}\hfill
+\begin{tikzpicture}[%
+    baseline=(current bounding box.center),
+    scale=0.75,
+    >={Latex[%
+        width=1mm, 
+        length=1mm]}]
+    \coordinate (A) at (0,0);
+    \coordinate (B1) at (2,0);
+    \coordinate (B2) at (2.4,0);
+    \coordinate (C) at (2,0.8);
+
+    \draw[->] (A) -- (B2) node[right]{$\hat{v}$};
+    \draw[blue, ->] (A) -- (C) node[above=-1mm]{$\grad(f)$};
+    \draw[red, ->] (A) -- (B1) node[midway, below]{$\nabla f \sbullet \hat{v}$};
+
+    \draw[gray, densely dashed] (C) -- (B1);
+
+    \draw pic[draw=green, angle radius=10mm, pic text=$\alpha$, pic text options=green] {angle=B1--A--C};
+    \draw pic[draw=gray, angle radius=2mm, pic text=. , pic text options=gray] {angle=C--B1--A};
+
+    \fill (A) circle (1pt) node[above]{$P_0$};
+\end{tikzpicture}
+
+\para{Trigo} $\nabla f\cdot\hat{v} \land \frac{\partial f}{\partial\hat{v}}$ \textrightarrow\ $\cos(\alpha)\cdot\abs{\cbl{\nabla f}}$
+
+
