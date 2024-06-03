@@ -1,1 +1,62 @@
 \section{Extrema von Funktionen (bi-variat)}
+
+
+\subsection{Stationärbedingungen} % TODO: Ergänzen um Eigenwerte + Lagrange (evtl. statt Ergänzen, neuer Abschnitt)
+\begin{outline}
+    \1 Nicht am Rand des Definitionsbereichs ($\mathbb{D}_f$)
+    \1 $f$ muss differenzierbar sein
+\end{outline}
+
+$f$ lokal (relativ) extremal \textrightarrow\ horizontale Tangentialebene
+
+
+\subsubsection{Verallgemeinerung des Fermat-Prinzips}
+\[
+    \begin{array}{c}
+        f(x_0; y_0) + \cub{red}{\diff f}{0} = f(x_0; y_0) + \cub{red}{f_x \diff x + f_y \diff y}{0}\\ % TODO: fix underbrace size
+        \Leftrightarrow f_x \overset{!}{=} 0 \land f_y \overset{!}{=} 0 \Leftrightarrow \grad(f) = \vec{0}
+    \end{array}
+\]
+
+
+\subsection{Hinreichende Bedingungen}
+Aus An1: $\underset{\min}{f'' > 0}\, |\, \underset{\max}{f'' < 0}$
+
+Ausnahme: Sattelfläche
+
+\begingroup
+\setlength{\arraycolsep}{1mm}
+\begin{minipage}[t]{.35\columnwidth} % TODO: Eigenwerte ergänzen
+    \[
+        (v_1; v_2)
+        \underbrace{\begin{pmatrix}
+            f_{xx}                  &\tikznode{fxy}{$f_{xy}$}\\
+            \tikznode{fyx}{$f_{yx}$}  &f_{yy}
+        \end{pmatrix}}_{\text{Hess-Matrix ($H$)}}
+        \begin{pmatrix}
+            v_1\\
+            v_2
+        \end{pmatrix}
+    \]
+    \tikz[overlay, remember picture] {
+        \node[anchor=center, inner sep=0pt, rotate=40] at ($(fxy)!0.55!(fyx)$) {$=$};
+    }
+\end{minipage}\hfill
+\begin{minipage}[t]{.55\columnwidth}
+    \[
+        \Delta = \det(H) = f_{xx}f_{yy} - f_{xy}^2
+    \]
+    \begin{outline}
+        \1[$\Delta > 0$:] Extremalstelle (max oder min)
+        \1[$\Delta < 0$:] Sattel-Situation (\textbf{nicht} extremal)
+        \1[$\Delta = 0$:] Unklar; Multi-Variate Taylor-Logik\\
+            (wenn mögl. vermeiden)
+    \end{outline}
+\end{minipage}
+\endgroup
+
+% TODO: Weiszfeld-Algorithmus (nicht sicher, ob prüfungsrelevant) 
+% TODO: Extremalwert mit Nebenbedingungen
+% TODO: Lagrange-Funktion
+% TODO: Geränderte Hess-Matrix
+% TODO: Taylor Ordnung > 1
