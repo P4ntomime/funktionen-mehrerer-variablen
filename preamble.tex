@@ -15,6 +15,10 @@
 \usepackage{tabularx}               % some nicer tables with X columns
 \usepackage{multirow}               % multirow in tables
 \usepackage{hhline}                 % double lines in tables
+\usepackage{array}
+\usepackage{makecell}               % multi-line cells in tables
+\usepackage{colortbl}               % colored tables
+\usepackage{booktabs}               % different table rules
 
 
 \usepackage{amsmath}                % math symbols
@@ -36,7 +40,7 @@
 
 
 \usepackage{tcolorbox}              % colored boxes
-\usepackage{contour}                % contour for text (used in custom underline command)
+\usepackage[outline]{contour}       % contour for text (used in custom underline command)
 \usepackage[normalem]{ulem}         % custom underline (used in custom underline command)
 
 
@@ -158,6 +162,10 @@
 
 % ====================================== SETUP AND COMMANDS =======================================
 
+% custom font size for paragraph titles
+\newcommand{\semilarge}{\fontsize{9}{8}\selectfont} % new font size \semilarge (9pt)
+
+
 % custom underline command for exclusions on lowercase letters such as g, j, p, q, y
 \newcommand{\myul}[1]{%
     \uline{\phantom{#1}}%
@@ -191,7 +199,7 @@
                       align=left]                   % text alignment:   left
                       {\thesection\ #1};}}
 
-\titleformat{name=\section, numberless}
+\titleformat{numberless, name=\section}
             % {\fontsize{9}{8}\selectfont\bfseries}
             {\Large\bfseries}
             {}
@@ -227,7 +235,7 @@
                       align=left]                   % text alignment:   left
                       {\thesubsection\ #1};}}
 
-\titleformat{name=\subsection, numberless}
+\titleformat{numberless, name=\subsection}
             {\large\bfseries}
             {}
             {0mm}
@@ -248,18 +256,33 @@
 
 % subsubsection formatting
 \titleformat{\subsubsection}
-            {\fontsize{10}{9}\selectfont\bfseries}
             % {\fontsize{9}{8}\selectfont\bfseries}
-            % {\normalsize\bfseries}
-            {\hspace{2pt}\myul{\thesubsubsection\ }}
+            {\large\bfseries}
+            {\myul{\thesubsubsection\ }}
             {0mm}
             {\phantomsection{}\myul{#1}}
 
 \titlespacing{\subsubsection}
              {0mm}
-             {.8ex}
-             {.8ex}
+             {1ex}
+             {1ex}
 
+
+% paragraph formatting
+\titleformat{\paragraph}[runin]
+            {\semilarge\bfseries}
+            {}
+            {0mm}
+            {#1\normalfont :\;}
+
+\titlespacing{\paragraph}
+             {0mm}
+             {0ex}
+             {0.1ex}
+
+
+% new alias for paragraph '\para' (shorter than \paragraph)
+\let\para\paragraph%
 
 % custom command for examples
 \newcommand{\example}[1]{\subsubsection*{Beispiel: #1}}
@@ -309,6 +332,7 @@
 \makeatletter
 
 % ------------------------------- SECTIONING COMMANDS CUSTOMIZATION -------------------------------
+
 
 % section: add optional argument to command for script page numbers
 \let\old@sec\section%
@@ -449,6 +473,8 @@
 % custom command for size matched colored brackets
 \newcommand{\bbr}[2]{\colorlet{saved}{.}\color{#1}\left\lgroup\color{saved}#2\color{#1}\right\rgroup\color{saved}}
 
+% custom command for colore underbrace
+\newcommand{\cub}[3]{\colorlet{saved}{.}\color{#1}\ensuremath{\underbrace{\color{saved}#2}_{\color{#1}#3}\color{saved}}}
 
 % custom command for differential operator d
 \newcommand{\diff}{\ensuremath{\mathop{} \! \mathrm{d}}}
@@ -461,6 +487,15 @@
 
 % custom command for absolute value
 \newcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
+
+% custom command for gradient function
+\newcommand{\grad}{\ensuremath{\operatorname{grad}}}
+
+% custom command for transpose operator
+\newcommand{\tr}{\ensuremath{\operatorname{tr}}}
+
+\DeclareMathOperator{\sbullet}{\scalebox{0.65}{\ensuremath{\bullet}}}
+
 
 
 % shortcuts for colored text
