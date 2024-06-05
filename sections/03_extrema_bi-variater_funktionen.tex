@@ -1,5 +1,7 @@
 \newpage
-\section{Extrema von Funktionen zweier Variabeln finden}
+\section{Extrema von Funktionen finden}
+
+\subsection{Extrema von Funktionen zweier Variabeln finden}
 
 \begin{enumerate}[itemsep=1ex]
     \item \textbf{Gradient von $f$ Null-setzten und kritische Stellen finden:}
@@ -56,3 +58,196 @@
 
 \end{enumerate}
 
+\subsection{Extrema von Funktionen mehrerer Variabeln finden}
+
+\begin{enumerate}[itemsep=1ex]
+    \item \textbf{Gradient von $f$ Null-setzten und kritische Stellen finden:}
+    
+    $\nabla f=
+    \begin{pmatrix}
+        f_x\\
+        f_y\\
+        \vdots \\
+        f_t
+    \end{pmatrix} \stackrel{!}{=}
+    \begin{pmatrix}
+        0\\
+        0\\
+        \vdots \\
+        0
+    \end{pmatrix}
+    \quad \Rightarrow x_0$, $y_0$, $\ldots$, $t_0$ bestimmen
+    
+    \item \textbf{Zweite Partielle Ableitungen für Hesse-Matrix H bestimmen:}
+    
+    \begin{minipage}[t]{0.48\columnwidth}
+        $\mathbf{H}=\begin{pmatrix}
+            f_{xx}&f_{xy}&\ldots &f_{xt}\\
+            f_{yx}&f_{yy}&\ldots&f_{yt}\\
+            \vdots &\vdots &\ddots &\vdots \\
+            f_{tx}&f_{ty}&\ldots&f_{tt}
+        \end{pmatrix}$
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.48\columnwidth}
+        \begin{itemize}
+            \item Symmetrien beachten!
+            \item Nicht doppelt rechnen!
+            \item[] \textrightarrow\ $f_{xt} = f_{tx}$
+        \end{itemize}
+    \end{minipage}
+
+    \item \textbf{Hesse-Matrix H mit gefundenen Stellen füllen:}
+
+    $\mathbf{H}(x_0,y_0,\ldots t_0)=
+    \begin{pmatrix}
+        f_{xx}(x_0,y_0,\ldots t_0)&f_{xy}(x_0,y_0, \ldots t_0)&\cdots &f_{xt}(x_0,y_0,\ldots t_0)\\
+        f_{yx}(x_0,y_0,\ldots t_0)&f_{yy}(x_0,y_0, \ldots t_0)&\cdots &f_{yt}(x_0,y_0,\ldots t_0)\\
+        \vdots &\vdots &\ddots &\vdots \\
+        f_{tx}(x_0,y_0,\ldots t_0)&f_{ty}(x_0,y_0, \ldots t_0)&\cdots &f_{tt}(x_0,y_0,\ldots t_0)\end{pmatrix}$
+
+    \item \textbf{Eigenwerte $\lambda_i$ der Hesse-Matrix bestimmen:}
+
+    $\text{det}\left(\mathbf{H}(x_0,y_0,\ldots t_0) - \lambda \cdot \mathbf{E}\right)  = 0$
+
+    Nullstellen $\lambda_i$ finden $\rightarrow  $ Eigenwerte
+
+    \medskip
+    \myul{Zur Erinnerung:}\\
+    $\mathbf{E} = \begin{pmatrix}
+        1&0&\ldots &0\\
+        0&1&\ldots&0\\
+        \vdots &\vdots &\ddots &\vdots \\
+        0&0&\ldots&1\\
+    \end{pmatrix}
+    , \quad
+    \lambda \cdot \mathbf{E} = \begin{pmatrix}
+        \lambda&0&\ldots &0\\
+        0&\lambda&\ldots&0\\
+        \vdots &\vdots &\ddots &\vdots \\
+        0&0&\ldots&\lambda\\
+    \end{pmatrix}$
+
+    \medskip
+    $\mathbf{H}(x_0,y_0,\ldots t_0) - \lambda \cdot \mathbf{E} = \ldots \\
+    \ldots  = 
+    \begin{pmatrix}
+        f_{xx}(x_0,y_0,\ldots t_0)- \lambda&f_{xy}(x_0,y_0, \ldots t_0)&\cdots &f_{xt}(x_0,y_0,\ldots t_0)\\
+        f_{yx}(x_0,y_0,\ldots t_0)&f_{yy}(x_0,y_0, \ldots t_0)- \lambda&\cdots &f_{yt}(x_0,y_0,\ldots t_0)\\
+        \vdots &\vdots &\ddots &\vdots \\
+        f_{tx}(x_0,y_0,\ldots t_0)&f_{ty}(x_0,y_0, \ldots t_0)&\cdots &f_{tt}(x_0,y_0,\ldots t_0)- \lambda\end{pmatrix}$
+
+    \item \textbf{Auswertung:}
+    
+    \begin{tabular}{lll}
+        \hline
+        $\lambda_i < 0 \,\,\,\forall i$ &$\Longrightarrow$& $\text{lokales Maximum}$\\
+        \hline
+        $\lambda_i > 0 \,\,\,\forall i$ &$\Longrightarrow$& $\text{lokales Minimum}$\\
+        \hline
+        $\lambda_i > 0\,$ und $\,\lambda_i < 0$ &$\Longrightarrow$& $\text{Sattelpunkt}$\\
+        \hline
+    \end{tabular}
+
+    \medskip
+    Erklärung:
+    \begin{itemize}
+        \item $\lambda_i < 0 \,\,\,\forall i$ $\Leftrightarrow $ Alle $\lambda_i$ sind negativ
+        \item $\lambda_i > 0 \,\,\,\forall i$ $\Leftrightarrow $ Alle $\lambda_i$ sind positiv
+    \end{itemize}
+\end{enumerate}
+
+
+\subsection{Lokales oder Globales Extremum}
+Für eine beliebige die Funktion $f(x, y, \ldots  , t)$ gilt:
+
+$\boxed{\begin{array}{llll}
+    f(x,y,\ldots ,t)\leq M_{\max}&\forall(x,y,\ldots ,t)\in\mathbb{D}_f&\Rightarrow&\text{globales Maxinum}\\
+    f(x,y,\ldots ,t)>M_{\max}&\exists(x,y,\ldots ,t)\in\mathbb{D}_f&\Rightarrow&\text{kein globales Maximum}\\
+    \hline f(x,y,\ldots ,t)\geq M_{\min}&\forall(x,y,\ldots ,t)\in\mathbb{D}_f&\Rightarrow&\text{globales Minimum}\\
+    f(x,y,\ldots ,t)<M_{\min}&\exists(x,y,\ldots ,t)\in\mathbb{D}_f&\Rightarrow&\text{kein globales Minimum}
+\end{array}}$
+
+\medskip
+\begin{tabular}{ll}
+    $M_{\max}$: &\text{grösstes lokales Maximum}\\
+    $M_{\min}$: &\text{kleinstes lokales Minimum}
+\end{tabular}
+
+
+
+
+\subsection{Extrema von Funktionen zweier Variabeln mit NB finden}
+
+\begin{enumerate}[itemsep=1ex]
+    \item \textbf{Nebenbedingung (NB) in Standartform bringen:}\\
+    \begin{minipage}[t]{0.4\columnwidth}
+        Standartform: $n(x, y) \stackrel{!}{=} 0$
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.6\columnwidth}
+            \textcolor{gray}{Nebenbedingung: $x + y = 1$}\\
+            \textcolor{gray}{Standartform der Nebenbedingung: $x + y - 1 = 0$}
+    \end{minipage}
+
+
+    \item \textbf{Lagrancge-Funktion $\mathcal{L}$ aufstellen:}\\
+    $\mathcal{L}(x, y, \lambda) =
+    f(x, y) + \lambda \cdot n(x, y) \,\,\,\,\,\,$ \textcolor{gray}{Am besten gleich ausmultiplizieren}
+    
+
+    \item \textbf{Gradient der Lagrancge-Funktion $\mathcal{L}$ Null-setzten und kritische Stellen finden:}\\
+    $\nabla \mathcal{L}=
+    \begin{pmatrix}
+        \mathcal{L}_x\\
+        \mathcal{L}_y\\
+        \mathcal{L}_\lambda
+    \end{pmatrix} \stackrel{!}{=}
+    \begin{pmatrix}
+        0\\
+        0\\
+        0
+    \end{pmatrix}
+    \, \, \, \, \, \,
+    \Rightarrow 
+    x_0 \text{ und } y_0 \text{ bestimmen}$\\
+
+    \item \textbf{Zweite Partielle Ableitungen bestimmen:}\\
+    \begin{minipage}[t]{0.4\columnwidth}
+        $\begin{aligned}
+            \mathcal{L}_{\lambda \lambda} &= \dots\\
+            \mathcal{L}_{xx} &= \dots\\
+            \mathcal{L}_{yy} &= \dots\\
+        \end{aligned}$
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.6\columnwidth}
+        $\begin{aligned}
+            \mathcal{L}_{\lambda x} &= \mathcal{L}_{x\lambda} = \dots\\
+            \mathcal{L}_{\lambda y} &= \mathcal{L}_{y\lambda} = \dots\\
+            \mathcal{L}_{xy} &= \mathcal{L}_{yx} = \dots\\
+        \end{aligned}$
+    \end{minipage}
+
+    \item \textbf{Geränderte Hesse Matrix $\overline{\mathbf{H}}$ aufstellen und kritische Stellen einsetzen:}\\
+    $\overline{\mathbf{H}} = 
+    \left(
+        \begin{matrix}
+            {{L_{\lambda\lambda}(x_0, y_0)}}&{{L_{\lambda x}(x_0, y_0)}}&{{L_{\lambda y}(x_0, y_0)}}\\
+            {{L_{x\lambda}(x_0, y_0)}}&{{L_{xx}(x_0, y_0)}}&{{L_{xy}(x_0, y_0)}}\\
+            {{L_{y\lambda}(x_0, y_0)}}&{{L_{yx}(x_0, y_0)}}&{{L_{yy}(x_0, y_0)}}\\
+        \end{matrix}
+    \right) $
+
+    \item \textbf{Determinante der geränderten Hesse Matrix bestimmen:}\\
+    $\text{det}\left(\overline{\mathbf{H}}\right) = ... $
+
+    \item \textbf{Auswertung}\\
+    \begin{tabular}{lll}
+        \hline
+        $\text{det}\left(\overline{\mathbf{H}}\right) > 0$ &$\Longrightarrow$& $\text{lokales Maximum}$\\
+        \hline
+        $\text{det}\left(\overline{\mathbf{H}}\right) < 0$ &$\Longrightarrow$& $\text{lokales Minimum}$\\
+        \hline
+        $\text{det}\left(\overline{\mathbf{H}}\right) = 0$ &$\Longrightarrow$& $\text{keine Aussage möglich}$\\
+        \hline
+    \end{tabular}
+
+\end{enumerate}
