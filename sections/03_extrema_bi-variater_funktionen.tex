@@ -1,7 +1,7 @@
 \newpage
 \section{Extrema von Funktionen finden}
 
-\subsection{Extrema von Funktionen zweier Variabeln finden}
+\subsection{Extrema von Funktionen zweier Variablen finden}
 
 \begin{enumerate}[itemsep=1ex]
     \item \textbf{Gradient von $f$ Null-setzten und kritische Stellen finden:}
@@ -58,7 +58,7 @@
 
 \end{enumerate}
 
-\subsection{Extrema von Funktionen mehrerer Variabeln finden}
+\subsection{Extrema von Funktionen mehrerer Variablen finden}
 
 \begin{enumerate}[itemsep=1ex]
     \item \textbf{Gradient von $f$ Null-setzten und kritische Stellen finden:}
@@ -176,7 +176,7 @@ $\boxed{\begin{array}{llll}
 
 
 
-\subsection{Extrema von Funktionen zweier Variabeln mit NB finden}
+\subsection{Extrema von Funktionen zweier Variablen mit NB finden}
 
 \begin{enumerate}[itemsep=1ex]
     \item \textbf{Nebenbedingung (NB) in Standartform bringen:}\\
@@ -213,28 +213,145 @@ $\boxed{\begin{array}{llll}
     \item \textbf{Zweite Partielle Ableitungen bestimmen:}\\
     \begin{minipage}[t]{0.4\columnwidth}
         $\begin{aligned}
-            \mathcal{L}_{\lambda \lambda} &= \dots\\
+            \mathcal{L}_{\lambda \lambda} &\stackrel{!}{=} 0\\
             \mathcal{L}_{xx} &= \dots\\
             \mathcal{L}_{yy} &= \dots\\
         \end{aligned}$
     \end{minipage}\hfill
     \begin{minipage}[c]{0.6\columnwidth}
         $\begin{aligned}
-            \mathcal{L}_{\lambda x} &= \mathcal{L}_{x\lambda} = \dots\\
-            \mathcal{L}_{\lambda y} &= \mathcal{L}_{y\lambda} = \dots\\
+            \mathcal{L}_{\lambda x} &= \mathcal{L}_{x\lambda} = n_x = \dots\\
+            \mathcal{L}_{\lambda y} &= \mathcal{L}_{y\lambda} = n_y =\dots\\
             \mathcal{L}_{xy} &= \mathcal{L}_{yx} = \dots\\
         \end{aligned}$
     \end{minipage}
 
+
     \item \textbf{Geränderte Hesse Matrix $\overline{\mathbf{H}}$ aufstellen und kritische Stellen einsetzen:}\\
-    $\overline{\mathbf{H}} = 
-    \left(
-        \begin{matrix}
-            {{\mathcal{L}_{\lambda\lambda}(x_0, y_0)}}&{{\mathcal{L}_{\lambda x}(x_0, y_0)}}&{{\mathcal{L}_{\lambda y}(x_0, y_0)}}\\
-            {{\mathcal{L}_{x\lambda}(x_0, y_0)}}&{{\mathcal{L}_{xx}(x_0, y_0)}}&{{\mathcal{L}_{xy}(x_0, y_0)}}\\
-            {{\mathcal{L}_{y\lambda}(x_0, y_0)}}&{{\mathcal{L}_{yx}(x_0, y_0)}}&{{\mathcal{L}_{yy}(x_0, y_0)}}\\
-        \end{matrix}
-    \right) $
+    
+    \begin{tabular}{lll}
+        $\overline{\mathbf{H}}(x_0,y_0)$ &$=$&
+        $\left(
+            \begin{matrix}
+                {{\mathcal{L}_{\lambda\lambda}(x_0, y_0)}}&{{\mathcal{L}_{\lambda x}(x_0, y_0)}}&{{\mathcal{L}_{\lambda y}(x_0, y_0)}}\\
+                {{\mathcal{L}_{x\lambda}(x_0, y_0)}}&{{\mathcal{L}_{xx}(x_0, y_0)}}&{{\mathcal{L}_{xy}(x_0, y_0)}}\\
+                {{\mathcal{L}_{y\lambda}(x_0, y_0)}}&{{\mathcal{L}_{yx}(x_0, y_0)}}&{{\mathcal{L}_{yy}(x_0, y_0)}}\\
+            \end{matrix}
+        \right)$\\
+        &$=$&
+        $\left(
+            \begin{matrix}
+                {{\mathcal{L}_{\lambda\lambda}(x_0, y_0)}}&{{n_{x}(x_0, y_0)}}&{{n_{y}(x_0, y_0)}}\\
+                {{n_{x}(x_0, y_0)}}&{{\mathcal{L}_{xx}(x_0, y_0)}}&{{\mathcal{L}_{xy}(x_0, y_0)}}\\
+                {{n_{y}(x_0, y_0)}}&{{\mathcal{L}_{yx}(x_0, y_0)}}&{{\mathcal{L}_{yy}(x_0, y_0)}}\\
+            \end{matrix}
+        \right)$
+        
+    \end{tabular}
+
+
+    \item \textbf{Determinante der geränderten Hesse Matrix bestimmen:}\\
+    $\text{det}\left(\overline{\mathbf{H}}\right) = ... $
+
+    \item \textbf{Auswertung}\\
+    \begin{tabular}{lll}
+        \hline
+        $\text{det}\left(\overline{\mathbf{H}}\right) > 0$ &$\Longrightarrow$& $\text{lokales Maximum}$\\
+        \hline
+        $\text{det}\left(\overline{\mathbf{H}}\right) < 0$ &$\Longrightarrow$& $\text{lokales Minimum}$\\
+        \hline
+        $\text{det}\left(\overline{\mathbf{H}}\right) = 0$ &$\Longrightarrow$& $\text{keine Aussage möglich}$\\
+        \hline
+    \end{tabular}
+
+\end{enumerate}
+
+\subsection{Extrema von Funktionen mehrerer Variablen mit NB finden}
+
+\begin{enumerate}[itemsep=1ex]
+    \item \textbf{Nebenbedingung (NB) in Standartform bringen:}\\
+    \begin{minipage}[t]{0.4\columnwidth}
+        Standartform: $n(x, y, ... , t) \stackrel{!}{=} 0$
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.6\columnwidth}
+    \end{minipage}
+
+
+    \item \textbf{Lagrancge-Funktion $\mathcal{L}$ aufstellen:}\\
+    $\mathcal{L}(x, y, ..., t, \lambda) =
+    f(x, y, ..., t) + \lambda \cdot n(x, y, ..., t) \,\,\,\,\,\,$ \textcolor{gray}{Am besten gleich ausmultiplizieren}
+    
+
+    \item \textbf{Gradient der Lagrancge-Funktion $\mathcal{L}$ Null-setzten und kritische Stellen finden:}\\
+    $\nabla \mathcal{L}=
+    \begin{pmatrix}
+        \mathcal{L}_x\\
+        \mathcal{L}_y\\
+        \vdots \\
+        \mathcal{L}_t\\
+        \mathcal{L}_\lambda
+    \end{pmatrix} \stackrel{!}{=}
+    \begin{pmatrix}
+        0\\
+        0\\
+        \vdots \\
+        0\\
+        0
+    \end{pmatrix}
+    \, \, \, \, \, \,
+    \Rightarrow 
+    x_0 \text{, } y_0 \text{, }... \text{, } t_0 \text{ bestimmen}$\\
+
+    \item \textbf{Zweite Partielle Ableitungen bestimmen:}\\
+    
+
+    \begin{tabular}{lllll}
+        $\begin{matrix}
+        \mathcal{L}_{\lambda \lambda} \stackrel{!}{=} 0\\
+        \mathcal{L}_{xx} = \dots\\
+        \mathcal{L}_{yy} = \dots\\
+        \vdots \\
+        \mathcal{L}_{tt} = \dots\\
+        \end{matrix}$
+        &$\,\,\,\,\,\,\,\,$&
+        $\begin{matrix}
+        \mathcal{L}_{\lambda x} = \mathcal{L}_{x\lambda} = n_x = \dots\\
+        \mathcal{L}_{\lambda y} = \mathcal{L}_{y\lambda} = n_y =\dots\\
+        \vdots \\
+        \mathcal{L}_{\lambda t} = \mathcal{L}_{t\lambda} = n_t =\dots\\
+        \end{matrix}$
+        &$\,\,\,\,\,\,\,\,$&
+        $\begin{matrix}
+        \mathcal{L}_{xy} = \mathcal{L}_{yx}\\
+        \mathcal{L}_{xt} = \mathcal{L}_{tx}\\
+        \mathcal{L}_{yt} = \mathcal{L}_{ty}\\
+        \vdots \\
+        \end{matrix}$
+    \end{tabular}
+
+    \item \textbf{Geränderte Hesse Matrix $\overline{\mathbf{H}}$ aufstellen und kritische Stellen einsetzen:}\\
+    \begin{tabular}{lll}
+        $\overline{\mathbf{H}}(\crd{x_0,y_0,\ldots t_0})$ &$=$&
+        $\left(
+            \begin{matrix}
+                {{\mathcal{L}_{\lambda\lambda}(\crd{...})}}&{{\mathcal{L}_{\lambda x}(\crd{...})}}&{{\mathcal{L}_{\lambda y}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{\lambda t}(\crd{...})}}\\
+                {{\mathcal{L}_{x\lambda}(\crd{...})}}&{{\mathcal{L}_{xx}(\crd{...})}}&{{\mathcal{L}_{xy}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{xt}(\crd{...})}}\\
+                {{\mathcal{L}_{y\lambda}(\crd{...})}}&{{\mathcal{L}_{yx}(\crd{...})}}&{{\mathcal{L}_{yy}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{yt}(\crd{...})}}\\
+                {\vdots }&{\vdots }&{\vdots }&{\ddots }&{\vdots }\\
+                {{\mathcal{L}_{t\lambda}(\crd{...})}}&{{\mathcal{L}_{tx}(\crd{...})}}&{{\mathcal{L}_{ty}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{tt}(\crd{...})}}\\
+            \end{matrix}
+        \right)$\\
+        &$=$&
+        $\left(
+            \begin{matrix}
+                {{\mathcal{L}_{\lambda\lambda}(\crd{...})}}&{{n_{x}(\crd{...})}}&{{n_{y}(\crd{...})}}&{\cdots }&{{n_{t}(\crd{...})}}\\
+                {{n_{x}(\crd{...})}}&{{\mathcal{L}_{xx}(\crd{...})}}&{{\mathcal{L}_{\lambda y}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{xt}(\crd{...})}}\\
+                {{n_{y}(\crd{...})}}&{{\mathcal{L}_{yx}(\crd{...})}}&{{\mathcal{L}_{yy}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{yt}(\crd{...})}}\\
+                {\vdots }&{\vdots }&{\vdots }&{\ddots }&{\vdots }\\
+                {{n_{t}(\crd{...})}}&{{\mathcal{L}_{tx}(\crd{...})}}&{{\mathcal{L}_{ty}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{tt}(\crd{...})}}\\
+            \end{matrix}
+        \right)$
+    \end{tabular}
 
     \item \textbf{Determinante der geränderten Hesse Matrix bestimmen:}\\
     $\text{det}\left(\overline{\mathbf{H}}\right) = ... $
