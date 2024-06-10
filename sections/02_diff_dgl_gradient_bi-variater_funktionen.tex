@@ -44,7 +44,7 @@ Spaltenvektor mit partiellen Ableitungen
 % TODO: some TikZ. Might not be needed and could be removed if unnecessary
 \begin{tikzpicture}[overlay, remember picture, >={Latex}]
     \node[inner sep=0pt, ellipse, fit=(grad), draw, densely dotted]{};
-    \node[below left= 2mm and 5mm of grad] (gtext) {\txtqt{Gradient}};
+    \node[below left= 2mm and 5mm of grad] (gtext) {\txtqt{Gradient} / Nabla};
     \draw[->, rounded corners] (gtext.east) -| ($(grad.south)+(0,-1mm)$);
 \end{tikzpicture}
 
