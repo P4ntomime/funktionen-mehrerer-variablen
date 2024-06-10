@@ -123,9 +123,16 @@
 
 
 % ----------------------------------- LIST AND TABULAR SETTINGS -----------------------------------
-\setlist[enumerate]{label=\bfseries\arabic*.,   % label style bold arabic numerals (1., 2., ...)
-                    leftmargin=*}               % remove left margin from enumerate
+\setlist[enumerate]{%
+    labelindent=0pt,                                % no indentation for labels
+    labelwidth = \widthof{\ref{enum-\EnumitemId}},  % set label width to widest label
+    label=\bfseries\arabic*.,                       % label style bold arabic numerals (1., 2., ...)
+    itemindent=1ex,                                 % separation between label and item text
+    leftmargin=!,                                   % automatically calculate left margin
+    after=\label{enum-\EnumitemId}}                 % set label for referencing in labelwidth
+    
 \setlist[itemize]{leftmargin=1.5em}             % left margin for itemize: 1.5em
+
 \setlist{nosep}                                 % no vertical spacing between list items
 
 \renewcommand{\arraystretch}{1.2}               % stretch table rows
@@ -500,9 +507,9 @@
 % custom command for transpose operator
 \newcommand{\tr}{\ensuremath{\operatorname{tr}}}
 
-\DeclareMathOperator{\sbullet}{\scalebox{0.65}{\ensuremath{\bullet}}}
-
-
+% custom command for scalar product
+\newcommand*{\dotp}{\mathpalette\dotp@{.65}}
+\newcommand*\dotp@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
 
 % shortcuts for colored text
 \newcommand{\cgn}[1]{{\color{green}#1}}
