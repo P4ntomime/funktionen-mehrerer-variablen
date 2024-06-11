@@ -1,2 +1,137 @@
 \section{Vektoranalysis}
+% TODO: Skalarer Durchfluss (?)
+% TODO: Spezialfälle (?)
+% TODO: Vektor Längenelement (?)
+
+% TODO: Vektorfelder
+\subsection{Vektorfelder}
+\begin{itemize}
+    \item Jedem Punkt $P$ im Raum ist ein Vektor $\vec{V}$ zugeordnet
+    \item Kann als $\vec{V}(\vec{r})$ geschrieben werden, wobei $\vec{r}$ ein Ortsvektor mit fixem Ursprung $\vec{0}$ ist
+    % \item Kann auch als Gradient eines Skalarfeldes $\phi$ geschrieben werden: $\vec{V} = \nabla \phi$. % TODO: bei bedarf einfügen
+\end{itemize}
+
+
+% TODO: Divergenz (Volumenableitung) (Cartesisch; Nabla / del-Operator)
+\subsection{Divergenz (Volumenableitung)}
+\begin{outline}
+    \1 Beschreibt, wie stark sich ein Vektorfeld in einem Punkt ausbreitet oder zusammenzieht
+    \1 Beispiel: Vektorfeld das die Geschwindigkeit von Wasser in eineem Fluss beschreibt
+        \2 An Punkten mit positiver Divergenz fliesst Wasser hinaus (Quelle)
+        \2 An Punkten mit negativer Divergenz fliesst Wasser hinein (Senke)
+\end{outline}
+
+\[
+    \boxed{\nabla\dotp\vec{V} = \div \vec{V} = \lim_{\Delta V\to 0}\frac{\oint_{\scriptscriptstyle (S)}\vec{V}\dotp\diff\vec{S}}{\Delta V}}
+\]
+
+
+\subsubsection{Kartesisch}
+\[
+    \boxed{%
+        \div \vec{V}
+        = \nabla\dotp\vec{V}
+        = \underbrace{%
+            \left\lgroup%
+                \frac{\partial}{\partial x};\frac{\partial}{\partial y};\frac{\partial}{\partial z}%
+            \right\rgroup}_{\nabla} \dotp 
+        \begin{pmatrix}
+            V_x \\ V_y \\ V_z
+        \end{pmatrix}
+        = \frac{\partial V_x}{\partial x} + \frac{\partial V_y}{\partial y} + \frac{\partial V_z}{\partial z}
+    }
+\]
+
+
+\subsubsection{Zylinderkoordinaten}
+\[
+    \div \vec{V} = \frac{1}{r} \frac{\partial}{\partial r} (rV_r) + \frac{1}{r} \frac{\partial V_\varphi}{\partial \varphi} + \frac{\partial V_z}{\partial z}
+\]
+
+% TODO: doublecheck this!!
+% \subsubsection{Kugelkoordinaten}
+% \[
+%     \frac{1}{r^2}\frac{\partial}{\partial r} (r^2 V_r) + \frac{1}{r\sin\vartheta}\frac{\partial}{\partial \vartheta} (\sin\vartheta V_\vartheta) + \frac{1}{r\sin\vartheta}\frac{\partial V_\varphi}{\partial \varphi}
+% \]
+
+
+% TODO: Integralsatz von Gauss
+\subsection{Integralsatz von Gauss}
+\[
+    \boxed{\int\limits_{(V)} \div \vec{A} \diff V = \oint\limits_{(S) = \partial V} \vec{A} \dotp \diff \vec{S}}
+\]
+Fluss durch eingeschlossenen Körper = Gesamter Fluss durch geschlossenen Rand des Körpers
+
+% TODO: Poisson-Gleichung (Laplace-Gleichung) -- two subsections?
+\subsection{Poisson-Gleichung (Laplace-Gleichung)}
+
+
+$\boxed{\Delta \phi
+    = \div\left\lgroup\grad(\phi)\right\rgroup
+    = \nabla^2 \phi
+    = \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} + \frac{\partial^2 \phi}{\partial z^2}
+    = f(\vec{r})}$
+\begin{tabular}{O<{:} l}
+    \Delta & Laplace-Operator\\
+    \phi & Potentialfeld\\
+    f(\vec{r}) & Quellfunktion
+\end{tabular}
+
+\subsubsection{Laplace-Gleichung}
+$\boxed{\Delta \phi = f = 0}$ \textrightarrow\ Spezialfall der Poisson-Gleichung ohne äussere Quellfunktion
+
+% TODO: Green'sche Funktion / Green'scher Satz
+% TODO: Beispiel Poisson-Gleichung
+
+
+% DONE: Rotation eines Vektorfelds / Rotationsfeld (rot(); curl)
+\subsection[Rotation eines Vektorfelds (rot(), curl())]{Rotation eines Vektorfelds ($\rot()$, $\curl()$)}
+Beschreibt, wie stark und in welche Richtung sich ein Vektorfeld an einem Punkt rotiert. Wobei der Vektor selbst die Rotationsachse beschreibt 
+und dessen Betrag proportional zur Rotationsgeschwindigkeit ist.
+Beispiel: Wirbelfelder
+\[
+    \boxed{%
+        \rot \vec{A}
+        = \nabla \times \vec{A}
+        =   \begin{pmatrix}
+                \frac{\partial}{\partial x}\\
+                \frac{\partial}{\partial y}\\
+                \frac{\partial}{\partial z}
+            \end{pmatrix} \times 
+        \begin{pmatrix}
+            A_x \\ A_y \\ A_z
+        \end{pmatrix} =
+        \begin{pmatrix}
+            \frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}\\
+            \frac{\partial A_x}{\partial z} - \frac{\partial A_z}{\partial x}\\
+            \frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}
+        \end{pmatrix}
+    }
+\]
+
+\begin{outline}
+    \1 $\big|\rot \vec{A}\,\big| < 0$: Uhrzeigersinn
+    \1 $\big|\rot \vec{A}\,\big| = 0$: Wirbelfrei
+    \1 $\big|\rot \vec{A}\,\big| > 0$: Gegenuhrzeigersinn
+\end{outline}
+
+Gauss: $\div \left\lgroup\rot(\vec{A})\right\rgroup \overset{!}{=} 0$ % TODO: Gehört das hier hin?
+
+
+% TODO: Integralsatz von Stokes % TODO: evtl als subsubsection?
+\subsection{Integralsatz von Stokes}
+\[
+    \boxed{\oint\limits_{\scriptscriptstyle (C) = \partial S} \vec{A} \dotp \diff \vec{r} = \int\limits_{\scriptscriptstyle (S)} \rot \vec{A} \dotp \diff \vec{S}}
+\]
+$\partial S$ \textbf{muss} anhand Rechter-Hand-Regel orientiert sein.
+
+Stokes sagt aus, dass die Summe der Verwirbelungen in einer Fläche, der Summe der Vektoren dessen Randes entsprechen.
+% XXX: vector for evaluating purposes. Rest of vectors might be replaced by this
+% Testvector: $\vec{V}\quad\tikz{\node[inner sep=0pt, minimum width=1pt, minimum height=1pt](a){$V$};\draw[line width=0.3pt]($(a.north west)!0.5!(a.north) + (0, 1pt)$) -- ($(a.north)!0.75!(a.north east)+(0,1pt)$) -- ++(-1pt,1pt);}$
+
+% TODO: Anwengungen: Maxwell-Gleichungen
+\subsection{Anwendungen: Maxwell-Gleichungen}
+% TODO: Koordinatensysteme (Kartesisch, Polar, Kugel (Geografisch & Math.))
+
+\crd{--TBD--}
 

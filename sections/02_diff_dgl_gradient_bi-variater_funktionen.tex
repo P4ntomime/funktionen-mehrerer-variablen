@@ -44,7 +44,7 @@ Spaltenvektor mit partiellen Ableitungen
 % TODO: some TikZ. Might not be needed and could be removed if unnecessary
 \begin{tikzpicture}[overlay, remember picture, >={Latex}]
     \node[inner sep=0pt, ellipse, fit=(grad), draw, densely dotted]{};
-    \node[below left= 2mm and 5mm of grad] (gtext) {\txtqt{Gradient}};
+    \node[below left= 2mm and 5mm of grad] (gtext) {\txtqt{Gradient} / Nabla};
     \draw[->, rounded corners] (gtext.east) -| ($(grad.south)+(0,-1mm)$);
 \end{tikzpicture}
 
@@ -217,7 +217,7 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
 
 \subsection{Gradientenfeld \texorpdfstring{$\perp$}{\_|\_} Kontouren}
 \[
-    \nabla f \tikznode{scprd}{\bullet} \begin{pmatrix}
+    \nabla f \tikznode{scprd}{\dotp} \begin{pmatrix}
         \diff x\\
         \diff y = y'\diff x
     \end{pmatrix} \overset{!}{=} 0
@@ -294,7 +294,7 @@ Wobei \cgn{$R_{1}$} dem \txtqt{Rest} entspricht. (Ähnlich wie bei Taylorreihe)
 
     \draw[->] (A) -- (B2) node[right]{$\hat{v}$};
     \draw[blue, ->] (A) -- (C) node[above=-1mm]{$\grad(f)$};
-    \draw[red, ->] (A) -- (B1) node[midway, below]{$\nabla f \sbullet \hat{v}$};
+    \draw[red, ->] (A) -- (B1) node[midway, below]{$\nabla f \dotp \hat{v}$};
 
     \draw[gray, densely dashed] (C) -- (B1);
 
