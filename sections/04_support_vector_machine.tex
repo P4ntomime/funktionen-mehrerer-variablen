@@ -52,7 +52,7 @@ $\boxed{grad_{\left\{\vec{w}^{tr},b\right\}}\left(L(\vec{w}^{tr},b,\vec{\alpha})
 %\myul{\textbf{Lagrange-Funktion mit den Dualvariablen $\alpha_j$:}}\\
 %$\boxed{L(\vec{w}^{tr},b,\vec{\alpha})=\sum_{j=1}^N\alpha_j-\underbrace{\frac12\sum_{j,j'=1}^N\alpha_j\alpha_j,y_jy_j,\vec{x}_j^{tr}\cdot\vec{x}_j}_{\frac{1}{2}\vec{w}^{tr}\cdot\vec{w}}:=L(\vec{\alpha})\quad , \alpha_j\geq0}$
 \myul{\textbf{Das duale Problem:}}\\
-$\boxed{L(\vec{\alpha})=\sum_{j=1}^N\alpha_j-\frac12\sum_{j,j'=1}^N\alpha_j\alpha_j, y_jy_j, \vec{x}_j^{tr}\cdot\vec{x}_j,\quad\to\quad\max!\quad\mathrm{s.t.}\quad\alpha_j\geq0\wedge\sum_{j=1}^N\alpha_jy_j=0}$\\
+$\boxed{L(\vec{\alpha})=\sum_{j=1}^N\alpha_j-\frac12\sum_{j,j'=1}^N\alpha_j\alpha_{j'} \space y_jy_{j'} \space \vec{x}_j^{tr}\cdot\vec{x}_{j'}\quad\to\quad\max!\quad\mathrm{s.t.}\quad\alpha_j\geq0\wedge\sum_{j=1}^N\alpha_jy_j=0}$\\
 
 \newcolumn
 \myul{\textbf{Formulieren des dualen Optimierungsproblems mit den Lagrange-Variablen $\alpha_j$:}}\\
