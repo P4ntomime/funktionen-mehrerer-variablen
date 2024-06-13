@@ -1,5 +1,54 @@
 \newpage
 \section{Integration (multi-variat)}
-
 % TODO: Koordinatentransformation (Längenverzerrung, Elementverzerrung, Längenelement)
+\subsection{Dreidimensionale Koordinatensysteme}
+\begin{tabular}{l l l}
+    Kartesisch & Zylindrisch & Kubisch \\
 
+    \begin{tikzpicture}
+        \node at (0, 0) {TODO: Bild Kartesisch};
+    \end{tikzpicture} &
+
+    \begin{tikzpicture}
+        \node at (0, 0) {TODO: Bild Zylindrisch};
+    \end{tikzpicture} &
+
+    \begin{tikzpicture}
+        \node at (0, 0) {TODO: Bild Sphärisch};
+    \end{tikzpicture} \\
+\end{tabular}
+
+\subsection{Längenintegrale}
+\subsubsection{Längenelemente}
+$ (\diff l)^2 = (\diff x)^2 + (\diff y)^2 + (\diff z)^2 = \dots $
+\subsubsection{Länge einer Funktion}
+$ \int\limits_{L} f(x,y,z) \diff l = \dots $
+
+\subsection{Flächenintegrale}
+\subsubsection{Flächenelemente}
+$ \diff s = f(\diff x, \diff y, \diff z) = \dots $
+\subsubsection{Flächeninhalt einer Oberfläche}
+$ \int\limits_{S} f(x,y,z) \diff s = \dots $
+
+\subsection{Volumenintegrale}
+\subsubsection{Volumenelemente}
+$ \diff s = f(\diff x, \diff y, \diff z) = \dots $
+\subsubsection{Volumen eines Körpers}
+$ \int\limits_{V} f(x,y,z) \diff v = \dots $
+
+\subsection{Anwendungen Trippel-Integrale}
+\resizebox{\linewidth}{!}{
+    \begin{tabular}{|l|l|l|l|}  
+        \hline
+        \bf{Allgemein} & \bf{Kartesische Koordinaten} & \bf{Zylinderkoordinaten} & \bf{Kugelkoordinaten} \\
+        \hline
+        \multicolumn{4}{|l|}{\bf{Beispiel}} \\
+        \hline
+        $ A = \int\limits_{A} \diff a $ & 
+        $ = \int\limits_{X}\int\limits_{Y}\int\limits_{Z} \diff z \diff y \diff x $ &
+        $ = \dots $ &
+        $ = \dots $ \\
+        \hline
+    \end{tabular}
+}
+\smallskip
