@@ -9,9 +9,9 @@
         \tdplotsetmaincoords{70}{110}
         \begin{tikzpicture}[tdplot_main_coords, scale=2]
             % Koordinatensystem
-            \draw [->] (0, 0, 0) -- (1, 0, 0) node [below left] {$x$};
-            \draw [->] (0, 0, 0) -- (0, 1, 0) node [right]      {$y$};
-            \draw [->] (0, 0, 0) -- (0, 0, 1) node [right]      {$z$};
+            \draw [-{latex}] (0, 0, 0) -- (1, 0, 0) node [below left] {$x$};
+            \draw [-{latex}] (0, 0, 0) -- (0, 1, 0) node [right]      {$y$};
+            \draw [-{latex}] (0, 0, 0) -- (0, 0, 1) node [right]      {$z$};
             % Punkt bei (0.75,0.75,0.75)
             \fill (0.75, 0.75, 0.75) circle (1pt) node [above right] {$P(x, y, z)$};
             % Koordinatenkomponenten
@@ -23,31 +23,31 @@
         \tdplotsetmaincoords{70}{110}
         \begin{tikzpicture}[tdplot_main_coords, scale=2]
             % Koordinatensystem
-            \draw [->] (0, 0, 0) -- (1, 0, 0) node [below left] {$x$};
-            \draw [->] (0, 0, 0) -- (0, 1, 0) node [right]      {$y$};
-            \draw [->] (0, 0, 0) -- (0, 0, 1) node [right]      {$z$};
+            \draw [-{latex}] (0, 0, 0) -- (1, 0, 0) node [below left] {$x$};
+            \draw [-{latex}] (0, 0, 0) -- (0, 1, 0) node [right]      {$y$};
+            \draw [-{latex}] (0, 0, 0) -- (0, 0, 1) node [right]      {$z$};
             % Punkt bei (0.75,0.75,0.75)
             \fill (0.75, 0.75, 0.75) circle (1pt) node [above right] {$P(r, \phi, z)$};
             % Koordinatenkomponenten
             \draw [dashed] (0,0,0)         --  (0.75, 0.75, 0)    node [midway, above right] {$r$};
-            \draw [->]     (0.5,0,0)       arc (0:45:0.5)         node [midway, below]       {$\phi$};
+            \draw [-{latex}]     (0.5,0,0)       arc (0:45:0.5)         node [midway, below]       {$\phi$};
             \draw [dashed] (0.75, 0.75, 0) --  (0.75, 0.75, 0.75) node [midway, right]       {$z$};
         \end{tikzpicture} &
 
         \tdplotsetmaincoords{70}{110}
         \begin{tikzpicture}[tdplot_main_coords, scale=2]
             % Koordinatensystem
-            \draw [->] (0, 0, 0) -- (1, 0, 0) node [below left] {$x$};
-            \draw [->] (0, 0, 0) -- (0, 1, 0) node [right]      {$y$};
-            \draw [->] (0, 0, 0) -- (0, 0, 1) node [right]      {$z$};
+            \draw [-{latex}] (0, 0, 0) -- (1, 0, 0) node [below left] {$x$};
+            \draw [-{latex}] (0, 0, 0) -- (0, 1, 0) node [right]      {$y$};
+            \draw [-{latex}] (0, 0, 0) -- (0, 0, 1) node [right]      {$z$};
             % Punkt bei (0.75,0.75,0.75)
             \fill (0.75, 0.75, 0.75) circle (1pt) node [above right] {$P(r, \theta, \phi)$};
             % Koordinatenkomponenten
             \draw [dotted] (0,0,0) -- (0.75, 0.75, 0) -- (0.75, 0.75, 0.75);
-            \draw [->]     (0.5,0,0) arc (0:45:0.5)         node [midway, below]       {$\phi$};
+            \draw [-{latex}]     (0.5,0,0) arc (0:45:0.5)         node [midway, below]       {$\phi$};
             \draw [dashed] (0, 0, 0) --  (0.75, 0.75, 0.75) node [midway, below right] {$r$};
             \tdplotsetthetaplanecoords {90}
-            \tdplotdrawarc [tdplot_rotated_coords, ->] {(0, 0, 0)} {0.5} {0} {45} {anchor=south} {$\theta$}
+            \tdplotdrawarc [tdplot_rotated_coords, -{latex}] {(0, 0, 0)} {0.5} {0} {45} {anchor=south} {$\theta$}
         \end{tikzpicture} \\
 
         $ 
@@ -110,8 +110,8 @@ Keine weiteren Berücksichtigungen nötig, die Berechnung erfolgt nach der Forme
     \begin{center}
         \begin{tikzpicture}
             % Achsen 
-            \draw [->] (-2, 0) -- (2, 0) node [below] {$x$};
-            \draw [->] (0, -0.8) -- (0, 0.8) node [left] {$y$};
+            \draw [-{latex}] (-2, 0) -- (2, 0) node [below] {$x$};
+            \draw [-{latex}] (0, -0.8) -- (0, 0.8) node [left] {$y$};
             % Formeln
             \node at ( 1,  0.4) {$       \tan^{-1}\frac{y}{x}$};
             \node at ( 1, -0.4) {$2\pi + \tan^{-1}\frac{y}{x}$};
@@ -137,8 +137,8 @@ Keine weiteren Berücksichtigungen nötig, die Berechnung erfolgt nach der Forme
     \begin{center}
         \begin{tikzpicture}
             % Achsen 
-            \draw [->] (-2,  0)   -- (2, 0) node [below] {$xy$-Ebene};
-            \draw [->] ( 0, -0.8) -- (0,.9) node [left]  {$z$};
+            \draw [-{latex}] (-2,  0)   -- (2, 0) node [below] {$xy$-Ebene};
+            \draw [-{latex}] ( 0, -0.8) -- (0,.9) node [left]  {$z$};
             % Formeln
             \node [fill=white] at (0,  0.4) {$\tan^{-1}\frac{r_{zyl}}{z}$};
             \node [fill=white] at (0, -0.4) {$\pi + \tan^{-1}\frac{r_{zyl}}{z}$};
