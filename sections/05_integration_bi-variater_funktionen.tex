@@ -51,8 +51,8 @@ Die beiden Systeme können mit Hilfe der Trigonometrie in einander überführt w
     \begin{center}
         \begin{tikzpicture} [scale = 1.5]
             % Kartesische Achsen
-            \draw[->] (0, 0) -- (1, 0) node [below] {$x$} ;
-            \draw[->] (0, 0) -- (0, 1) node [left]  {$y$} ;
+            \draw[-{latex}] (0, 0) -- (1, 0) node [below] {$x$} ;
+            \draw[-{latex}] (0, 0) -- (0, 1) node [left]  {$y$} ;
 
             % Punkt p
             \fill (0.5, 0.8) circle (1pt) node [anchor=south west] {$\vec{p}$};
@@ -60,7 +60,7 @@ Die beiden Systeme können mit Hilfe der Trigonometrie in einander überführt w
             % Länge r
             \draw (0, 0) -- (0.5, 0.8) node [midway, above left] {$r$};
             % Winkel phi
-            \draw [->] (0.5, 0) arc (0:58:0.5) node [midway, right] {$\varphi$};
+            \draw [-{latex}] (0.5, 0) arc (0:58:0.5) node [midway, right] {$\varphi$};
         \end{tikzpicture}
     \end{center}
 \end{minipage}
@@ -70,8 +70,8 @@ $\varphi$ wird also, je nach dem in welchem Quadranten sich $\vec{p}$ befindet, 
 \begin{center}
     \begin{tikzpicture}
         % Achsen 
-        \draw [->] (-2, 0) -- (2, 0) node [below] {$x$};
-        \draw [->] (0, -0.8) -- (0, 0.8) node [left] {$y$};
+        \draw [-{latex}] (-2, 0) -- (2, 0) node [below] {$x$};
+        \draw [-{latex}] (0, -0.8) -- (0, 0.8) node [left] {$y$};
         % Formeln
         \node at ( 1,  0.4) {$       \tan^{-1}\frac{y}{x}$};
         \node at ( 1, -0.4) {$2\pi + \tan^{-1}\frac{y}{x}$};
