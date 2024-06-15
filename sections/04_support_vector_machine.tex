@@ -72,39 +72,50 @@ Die oben erhaltenen Summen können nun in die Lagrange-Fkt. eingesetzt werden. D
 $\boxed{L(\vec{\alpha})=\sum_{j=1}^N\alpha_j-\underbrace{\frac12\sum_{j,j'=1}^N\alpha_j\alpha_{j'} \space y_jy_{j'} \space \vec{x}_j^{tr}\cdot\vec{x}_{j'}}_{=\frac12 \vec{w}^{tr} \cdot \vec{w}}\quad\to\quad\max!\quad\mathrm{s.t.}\quad\alpha_j\geq0\wedge\sum_{j=1}^N\alpha_jy_j=0}$
 
 \newcolumn
-\myul{\textbf{Formulieren des dualen Optimierungsproblems mit den Lagrange-Variablen $\alpha_j$:}}\\
-Vorgenehsbeispiel für 3 Datenpunkte:
+\myul{\textbf{Vorgehen zum lösen des dualen Optimierungsproblems:}}
+
 \begin{enumerate}
-    \item \myul{\textbf{Lagrange-Funktion $L(\vec{\alpha}) $ aufstellen:}}\\
-    $\boxed{L(\vec{\alpha})=\sum_{j=1}^N\alpha_j-\frac{1}{2}\sum_{j,j'=1}^N\alpha_j\alpha_{j'} \space y_jy_{j'} \space \vec{x}_j^{tr}\cdot\vec{x}_{j'}\quad\to\quad\max!}$\\
+    \item \myul{\textbf{Skizze mit Datenpunkten erstellen:}} \\
+    \begin{minipage}[c]{0.6\columnwidth}
+        \begin{itemize}
+            \item Einzelne Datenpunkte klassenweise farblich hervorheben
+            \item Falls ein Datenpunkt der gleichen Klasse "weit" weg von den anderen ist\\
+            \textrightarrow\ diesen vergessen, da sein $\alpha = 0$ sein wird
+        \end{itemize}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.33\columnwidth}
+        \includegraphics[width=\columnwidth]{images/SVM_2.png}
+    \end{minipage}
+    
+    \item \myul{\textbf{Nebenbedingungen, Es muss gelten:}}
+    \begin{itemize}
+        \item [\textbf{a:}] $\boxed{\alpha_j\geq0}$
+        \item [\textbf{b:}] $\boxed{\sum_{j=1}^N\alpha_jy_j=0}$\\
+        Nach einem $\alpha$ unstellen und anschliessend jenes $\alpha$\\(damit die Nebenbedingung miteinbezogen wird) in der Lagrange-Funktion ersetzen
+    \end{itemize}
+    \item \myul{\textbf{Kernel-Matrix aufstellen:}}
+        \begin{itemize}
+            \item Einträge sind die Ergebnisse der Skalarprodukte
+        \end{itemize}
+    \item \myul{\textbf{Lagrange-Funktion aufstellen:}}\\
+        $\boxed{L(\vec{\alpha})=\sum_{j=1}^N\alpha_j-\frac{1}{2}\sum_{j,j'=1}^N\alpha_j\alpha_{j'} \space y_jy_{j'} \space \vec{x}_j^{tr}\cdot\vec{x}_{j'}\quad\to\quad\max!}$
+        \begin{itemize}
+            \item \textbf{2. b} und \textbf{3} brauchen
+        \end{itemize}
+    \item \myul{\textbf{Alle $\alpha$ finden durch Stationaritätsbedingung}}\\
+            $\boxed{\nabla L = \vec{0}}$\\
+            $\Rightarrow$ ersetztes $\alpha$ mit gefundenen $\alpha$ berechnen 
+    \item \myul{\textbf{$\bm{\vec{w}}$ berechnen:}}\\
+        $\boxed{\vec{w}=\sum_{j=1}^N\alpha_jy_j\vec{x}_j}$
+    \item \myul{\textbf{Konstante $\mathbf{b}$ berechnen:}}\\
+        Datenpunkte mit der Klasse $y = 1$ oder $y = -1$ wählen und einsetzen
+        \begin{itemize}
+            \item \textbf{Variante 1:} Stützvektor-Datenpunkt mit $y = +1$\\
+                $\boxed{\vec{w}^{tr}\cdot\vec{x}_{...} + b = 1} \Leftrightarrow  \boxed{b = 1 -\vec{w}^{tr}\cdot\vec{x}_{...} = ...}$
+            \item \textbf{Variante 2:} Stützvektor-Datenpunkt mit $y = -1$\\
+                $\boxed{\vec{w}^{tr}\cdot\vec{x}_{...} + b = -1} \Leftrightarrow  \boxed{b = -1 -\vec{w}^{tr}\cdot\vec{x}_{...} = ...}$\\
+        \end{itemize}
 \end{enumerate}
-
-\myul{\textbf{Finden der Lagrange-Variablen $\alpha_j$:}}
-\begin{enumerate}
-    \item \myul{\textbf{Stationaritätsbedingungen aufstellen:}}\\
-    \textbf{a: }$\boxed{\alpha_j\geq0} \text{ und } \textbf{b: } \boxed{\sum_{j=1}^N\alpha_jy_j=0} $
-    \item \myul{\textbf{Nebenrechnung:}}\\
-    \textbf{b} umstellen nach einer Variablen (z.B. $\alpha_1$) und in Lagrange-Funktion ersetzen
-    \item \myul{\textbf{Gradient von verkürzter Lagrange-Funktion berechnen und restliche $\alpha$ finden:}}\\
-    $\nabla(L_{neu}(\alpha_2 , \alpha_3)) \quad \Rightarrow \alpha_2 = ..., \text{  } \alpha_3 = ...$
-    \item \myul{\textbf{Fehlendes $\alpha$ berechnen:}}\\
-    $\alpha_2$ und $\alpha_3$ in \textbf{2. b} einsetzen und $\alpha_1$ berechnen
-\end{enumerate}
-
-\myul{\textbf{Lösen des dualen Optimierungsproblems:}}
-\begin{enumerate}
-    \item \myul{\textbf{Normalenvektor $\vec{w}$ finden:}}\\
-    $\boxed{\vec{w}=\sum_{j=1}^N\alpha_jy_j\vec{x}_j}$
-    \item \myul{\textbf{Konstante $b$ finden:}}\\
-    Mit Stützvektor-Datenpunkt aus Klasse $y = +1$:\\
-    $\boxed{b = +1 -\vec{w}^{tr}\cdot\vec{x}_{...} = ...}$\\
-    Mit Stützvektor-Datenpunkt aus Klasse $y = -1$:\\
-    $\boxed{b = -1 -\vec{w}^{tr}\cdot\vec{x}_{...} = ...}$\\
-\end{enumerate}
-
-
-
-
 
 
 
