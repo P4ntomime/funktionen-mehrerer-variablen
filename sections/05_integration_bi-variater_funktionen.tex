@@ -3,14 +3,23 @@
 Als bi-variate Integrale versteht man Integrale, die siech über zwei unabhängige Variablen erstrecken.
 Sie haben die Form
 \[
-    \int\limits_{\Omega} f(\omega)\cdot \diff \omega =\int\limits_{X} \int\limits_{Y} f(x;y) \cdot dy \cdot dx
+    \iint\limits_{\Omega} f(\omega)\cdot \diff \omega =\int\limits_{X} \int\limits_{Y} f(x;y) \cdot dy \cdot dx
 \]
 wobei $ \Omega \subset \mathbb{R}^2 $, $ X \subset \mathbb{R} $ und $ Y \subset \mathbb{R} $ ist.
 
-\subsection{Normalbereich}
+Es gilt dabei das \myul{Fubini-Theorem}:
+\[
+    \int\limits_{X} \left( \int\limits_{Y} f(x;y) \cdot dy \right) \cdot dx = \int\limits_{Y} \left( \int\limits_{X} f(x;y) \cdot dx \right) \cdot dy
+\]
 
-TODO: WTF ist ein Normalbereich?
-Schnitte sind Strecken (Intervalle) für x, y, ...
+\subsection{Normalbereich}
+Ein schlichtes Gebiet, auch Normalbereich, zeichnet sich dadurch aus, dass die Integration darüber besonders einfach ist.
+Dies ist der Fall, wenn die Integralgrenzen nicht von der jeweilig anderen variable abhängig ist.
+
+Der Normalbereich eines bivariaten Integrals in kartesischen Koordinaten ist so ein Rechteck. 
+
+In Polaren koordinaten stellt der Normalbereich einen Kreissektor oder einen Sektor eines Rings dar. 
+%TODO: Guter Ort für ein schönes Tikz-Bild ;)
 
 \subsection{Zweidimensionale Koordinatensysteme}
 Neben den Kartesischen Koordinatensystemen kommen in zweidimensionalen Räumen auch Polare Koordinatensysteme zum Einsatz.
@@ -80,6 +89,7 @@ $\varphi$ wird also, je nach dem in welchem Quadranten sich $\vec{p}$ befindet, 
     \end{tikzpicture}
 \end{center}
 
+\subsubsection{Transformation verschiedener Elemente}\label{section:int_bivar:elementre}
 Um eine ganzes Integral vom einen Koordinatensystem ins andere zu überführen, muss zum einen die Funktion $ f(x, y) $ zu $ f(r, \varphi) $ (oder umgekehrt) umgeschrieben, sowie die differentiale angepasst werden.
 Hier dafür einige gängige Elemente:
 
