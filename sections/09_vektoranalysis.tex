@@ -117,6 +117,24 @@ Beispiel: Wirbelfelder
 
 Gauss: $\div \left\lgroup\rot(\vec{A})\right\rgroup \overset{!}{=} 0$ % TODO: Gehört das hier hin?
 
+\subsection{Rechenregeln mit $\nabla$} %TODO: hier entsteht eine warnung will pdfs nablas in links nicht mögen
+% TODO: verstehe ich nicht, ist möglicherweise alles falsch...
+\myul{Gradient:}
+\[ \nabla(\nabla \cdot \vec{A}) = \nabla \times \nabla \times \vec{A} + \nabla^2 \vec{A}\]
+\[ \nabla(f \cdot g) = (\nabla f) \cdot g + f \cdot (\nabla g) \]
+\[ \nabla(\vec{A} \cdot \vec{B}) = (\vec{A} \cdot \nabla) \vec{B} + (\vec{B} \cdot \nabla) \vec{A} + \vec{A} \times (\nabla \times \vec{B}) + \vec{B} \times (\nabla \times \vec{A}) \]
+\myul{Divergenz:}
+\[ \nabla \cdot (\nabla f) = \nabla^2 f \]
+\[ \nabla \cdot (\nabla \times \vec{A}) = 0 \]
+\[ \nabla \cdot (f \cdot \vec{A}) = (\nabla f) \cdot \vec{A} + f \cdot (\nabla \cdot \vec{A}) \]
+\[ \nabla \cdot (\vec{A} \times \vec{B}) = (\nabla \times \vec{A}) \cdot \vec{B} - \vec{A} \cdot (\nabla \times \vec{B}) \]
+\myul{Curl:}
+\[ \nabla \times (\nabla f) = 0 \]
+\[ \nabla \times (\nabla \times \vec{A}) = \nabla (\nabla \cdot \vec{A}) - \nabla^2 \vec{A} \]
+\[ \nabla \times (\nabla^2 \vec{A}) = \nabla^2 (\nabla \times \vec{A}) \]
+\[ \nabla \times (f \cdot \vec{A}) = (\nabla f) \times \vec{A} + f \cdot \nabla \times \vec{A} \]
+\[ \nabla \times (\vec{A} \times \vec{B}) = (\vec{A} \cdot \nabla) \vec{A} - (\vec{A} \cdot \nabla) \vec{B} + \vec{A} \cdot (\nabla \cdot \vec{B}) - \vec{B} \cdot (\nabla \cdot \vec{A}) \]
+
 
 % TODO: Integralsatz von Stokes % TODO: evtl als subsubsection?
 \subsection{Integralsatz von Stokes}
