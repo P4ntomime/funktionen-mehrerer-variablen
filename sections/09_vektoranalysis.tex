@@ -5,30 +5,75 @@
 
 % TODO: Vektorfelder
 \subsection{Vektorfelder}
+Das Vektorfeld \[\vec{V}:\mathbb{R}^n \rightarrow \mathbb{R}^n\] weist jedem Punkt $P \in \mathbb{R}^n$ einen Vektor $\vec{v} \in \mathbb{R}^n$ zu.
+Die Notation eines Vektorfelds ist gleich deren eines Vektors, wobei Vektorfelder üblicherweise gross geschrieben werden.
+Weiter kann auch $\vec{V}(\vec{x})$ geschrieben werden, wobei $\vec{x}$ der Stützvektor eines beliebigen Punktes ist.
+
+\subsection{Gradient}
+Wir erinnern uns an den Nabla- oder Del-Operator aus Kapitel \ref{section:diff_dgl_gradient_bivar:gradient} als Spaltenvektor der verschiedenen Raumableitungen:
+\[
+    \nabla 
+    = \begin{pmatrix} \frac{\partial}{\partial x_1} & \frac{\partial}{\partial x_2} & \dots & \frac{\partial}{\partial x_n} \end{pmatrix}^T
+\]
+Der Gradient eines Potentialfelds $\phi: \mathbb{R}^n \to \mathbb{R}$ berechnet sich als 
+\[
+    \nabla \cdot \phi(\vec{x}) 
+    = \begin{pmatrix} \frac{\partial}{\partial x_1} & \frac{\partial}{\partial x_2} & \dots & \frac{\partial}{\partial x_n} \end{pmatrix}^T \cdot \phi(\vec{x}) 
+    = \begin{pmatrix} \frac{\partial \phi}{\partial x_1}(\vec{x}) & \frac{\partial \phi}{\partial x_2}(\vec{x}) & \dots & \frac{\partial \phi}{\partial x_n}(\vec{x}) \end{pmatrix}^T 
+    = \vec{F}(\vec{x})
+\]
+und resultiert in einem Vektorfeld.
 \begin{itemize}
-    \item Jedem Punkt $P$ im Raum ist ein Vektor $\vec{V}$ zugeordnet
-    \item Kann als $\vec{V}(\vec{r})$ geschrieben werden, wobei $\vec{r}$ ein Ortsvektor mit fixem Ursprung $\vec{0}$ ist
-    % \item Kann auch als Gradient eines Skalarfeldes $\phi$ geschrieben werden: $\vec{V} = \nabla \phi$. % TODO: bei bedarf einfügen
+    \item Wird als Potential das elektrische Potential verwendet, entspricht $\vec{F}$ dem (negativen, skalierten) elektrischen Feld.
+    \item Wird als Potential eine Höhe verwendet, entspricht $\vec{F}$ der negativen Hangabtriebskraft.
+    \item Der Gradient kann als mehrdimensionale Ableitung verstanden werden.
+    \item Der Gradient steht senkrecht auf allen Kontouren unz zeigt in Richtung hoher wert.
+    \item Die Multiplikation $\nabla \cdot \phi$ wird oft als $\nabla \phi$ abgekürzt.
+    \item Zudem kann der Gradient auch als $\grad \phi$ geschrieben werden.
 \end{itemize}
 
-
 % TODO: Divergenz (Volumenableitung) (Cartesisch; Nabla / del-Operator)
-\subsection{Divergenz (Volumenableitung)}
+\subsection{Divergenz}
+Die Divergenz eines Vektorfelds
+\[
+\begin{aligned}
+    \nabla \dotp \vec{V}(\vec{x})
+    &= \begin{pmatrix} \frac{\partial}{\partial x_1} & \frac{\partial}{\partial x_2} & \dots & \frac{\partial}{\partial x_n} \end{pmatrix}^T \dotp \begin{pmatrix} v_1(\vec{x}) & v_2(\vec{x}) & \dots & v_n(\vec{x}) \end{pmatrix} \\
+    &= \frac{\partial v_1}{\partial x_1}(\vec{x}) + \frac{\partial v_2}{\partial x_2}(\vec{x}) + \dots + \frac{\partial v_n}{\partial x_n}(\vec{x})
+\end{aligned}
+\]
+ist ein Skalarfeld, das beschreibt, wie stark das Vektorfeld an einem gegebenen Punkt ``nach aussen gerichtet'' ist. 
+
+\medskip
 \begin{outline}
-    \1 Beschreibt, wie stark sich ein Vektorfeld in einem Punkt ausbreitet oder zusammenzieht
-    \1 Beispiel: Vektorfeld das die Geschwindigkeit von Wasser in eineem Fluss beschreibt
-        \2 An Punkten mit positiver Divergenz fliesst Wasser hinaus (Quelle)
-        \2 An Punkten mit negativer Divergenz fliesst Wasser hinein (Senke)
+    \1 Wird als Vektorfeld die Fliessgeschwindigkeit einer Flüssigkeit eingesetzt, so entspricht die Divergenz dem Fluss aus einem Punkt heraus.
+        \2 An Punkten mit positiver Divergenz fliesst Flüssigkeit hinaus (Quelle)
+        \2 An Punkten mit negativer Divergenz fliesst Flüssigkeit hinein (Senke)
+    \1 Wird das E-Feld eingesetzt, so entspricht die Divergenz der Ladungsdichte.
+        \2 Pos. Ladungsdichte entspricht pos. Divergenz, bewirkt eine Quelle im E-Feld.
+        \2 Neg. Ladungsdichte entspricht neg. Divergenz, bewirkt eine Senke im E-Feld.
+    \1 Das Skalarprodukt $\nabla \dotp \vec{V}$ wird in der Regel ausgschreiben, um eine einfache Multiplikation handelt, wie das beim Gradienten der Fall ist.
+    \1 Die Notation $ \div \vec{V}$ ist ebenfalls gebräuchlich.
 \end{outline}
 
+\medskip
+Eine alternative und gut visualisierbare Definition der Divergenz, ist in zwei dimensionen
 \[
-    \boxed{\nabla\dotp\vec{V} = \div \vec{V} = \lim_{\Delta V\to 0}\frac{\oint_{\scriptscriptstyle (S)}\vec{V}\dotp\diff\vec{S}}{\Delta V}}
+    \div \vec{V} = \nabla\dotp\vec{V}  = \lim_{A \to 0}\frac{\oint_{C = \partial A} \vec{V}(\vec{x}) \dotp \hat{x} \diff \vec{x}}{A},
 \]
+wobei $A$ eine Fläche und $C$ dessen Kontur darstellt.
 
-
-\subsubsection{Kartesisch}
+Verallgemeinert für die Anwendung in mehr als 2 Dimensionen lautet die Definitin
 \[
-    \boxed{%
+    \nabla\dotp\vec{V} = \div \vec{V} = \lim_{\Omega \to 0}\frac{\oint_{C = \partial \Omega}\vec{V}(\vec{x}) \dotp \hat{x} \diff \vec{x}}{\Omega},
+\]
+wobei $\Omega$ ein Bereich im Raum $\mathbb{R}^n$ und C dessen Kontur ist.
+
+\subsubsection{Verschiedene Koordinatensysteme}
+% TODO: gerade kein bock 
+\myul{\textbf{Kartesisch:}}
+\[
+    \boxed{
         \div \vec{V}
         = \nabla\dotp\vec{V}
         = \underbrace{%
@@ -42,18 +87,126 @@
     }
 \]
 
-
-\subsubsection{Zylinderkoordinaten}
+% TODO: gerade kein bock
+\myul{\textbf{Zylinderkoordinaten:}}
 \[
-    \div \vec{V} = \frac{1}{r} \frac{\partial}{\partial r} (rV_r) + \frac{1}{r} \frac{\partial V_\varphi}{\partial \varphi} + \frac{\partial V_z}{\partial z}
+    \boxed{
+        \div \vec{V} = \frac{1}{r} \frac{\partial}{\partial r} (rV_r) + \frac{1}{r} \frac{\partial V_\varphi}{\partial \varphi} + \frac{\partial V_z}{\partial z}
+    }
 \]
 
 % TODO: doublecheck this!!
-% \subsubsection{Kugelkoordinaten}
+\myul{\textbf{Kugelkoordinaten:}}
 % \[
 %     \frac{1}{r^2}\frac{\partial}{\partial r} (r^2 V_r) + \frac{1}{r\sin\vartheta}\frac{\partial}{\partial \vartheta} (\sin\vartheta V_\vartheta) + \frac{1}{r\sin\vartheta}\frac{\partial V_\varphi}{\partial \varphi}
 % \]
 
+\subsection[Laplace Operator Delta]{Laplace Operator $\Delta$}
+Der Laplaceoperator ist nichts anderes als die Divergenz des Gradienten eines Skalarfelds und vergleichbar mit der zweiten Ableitung.
+Folglich gilt
+\[
+    \Delta \phi = \nabla \dotp (\nabla \phi) = \nabla^2 \phi = \frac{\partial^2 \varphi_1}{\partial x_1^2} + \frac{\partial^2 \varphi_2}{\partial x_2^2} + \dots + \frac{\partial^2 \varphi_n}{\partial x_n^2},
+\]
+wobei das Resultat ein Skalarfeld ist.
+
+\subsection[Rotation eines Vektorfelds (rot, curl)]{Rotation eines Vektorfelds ($\rot$, $\curl$)}
+Die Rotation eines Vektorfelds, auch Curl genannt, beschreibt, wie stark ein Vektorfeld um einen gegebenen Punkt ``rotiert'' und wird als
+
+\begin{minipage}{0.8\linewidth}
+    \[
+        \rot \vec{V}
+        = \nabla \times \vec{V}
+        =   \begin{pmatrix}
+                \frac{\partial}{\partial x}\\
+                \frac{\partial}{\partial y}\\
+                \frac{\partial}{\partial z}
+            \end{pmatrix} \times 
+        \begin{pmatrix}
+            V_x \\ V_y \\ V_z
+        \end{pmatrix} =
+        \begin{pmatrix}
+            \frac{\partial V_z}{\partial y} - \frac{\partial V_y}{\partial z}\\
+            \frac{\partial V_x}{\partial z} - \frac{\partial V_z}{\partial x}\\
+            \frac{\partial V_y}{\partial x} - \frac{\partial V_x}{\partial y}
+        \end{pmatrix}
+    \]
+\end{minipage}
+\hfill
+\begin{minipage}{0.19\linewidth}
+    \begin{center}
+        \tdplotsetmaincoords{70}{110}
+        \begin{tikzpicture}[tdplot_main_coords, scale=1]
+            % Ebene
+            \foreach \x in {-0.75,-0.5,...,0.75}
+            {
+                \draw[gray,very thin] (\x, -0.75, 0) -- (\x, 0.75, 0);
+                \draw[gray,very thin] (-0.75, \x, 0) -- (0.75, \x, 0);
+            }
+            
+            % Curl Vektor
+            \draw [-{latex}] (0, 0, 0) -- (0, 0, 1) node [right] {$\nabla \times \vec{V}$};
+
+            % Rechte Winkel
+            \tdplotsetrotatedcoords{0}{90}{0}
+            \draw[tdplot_rotated_coords, gray, very thin] (0, 0.15, 0) arc (90:180:0.15);
+            \fill[tdplot_rotated_coords, gray] (-0.05, 0.04, 0) arc (-90:270:0.02);
+            \tdplotsetrotatedcoords{-90}{90}{0}
+            \draw[tdplot_rotated_coords, gray, very thin] (0, 0.15, 0) arc (90:180:0.15);
+            \fill[tdplot_rotated_coords, gray] (-0.05, 0.04, 0) arc (-90:270:0.02);
+
+            % Vektorfeld
+            \draw [-{latex}] (0.5,0,0) arc (0:360:0.5) node [pos=0.7, above left, fill=white, rounded corners, inner sep=1pt] {$\vec{V}$};
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}
+berechnet.
+Der resultierende Vektor ist dabei die Rotationsachse, wobei die Rechte-Hand-Regel gilt.
+
+Der Curl ist grundsätzlich nur in drei Raumdimensionen definiert.
+Wenn die Rotation eines auf der Ebene $z=0$ definierten Vektorfelds berechnet werden soll, kann die obige Formel mit $V_z = 0$ angepasst werden:
+\[
+    \rot \vec{V}(x, y)
+    = \nabla \times \vec{V}(x, y)
+    =   \begin{pmatrix}
+            \frac{\partial}{\partial x}\\
+            \frac{\partial}{\partial y}\\
+            \frac{\partial}{\partial z}
+        \end{pmatrix} \times 
+    \begin{pmatrix}
+        V_x \\ V_y \\ 0
+    \end{pmatrix} =
+    \begin{pmatrix}
+        0 \\
+        0 \\
+        \frac{\partial V_y}{\partial x} - \frac{\partial V_x}{\partial y}
+    \end{pmatrix}
+\]
+
+\begin{outline}
+    \1 Mit dem Curl-Operator kann z.B. elegant beschrieben werden, dass Wirbel im E-Feld auf zeitliche Änderungen im magnetischen Feld zurückzuführen sind:
+        \2[] $\nabla \times \vec{E} = -\frac{\partial \vec{H}}{\partial t}$
+\end{outline}
+
+\subsection[Rechenregeln mit Nabla]{Rechenregeln mit $\nabla$}
+TODO: KA, ob das alles stimmt, sieht auf den ersten blick jedoch plausiebel aus.
+
+\myul{Gradient:}
+\[ \nabla(\nabla \cdot \vec{A}) = \nabla \times \nabla \times \vec{A} + \nabla^2 \vec{A}\]
+\[ \nabla(f \cdot g) = (\nabla f) \cdot g + f \cdot (\nabla g) \]
+\[ \nabla(\vec{A} \cdot \vec{B}) = (\vec{A} \cdot \nabla) \vec{B} + (\vec{B} \cdot \nabla) \vec{A} + \vec{A} \times (\nabla \times \vec{B}) + \vec{B} \times (\nabla \times \vec{A}) \]
+\myul{Divergenz:}
+\[ \nabla \cdot (\nabla f) = \nabla^2 f \]
+\[ \nabla \cdot (\nabla \times \vec{A}) = 0 \]
+\[ \nabla \cdot (f \cdot \vec{A}) = (\nabla f) \cdot \vec{A} + f \cdot (\nabla \cdot \vec{A}) \]
+\[ \nabla \cdot (\vec{A} \times \vec{B}) = (\nabla \times \vec{A}) \cdot \vec{B} - \vec{A} \cdot (\nabla \times \vec{B}) \]
+\myul{Curl:}
+\[ \nabla \times (\nabla f) = 0 \]
+\[ \nabla \times (\nabla \times \vec{A}) = \nabla (\nabla \cdot \vec{A}) - \nabla^2 \vec{A} \]
+\[ \nabla \times (\nabla^2 \vec{A}) = \nabla^2 (\nabla \times \vec{A}) \]
+\[ \nabla \times (f \cdot \vec{A}) = (\nabla f) \times \vec{A} + f \cdot \nabla \times \vec{A} \]
+\[ \nabla \times (\vec{A} \times \vec{B}) = (\vec{A} \cdot \nabla) \vec{A} - (\vec{A} \cdot \nabla) \vec{B} + \vec{A} \cdot (\nabla \cdot \vec{B}) - \vec{B} \cdot (\nabla \cdot \vec{A}) \]
+
+\subsection{Anwendungen}
 
 % TODO: Integralsatz von Gauss
 \subsection{Integralsatz von Gauss}
@@ -85,55 +238,6 @@ $\boxed{\Delta \phi = f = 0}$ \textrightarrow\ Spezialfall der Poisson-Gleichung
 
 
 % DONE: Rotation eines Vektorfelds / Rotationsfeld (rot(); curl)
-\subsection[Rotation eines Vektorfelds (rot(), curl())]{Rotation eines Vektorfelds ($\rot()$, $\curl()$)}
-Beschreibt, wie stark und in welche Richtung sich ein Vektorfeld an einem Punkt rotiert. Wobei der Vektor selbst die Rotationsachse beschreibt 
-und dessen Betrag proportional zur Rotationsgeschwindigkeit ist.
-Beispiel: Wirbelfelder
-\[
-    \boxed{%
-        \rot \vec{A}
-        = \nabla \times \vec{A}
-        =   \begin{pmatrix}
-                \frac{\partial}{\partial x}\\
-                \frac{\partial}{\partial y}\\
-                \frac{\partial}{\partial z}
-            \end{pmatrix} \times 
-        \begin{pmatrix}
-            A_x \\ A_y \\ A_z
-        \end{pmatrix} =
-        \begin{pmatrix}
-            \frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z}\\
-            \frac{\partial A_x}{\partial z} - \frac{\partial A_z}{\partial x}\\
-            \frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}
-        \end{pmatrix}
-    }
-\]
-
-\begin{outline}
-    \1 $\big|\rot \vec{A}\,\big| < 0$: Uhrzeigersinn
-    \1 $\big|\rot \vec{A}\,\big| = 0$: Wirbelfrei
-    \1 $\big|\rot \vec{A}\,\big| > 0$: Gegenuhrzeigersinn
-\end{outline}
-
-Gauss: $\div \left\lgroup\rot(\vec{A})\right\rgroup \overset{!}{=} 0$ % TODO: Gehört das hier hin?
-
-\subsection{Rechenregeln mit $\nabla$} %TODO: hier entsteht eine warnung will pdfs nablas in links nicht mögen
-% TODO: verstehe ich nicht, ist möglicherweise alles falsch...
-\myul{Gradient:}
-\[ \nabla(\nabla \cdot \vec{A}) = \nabla \times \nabla \times \vec{A} + \nabla^2 \vec{A}\]
-\[ \nabla(f \cdot g) = (\nabla f) \cdot g + f \cdot (\nabla g) \]
-\[ \nabla(\vec{A} \cdot \vec{B}) = (\vec{A} \cdot \nabla) \vec{B} + (\vec{B} \cdot \nabla) \vec{A} + \vec{A} \times (\nabla \times \vec{B}) + \vec{B} \times (\nabla \times \vec{A}) \]
-\myul{Divergenz:}
-\[ \nabla \cdot (\nabla f) = \nabla^2 f \]
-\[ \nabla \cdot (\nabla \times \vec{A}) = 0 \]
-\[ \nabla \cdot (f \cdot \vec{A}) = (\nabla f) \cdot \vec{A} + f \cdot (\nabla \cdot \vec{A}) \]
-\[ \nabla \cdot (\vec{A} \times \vec{B}) = (\nabla \times \vec{A}) \cdot \vec{B} - \vec{A} \cdot (\nabla \times \vec{B}) \]
-\myul{Curl:}
-\[ \nabla \times (\nabla f) = 0 \]
-\[ \nabla \times (\nabla \times \vec{A}) = \nabla (\nabla \cdot \vec{A}) - \nabla^2 \vec{A} \]
-\[ \nabla \times (\nabla^2 \vec{A}) = \nabla^2 (\nabla \times \vec{A}) \]
-\[ \nabla \times (f \cdot \vec{A}) = (\nabla f) \times \vec{A} + f \cdot \nabla \times \vec{A} \]
-\[ \nabla \times (\vec{A} \times \vec{B}) = (\vec{A} \cdot \nabla) \vec{A} - (\vec{A} \cdot \nabla) \vec{B} + \vec{A} \cdot (\nabla \cdot \vec{B}) - \vec{B} \cdot (\nabla \cdot \vec{A}) \]
 
 
 % TODO: Integralsatz von Stokes % TODO: evtl als subsubsection?
