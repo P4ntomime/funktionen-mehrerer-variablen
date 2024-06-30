@@ -28,11 +28,31 @@ und resultiert in einem Vektorfeld.
     \item Wird als Potential eine Höhe verwendet, entspricht $\vec{F}$ der negativen Hangabtriebskraft.
     \item Der Gradient kann als mehrdimensionale Ableitung verstanden werden.
     \item Der Gradient steht senkrecht auf allen Kontouren unz zeigt in Richtung hoher wert.
-    \item Die Multiplikation $\nabla \cdot \phi$ wird oft als $\nabla \phi$ abgekürzt.
+    \item Die Multiplikation $\nabla \cdot \phi$ wird normalerweise als $\nabla \phi$ abgekürzt.
     \item Zudem kann der Gradient auch als $\grad \phi$ geschrieben werden.
 \end{itemize}
 
-% TODO: Divergenz (Volumenableitung) (Cartesisch; Nabla / del-Operator)
+\subsection{Vektorgradient}
+Der Gradient eines Vektorfeldes $\vec{V}: \mathbb{R}^n \to \mathbb{R}^m$ lässt sich durch folgende Definition
+\[ \frac{\partial \vec{V}}{\partial \vec{a}} = \vec{a} \dotp \grad \vec{V}, \]
+wobei $\vec{a}$ ein beliebiger Vektor und $\frac{\partial \vec{V}}{\partial \vec{a}}$ die Richtungsableitung des Vektorfelds $\vec{V}$ nach $\vec{a}$ ist, als
+\[ 
+    \grad \vec{V} 
+    = \nabla \vec{V}
+    = \begin{pmatrix}
+        \frac{\partial V_1}{\partial x_1} & \hdots & \frac{\partial V_1}{\partial x_n} \\
+        \vdots & \ddots & \vdots \\
+        \frac{\partial V_m}{\partial x_1} & \hdots & \frac{\partial V_m}{\partial x_n} \\
+    \end{pmatrix} 
+    = \mathbf{J}
+    \hspace{1em} \left(= \nabla \dotp \vec{V}^T\right)
+\]
+berechnet werden.
+\begin{itemize}
+    \item $\nabla \vec{V}$ entspricht der Jacobi-Matrix aus Kapitel *TODO: Ref einfügen*.
+    \item Der Vektorgradient wird als $\nabla \vec{V}$ geschrieben, da sonst Verwechslungsgefahr mit der Divergenz $\nabla \dotp \vec{V}$ besteht.
+\end{itemize}
+
 \subsection{Divergenz}
 Die Divergenz eines Vektorfelds
 \[
@@ -52,7 +72,7 @@ ist ein Skalarfeld, das beschreibt, wie stark das Vektorfeld an einem gegebenen 
     \1 Wird das E-Feld eingesetzt, so entspricht die Divergenz der Ladungsdichte.
         \2 Pos. Ladungsdichte entspricht pos. Divergenz, bewirkt eine Quelle im E-Feld.
         \2 Neg. Ladungsdichte entspricht neg. Divergenz, bewirkt eine Senke im E-Feld.
-    \1 Das Skalarprodukt $\nabla \dotp \vec{V}$ wird in der Regel ausgschreiben, um eine einfache Multiplikation handelt, wie das beim Gradienten der Fall ist.
+    \1 Das Skalarprodukt sollte zwingend $\nabla \dotp \vec{V}$ ausgschreiben werden, da sonst Verwechslungsgefahr mit dem Vektorgradienten besteht.
     \1 Die Notation $ \div \vec{V}$ ist ebenfalls gebräuchlich.
 \end{outline}
 
@@ -188,23 +208,77 @@ Wenn die Rotation eines auf der Ebene $z=0$ definierten Vektorfelds berechnet we
 \end{outline}
 
 \subsection[Rechenregeln mit Nabla]{Rechenregeln mit $\nabla$}
-TODO: KA, ob das alles stimmt, sieht auf den ersten blick jedoch plausiebel aus.
+Für das dalegen der Rechenregeln werden die folgenden Platzhalter verwendet:
+\begin{center}\begin{tabular}[]{r l}
+    $A, B$: & Skalarfelder ($\mathbb{R}^n \to \mathbb{R}$) \\
+    $\vec{A}, \vec{B}$: & Vektorfelder ($\mathbb{R}^n \to \mathbb{R}^n$) \\
+    $F$: & Skalare Funktion ($\mathbb{R}^n \to \mathbb{R}$) \\
+    $c$: & Konstante \\
+\end{tabular}\end{center}
 
-\myul{Gradient:}
-\[ \nabla(\nabla \cdot \vec{A}) = \nabla \times \nabla \times \vec{A} + \nabla^2 \vec{A}\]
-\[ \nabla(f \cdot g) = (\nabla f) \cdot g + f \cdot (\nabla g) \]
-\[ \nabla(\vec{A} \cdot \vec{B}) = (\vec{A} \cdot \nabla) \vec{B} + (\vec{B} \cdot \nabla) \vec{A} + \vec{A} \times (\nabla \times \vec{B}) + \vec{B} \times (\nabla \times \vec{A}) \]
-\myul{Divergenz:}
-\[ \nabla \cdot (\nabla f) = \nabla^2 f \]
-\[ \nabla \cdot (\nabla \times \vec{A}) = 0 \]
-\[ \nabla \cdot (f \cdot \vec{A}) = (\nabla f) \cdot \vec{A} + f \cdot (\nabla \cdot \vec{A}) \]
-\[ \nabla \cdot (\vec{A} \times \vec{B}) = (\nabla \times \vec{A}) \cdot \vec{B} - \vec{A} \cdot (\nabla \times \vec{B}) \]
+\myul{Gradienten:}
+\begin{center}
+    \begin{tabular}[]{r c l}
+        $ \grad(A+B) = \grad(A) + \grad (B) $ & $\leftrightarrow$ & $ \nabla (A + B) = \nabla A + \nabla B $ \\
+        $ \grad(A \cdot B) = A \grad(B) + B \grad (A) $ & $\leftrightarrow$ & $ \nabla (A \cdot B) = A \cdot \nabla B + B \cdot \nabla A $ \\
+        $ \grad(c \cdot A) = c \grad(A) $ & $\leftrightarrow$ & $ \nabla (c \cdot A) = c \cdot \nabla A $ \\
+        $ \grad(F(A)) = F'(A) \cdot \grad A $ & $\leftrightarrow$ & $ \nabla F(A) = F'(A) \cdot \nabla A $ \\
+    \end{tabular}
+\end{center}
+
+\myul{Divergenzen:}
+\begin{center}
+    \begin{tabular}[]{r c l}
+        $ \div(\vec{A}+\vec{B}) = \div (\vec{A}) + \div (\vec{B}) $ & $\leftrightarrow$ & $ \nabla \dotp (\vec{A} + \vec{B}) = (\nabla \dotp \vec{A}) + (\nabla \dotp \vec{B}) $ \\
+        $ \div(A \cdot \vec{B}) = A \div (\vec{B}) + \vec{B} \grad (A) $ & $\leftrightarrow$ & $ \nabla \dotp (A \cdot \vec{B}) = A \cdot (\nabla \dotp \vec{B}) + \vec{B} \dotp \nabla A $ \\
+        $ \div(\vec{A} \times \vec{B}) = \vec{B} \dotp \rot (\vec{A}) - \vec{A} \dotp \rot(\vec{B}) $ & $\leftrightarrow$ & $ \nabla \dotp (\vec{A} \times \vec{B}) = \vec{B} \dotp (\nabla \times \vec{A}) - \vec{A} \dotp (\nabla \times \vec{B}) $ \\
+        $ \div(c \cdot \vec{A}) = c \div(\vec{A}) $ & $\leftrightarrow$ & $ \nabla \dotp (c \cdot \vec{A}) = c \cdot (\nabla \dotp \vec{A}) $ \\
+    \end{tabular}
+\end{center}
+
 \myul{Curl:}
-\[ \nabla \times (\nabla f) = 0 \]
-\[ \nabla \times (\nabla \times \vec{A}) = \nabla (\nabla \cdot \vec{A}) - \nabla^2 \vec{A} \]
-\[ \nabla \times (\nabla^2 \vec{A}) = \nabla^2 (\nabla \times \vec{A}) \]
-\[ \nabla \times (f \cdot \vec{A}) = (\nabla f) \times \vec{A} + f \cdot \nabla \times \vec{A} \]
-\[ \nabla \times (\vec{A} \times \vec{B}) = (\vec{A} \cdot \nabla) \vec{A} - (\vec{A} \cdot \nabla) \vec{B} + \vec{A} \cdot (\nabla \cdot \vec{B}) - \vec{B} \cdot (\nabla \cdot \vec{A}) \]
+\begin{center}
+    \begin{tabular}[]{r c l}
+        $ \rot(\vec{A}+\vec{B}) = \rot (\vec{A}) + \rot (\vec{B}) $ & $\leftrightarrow$ & $ \nabla \times (\vec{A} + \vec{B}) = (\nabla \times \vec{A}) + (\nabla \times \vec{B}) $ \\
+        $ \rot(A \cdot \vec{B}) = A \rot (\vec{B}) + (\grad (A) \times \vec{B}) $ & $\leftrightarrow$ & $ \nabla \times (A \cdot \vec{B}) = A \cdot (\nabla \times \vec{B}) + (\nabla A \times \vec{B}) $ \\
+        $ \rot(c\vec{A}) = c \rot(\vec{A}) $ & $\leftrightarrow$ & $ \nabla \times (c \vec{A}) = c \cdot (\nabla \times \vec{A}) $ \\
+        % TODO: This ist not verry pretty but works to get the point accross...
+        \multicolumn{3}{l}{ $ \rot(\vec{A} \times \vec{B}) = (\vec{B} \dotp \nabla) \vec{A} - (\vec{A} \dotp \nabla) \vec{B} + \vec{A} \div \vec{B} - \vec{B} \div \vec{A}$ } \\
+        \multicolumn{3}{c}{ \rotatebox{135}{$\leftrightarrow$} } \\
+        \multicolumn{3}{r}{ $ \nabla \times (\vec{A} \times \vec{B}) = (\vec{B} \dotp \nabla) \vec{A} - (\vec{A} \dotp \nabla) \vec{B} + \vec{A} (\nabla \dotp \vec{B}) - \vec{B} (\nabla \dotp \vec{A}) $ } \\
+    \end{tabular}
+\end{center}
+
+\myul{Laplaceoperator:}
+\begin{center}
+    \begin{tabular}[]{r c l}
+        $ \div \grad A = \Delta A $ & $\leftrightarrow$ & $ \nabla \dotp (\nabla A) = \Delta A $ \\
+        $ \rot (\Delta \vec{A}) = \Delta \rot \vec{A} $ & $\leftrightarrow$ & $ \nabla \times (\Delta \vec{A}) = \Delta (\nabla \times \vec{A}) $ \\
+    \end{tabular}
+\end{center}
+
+\myul{Kombinationen:}
+\begin{center}
+    \begin{tabular}[]{r c l}
+        $ \div \rot \vec{A} = 0 $ & $\leftrightarrow$ & $ \nabla \dotp (\nabla \times \vec{A}) = 0 $ \\
+        $ \div \grad A = \Delta A $ & $\leftrightarrow$ & $\nabla \dotp \nabla A = \Delta A $ \\
+        $ \rot \grad \vec{A} = \vec{0} $ & $\leftrightarrow$ & $ \nabla \times (\nabla A) = \vec{0} $ \\
+        $ \rot \rot \vec{A} = \grad \div \vec{A} - \Delta \vec{A} $ & $\leftrightarrow$ & $\nabla \times (\nabla \times \vec{A}) = \nabla (\nabla \dotp \vec{A}) - \Delta \vec{A} $ \\
+    \end{tabular}
+\end{center}
+
+% TODO: No clue how this is supposed to work... Quelle: Bronstein S. 730 Kapitel 13.2.6.2 Punkt B
+% Multiplikation: Anwenden des Operators auf die einzelnen Grössen (markiert mit $\downarrow$) und summieren der Resultate:
+% \[ 
+%     \nabla \dotp (\vec{A}B) 
+%     = \nabla \dotp (\overset{\downarrow}{\vec{A}}B) + \nabla \dotp (\vec{A}\overset{\downarrow}{B}) 
+%     = (\nabla \dotp \vec{A}) B + \vec{A} \dotp (\nabla B)
+%     = B \div A + \vec{A} \dotp \grad B
+% \]
+
+\myul{Gradient:} (TODO: Check if this is right)
+\[ \nabla(\vec{A} \cdot \vec{B}) = (\vec{A} \cdot \nabla) \vec{B} + (\vec{B} \cdot \nabla) \vec{A} + \vec{A} \times (\nabla \times \vec{B}) + \vec{B} \times (\nabla \times \vec{A}) \]
+
 
 \subsection{Anwendungen}
 
