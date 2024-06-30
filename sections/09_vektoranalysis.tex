@@ -33,9 +33,10 @@ und resultiert in einem Vektorfeld.
 \end{itemize}
 
 \subsection{Vektorgradient}
-Der Gradient eines Vektorfeldes $\vec{V}: \mathbb{R}^n \to \mathbb{R}^m$ lässt sich durch folgende Definition
+Die Definition des Gradienten eines Vektorfeldes $\vec{V}: \mathbb{R}^n \to \mathbb{R}^m$ lautet
 \[ \frac{\partial \vec{V}}{\partial \vec{a}} = \vec{a} \dotp \grad \vec{V}, \]
-wobei $\vec{a}$ ein beliebiger Vektor und $\frac{\partial \vec{V}}{\partial \vec{a}}$ die Richtungsableitung des Vektorfelds $\vec{V}$ nach $\vec{a}$ ist, als
+wobei $\vec{a}$ ein beliebiger Vektor und $\frac{\partial \vec{V}}{\partial \vec{a}}$ die Richtungsableitung von $\vec{V}$ nach $\vec{a}$ ist.
+Daraus kann man schliessen, dass der Vektorgradient als
 \[ 
     \grad \vec{V} 
     = \nabla \vec{V}
@@ -45,12 +46,14 @@ wobei $\vec{a}$ ein beliebiger Vektor und $\frac{\partial \vec{V}}{\partial \vec
         \frac{\partial V_m}{\partial x_1} & \hdots & \frac{\partial V_m}{\partial x_n} \\
     \end{pmatrix} 
     = \mathbf{J}
-    \hspace{1em} \left(= \nabla \dotp \vec{V}^T\right)
+    \hspace{1em} \left(= \nabla^T \dotp \vec{V}\right)
 \]
-berechnet werden.
+berechnet werden kann.
 \begin{itemize}
-    \item $\nabla \vec{V}$ entspricht der Jacobi-Matrix aus Kapitel *TODO: Ref einfügen*.
-    \item Der Vektorgradient wird als $\nabla \vec{V}$ geschrieben, da sonst Verwechslungsgefahr mit der Divergenz $\nabla \dotp \vec{V}$ besteht.
+    \item $\nabla \vec{V}$ entspricht der Jacobi-Matrix $\mathbf{J}$. 
+          Mit dieser kann die Hesse-Matrix einer skalaren Funktion $F$ (siehe Kap. \ref{section:extrema_bivar}) bestimmt werden: \[ \mathbf{H}(F) = \mathbf{J}^T(\nabla F) = (\grad \grad F)^T \]
+    \item Der Vektorgradient wird als $\nabla \vec{V}$ geschrieben, da die Notation $\nabla^T \dotp \vec{V}$, die den tatsächlichen Rechenweg beschreibt, etwas umständlich ist.
+    \item Die Notation $\nabla \dotp \vec{V}$ ist nicht nur falsch, sondern zudem bereits durch die Divergenz besetzt.
 \end{itemize}
 
 \subsection{Divergenz}
