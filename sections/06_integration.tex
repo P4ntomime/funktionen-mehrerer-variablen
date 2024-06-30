@@ -1,6 +1,27 @@
 \section{Integration}
+\subsection{Allgemeines}
+Unter bi- oder multivariater Integration versteht man Integrale, welche sich über zwei oder mehr unabhängige Variablen erstrecken.
+Sie haben die Form:
+\[
+    \int\limits_{\Omega} f(\omega) \diff \omega = \iint \cdots \int f(x_1, x_2, \ldots, x_n) \diff x_1 \diff x_2 \cdots \diff x_n
+    \quad |\; \Omega \in \rreal^n
+\]
 
-% TODO: Längenintegrale (2D, 3D)
+\subsection{Normalbereiche}
+Unter einem Normalbereich versteht man einen Bereich, welcher in allen Dimensionen so begrenzt ist, 
+dass eine Funktion $f(x_1, x_2, \ldots, x_n)$ für jeden Eingangsvektor jeweils nur einen Funktionswert zurückgibt.
+
+
+\example{Normalbereich in 2D}
+% DONE: insert Normalbereich Image
+\begin{center}
+    \includegraphics[width=0.8\columnwidth]{images/Normalbereiche_2D.pdf}
+\end{center}
+% TODO: add caption
+
+
+% DONE: Längenintegrale (3D)
+% TODO: Längenintegrale (2D)
 \subsection{Längenintegrale}
 \subsubsection{Längenelemente}\label{section:int_multivar:längenelemente}
 $$
@@ -33,7 +54,7 @@ Dazu werden die oben genannten Schritte abgearbeitet:
 \end{enumerate}
 
 
-% TODO: Flächenintegrale (2D, 3D)
+% DONE: Flächenintegrale (2D, 3D)
 \subsection{Flächenintegrale}
 \subsubsection{Flächenelemente}
 % TODO: stimmt das?
@@ -80,41 +101,41 @@ $$
         \hline
 
         \multicolumn{3}{|l|}{\bf{Flächeninhalt einer ebenen Figur $F$}} \\\hline
-        $ A = \iint\limits_{F} \diff a $ & 
+        $ A = \iint\limits_{F} \diff F $ & 
         $ = \int\limits_{X}\int\limits_{Y} \diff y \diff x $ &
         $ = \int\limits_{\Phi}\int\limits_{R} r \diff r \diff \varphi $ \\\hline
 
         \multicolumn{3}{|l|}{\bf{Oberfläche einer Ebene in drei Dimensionen}} \\\hline
         % TODO: Evtl. umschreiben, dass man es besser versteht...
-        $ S = \iint\limits_{A} \frac{1}{\cos \gamma} \diff a $ & 
+        $ S = \iint\limits_{A} \frac{1}{\cos \gamma} \diff A $ & 
         $ = \int\limits_{X}\int\limits_{Y} \sqrt{1 + \left(\frac{\partial z}{\partial x}\right)^2 + \left(\frac{\partial z}{\partial y}\right)^2} \diff y \diff x $ &
         $ = \int\limits_{\Phi}\int\limits_{R} \sqrt{r^2 + r^2\left(\frac{\partial z}{\partial r}\right)^2 + \left(\frac{\partial z}{\partial \varphi}\right)^2} \diff r \diff \varphi $ \\\hline
         
         \multicolumn{3}{|l|}{\bf{Volumen eines Zylinders}} \\\hline
-        $ V = \iint\limits_{A} z \diff a $ & 
+        $ V = \iint\limits_{A} z \diff A $ & 
         $ = \int\limits_{X}\int\limits_{Y} z \diff y \diff x $ &
         $ = \int\limits_{\Phi}\int\limits_{R} z r \diff r \diff \varphi $ \\\hline
 
         \multicolumn{3}{|l|}{\bf{Trägheitsmoment einer ebenen Figur $F$, bezogen auf die x-Achse}} \\\hline
-        $ I_x = \iint\limits_{F} y^2 \diff a $ & 
+        $ I_x = \iint\limits_{F} y^2 \diff F $ & 
         $ = \int\limits_{X}\int\limits_{Y} (y^2) \diff y \diff x $ &
         $ = \int\limits_{\Phi}\int\limits_{R} (r^2 \sin^2\varphi) r \diff r \diff \varphi $ \\\hline
 
         \multicolumn{3}{|l|}{\bf{Trägheitsmoment einer ebenen Figur $F$, bezogen auf den Pol $(0, 0)$}} \\\hline
-        $ I_x = \iint\limits_{F} r^2 \diff a $ & 
+        $ I_x = \iint\limits_{F} r^2 \diff F $ & 
         $ = \int\limits_{X}\int\limits_{Y} (x^2 + y^2) \diff y \diff x $ &
         $ = \int\limits_{\Phi}\int\limits_{R} (r^2) r \diff r \diff \varphi $ \\\hline
 
         \multicolumn{3}{|l|}{\bf{Masse einer ebenen Figur $F$ mit Dichtefunktion $\varrho$}} \\\hline
-        $ m = \iint\limits_{F} \varrho \diff a $ & 
+        $ m = \iint\limits_{F} \varrho \diff F $ & 
         $ = \int\limits_{X}\int\limits_{Y} \varrho (x, y) \diff y \diff x $ &
         $ = \int\limits_{\Phi}\int\limits_{R} \varrho (r, \varphi) r \diff r \diff \varphi $ \\\hline
 
         \multicolumn{3}{|l|}{\bf{Koordinaten des Schwerpunkts $S$ einer homogenen, ebenen Figur $F$}} \\\hline
-        $ x_{S} = \frac{\iint\limits_{F} x \diff a}{A} $ & 
+        $ x_{S} = \frac{\iint\limits_{F} x \diff F}{A} $ & 
         $ = \frac{\int\limits_{X}\int\limits_{Y} x \diff y \diff x}{\int\limits_{X}\int\limits_{Y} \diff y \diff x} $ &
         $ = \frac{\int\limits_{\Phi}\int\limits_{R} r^2 \cos \varphi \diff r \diff \varphi}{\int\limits_{\Phi}\int\limits_{R} r \diff r \diff \varphi} $ \\
-        $ y_{S} = \frac{\iint\limits_{F} y \diff a}{A} $ & 
+        $ y_{S} = \frac{\iint\limits_{F} y \diff F}{A} $ & 
         $ = \frac{\int\limits_{X}\int\limits_{Y} y \diff y \diff x}{\int\limits_{X}\int\limits_{Y} \diff y \diff x} $ &
         $ = \frac{\int\limits_{\Phi}\int\limits_{R} r^2 \sin \varphi \diff r \diff \varphi}{\int\limits_{\Phi}\int\limits_{R} r \diff r \diff \varphi} $ \\\hline
     \end{tabular}
