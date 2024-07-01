@@ -20,6 +20,14 @@ dass eine Funktion $f(x_1, x_2, \ldots, x_n)$ für jeden Eingangsvektor jeweils 
 % TODO: add caption
 
 
+\subsection{Satz von Fubini (Satz von Tonelli)}
+Der Satz von Fubini besagt, dass die Reihenfolge der Integrationen vertauscht werden kann, sofern die Funktion integrierbar ist.
+
+\[
+    \iint\limits_{y_1 x_1}^{\; y_2 x_2} f(x,y)\diff x \diff y = \iint\limits_{x_1 y_1}^{\; x_2 y_2} f(x,y)\diff y \diff x%\iint f(x, y) \diff x \diff y = \int \left\lgroup \int f(x, y) \diff x \right\rgroup \diff y = \int \left\lgroup \int f(x, y) \diff y \right\rgroup \diff x
+\]
+
+
 % DONE: Längenintegrale (3D)
 % TODO: Längenintegrale (2D)
 \subsection{Längenintegrale}
@@ -55,7 +63,7 @@ Dazu werden die oben genannten Schritte abgearbeitet:
 
 
 % DONE: Flächenintegrale (2D, 3D)
-\subsection{Flächenintegrale}
+\subsection{(Ober-)Flächenintegrale}
 \subsubsection{Flächenelemente}
 % TODO: stimmt das?
 Das Bestimmen der Flächenelemente ist in drei Dimensionen nicht wie bei den Längen- und Volumenelementen pauschal möglich.
@@ -77,6 +85,41 @@ Wäre die Funktion $f$ stat in kartesischen in polaren oder sphärischen Koordin
 Folglich ist das zu einer in sphärischen Koordinaten definierten Fkt. $f(\theta, \phi)$ gehörende Integral
 $$ S = \int_{\phi_1}^{\phi_2} \int_{\theta_1}^{\theta_2} \sqrt{(f_{\theta})^2 + (f_{\phi})^2 + 1} \diff \theta \diff \phi $$
 sehr leicht aufzustellen.
+
+
+\subsubsection{Allgemeine Wendelfläche}
+Die allgemeine Wendelfläche rotiert und verschiebt eine parametrisierte 3D Kurve $\vec{r}(t) = (x(t), y(t), z(t))\tr$ im Raum.
+
+Parametrisierung bei vertikaler Rotationsachse und vertikaler Verschiebungsrichtung ($z$-Achse):
+\[
+    \vec{S}(t, \varphi) = \begin{pmatrix}
+        \begin{pmatrix}
+            \cos(\varphi) & -\sin(\varphi)\\
+            \sin(\varphi) & \cos(\varphi)
+        \end{pmatrix}
+        \cdot \begin{pmatrix}
+            x(t)\\
+            y(t)
+        \end{pmatrix}\\
+        z(t) + c \cdot \varphi
+    \end{pmatrix}
+    \quad (t_1 \leq t \leq t_2, \land \varphi \in \rreal\;, c \equiv const.)
+\]
+
+Bei $c = 1$ \textrightarrow\ Voller Meter bei einer Kurve % TODO: Check this
+
+
+\subsubsection{1. metrischer Tensor} % TODO: elaborate...
+Beim 1. metrischen Tensor (oder auch \textbf{1. Fundamentalmatrix}) handelt es sich um eine Parameter abhängige Matrix, welche aus den Skalarprodukten
+der partiellen Ableitungsvektoren nach den Parametern besteht.
+\[
+    g_{ij} = \frac{\partial \vec{S}}{\partial u_i} \dotp \frac{\partial \vec{S}}{\partial u_j}
+\]
+% \subsubsection{Freie Fläche} % DONE: check if this is needed... --> it isn't :)
+% \[
+%     \underset{\rm 2D}{(u_1; u_2)} \longrightarrow \underset{\rm 3D}{(x(u_1; u_2); y(u_1; u_2); z(u_1; u_2))}
+% \]
+
 
 
 % TODO: Volumenintegrale (3D)
