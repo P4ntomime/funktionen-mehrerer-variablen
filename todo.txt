@@ -3,3 +3,17 @@ Kapitel 1 (Unterlagen S. 1-8)
  - Schnitte
  - Konturen
  (- evtl. Beispiel: Tungsten-Wärmeschlange)
+
+
+
+Prüfungsberatung
+ 6 A4 Seiten, Bronstein
+
+ Optimierung!!
+ Nebenbedingungen (Siehe Aufgabe 4) (Nie 2 Nebenbedingungen an Prüfung)
+ Keine Flächenerzeugung
+ Bronstein -> Zylindrisch zu Kartesisch für Integralrechnung (Kurvenlängen etc.)
+ Laplace-Gleichung
+
+ Theorie von DGL nicht benötigt für prüfung!! (lediglich in DGL umwandeln. Nicht auflösen!!)
+ 

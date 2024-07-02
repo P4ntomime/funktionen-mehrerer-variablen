@@ -450,14 +450,14 @@
 
 
 % custom text rightarrow to match tikz arrows
-\renewcommand{\textrightarrow}{
+\renewrobustcmd{\textrightarrow}{
     \tikz{
         \draw[-{Stealth[length=1.7mm]},
               double]
                 (0,0) to (0.3,0);}}
 
 % custom text leftrightarrow to match tikz arrows
-\newcommand{\textlrarrow}{
+\newrobustcmd{\textlrarrow}{
     \tikz{
         \draw[{Stealth[length=1.7mm]}-{Stealth[length=1.7mm]},
               double]
