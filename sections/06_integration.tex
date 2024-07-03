@@ -29,6 +29,51 @@ Der Satz von Fubini besagt, dass die Reihenfolge der Integrationen vertauscht we
 \]
 
 
+\subsection{1. metrischer Tensor} % TODO: Vereinheitlichung d. Variablen und Funktionen
+Beim 1. metrischen Tensor (oder auch\textbf{erste Fundamentalmatrix}, \textbf{erste Fundamentalform}, \textbf{metrische Grundform}) 
+handelt es sich um eine Parameter abhängige Matrix, welche aus den Skalarprodukten der partiellen Ableitungsvektoren nach den Parametern besteht.
+\[
+    g_{ij} = \frac{\partial \vec{S}}{\partial u_i} \dotp \frac{\partial \vec{S}}{\partial u_j}
+\]
+
+Teilweise werden die Einträge auch folgendermassen abgekürzt: $E = g_{11}$, $F = g_{12} = g_{21}$, $G = g_{22}$.
+Daraus entsteht die Matrix: $\begin{pmatrix}
+    E & F\\
+    F & G
+\end{pmatrix}$
+
+Sie wird für die Längenberechnung von Kurven, sowie Flächen von komplexeren Funktionen benötigt.
+Mittels der Differentialschreibweise lässt sich ein Längenelement einer Kurve wie folgt berechnen:
+\[
+    \diff s^2 = E \diff u^2 + 2F \diff u \diff v + G \diff v^2
+\]
+
+\example{Längenberechnung}
+Eine Kurve ist als $\vec{X}(t) = \begin{pmatrix}x(t)\\y(t)\end{pmatrix}$ gegeben.
+
+Das Längenelement ist somit: $\diff l^2 = E \diff x^2 + 2F \diff x \diff y + G \diff y^2$
+
+Um Die Länge zu berechnen, wird über die Längenelemente integriert:
+\[
+    l = \int\limits_a^b \sqrt{E \dot{x}(t)^2 + 2F \dot{x}(t) \dot{y}(t) + G \dot{y}(t)^2} \diff t
+\]
+
+\example{Flächenberechnung}
+Analog der Längenberechnung kann dieses Vorgehen auch für Flächen bzw. Flächenelemente gemacht werden, wobei das Flächenelement leicht anders ist:
+\[
+    \diff S = \sqrt{EG - F^2} \diff u \diff v = \sqrt{\det|g_{ij}|} \diff u \diff v = \abs{\frac{\partial \vec{S}}{\partial u} \times \frac{\partial \vec{S}}{\partial v}} \diff u \diff v
+\]
+dann über zwei Parameter integriert werden muss.
+\[
+    A = \iint\limits_B \sqrt{EG - F^2} \diff u \diff v
+\]
+
+% \subsubsection{Freie Fläche} % DONE: check if this is needed... --> it isn't :)
+% \[
+%     \underset{\rm 2D}{(u_1; u_2)} \longrightarrow \underset{\rm 3D}{(x(u_1; u_2); y(u_1; u_2); z(u_1; u_2))}
+% \]
+
+
 % DONE: Längenintegrale (3D)
 % TODO: Längenintegrale (2D)
 \subsection{Längenintegrale}
@@ -108,18 +153,6 @@ Parametrisierung bei vertikaler Rotationsachse und vertikaler Verschiebungsricht
 \]
 
 Bei $c = 1$ \textrightarrow\ Voller Meter bei einer Kurve % TODO: Check this
-
-
-\subsubsection{1. metrischer Tensor} % TODO: elaborate...
-Beim 1. metrischen Tensor (oder auch \textbf{1. Fundamentalmatrix}) handelt es sich um eine Parameter abhängige Matrix, welche aus den Skalarprodukten
-der partiellen Ableitungsvektoren nach den Parametern besteht.
-\[
-    g_{ij} = \frac{\partial \vec{S}}{\partial u_i} \dotp \frac{\partial \vec{S}}{\partial u_j}
-\]
-% \subsubsection{Freie Fläche} % DONE: check if this is needed... --> it isn't :)
-% \[
-%     \underset{\rm 2D}{(u_1; u_2)} \longrightarrow \underset{\rm 3D}{(x(u_1; u_2); y(u_1; u_2); z(u_1; u_2))}
-% \]
 
 
 
