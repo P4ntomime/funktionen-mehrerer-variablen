@@ -29,6 +29,65 @@ Der Satz von Fubini besagt, dass die Reihenfolge der Integrationen vertauscht we
 \]
 
 
+\subsection{Erster Metrischer Tensor} % TODO: Vereinheitlichung d. Variablen und Funktionen
+Der 1. metrische Tensor (oder auch \textbf{erste Fundamentalmatrix}, \textbf{erste Fundamentalform}, \textbf{metrische Grundform})
+beschreibt den Zusammenhang zwischen einer Kurve oder Fläche im Parameterraum zum Raum, in dem sie sich befindet (z.B. 2D-Fläche im 3D-Raum).
+Er besteht aus den Skalarprodukten der partiellen Ableitungsvektoren nach den Parametern.
+\[
+    g_{ij} = \frac{\partial \vec{S}}{\partial u_i} \dotp \frac{\partial \vec{S}}{\partial u_j}
+\]
+Folglich ergibt sich die Matrix: $\begin{pmatrix}
+    E & F\\
+    F & G
+\end{pmatrix} = \begin{pmatrix}
+    g_{11} & g_{12}\\
+    g_{21} & g_{22}
+\end{pmatrix}$
+
+Die Einträge dieser Matrix werden benötigt, um Längen- oder Flächen(elemente) zu berechnen.
+
+% TODO: subsubsection Flächen-, Längen- & Winkelerhaltung (Siehe Moodle Woche 11)
+
+\example{Längenberechnung}
+Eine Flächenkurve sei als $\vec{x}(t) = \begin{pmatrix}
+    u(t)\\
+    v(t)
+\end{pmatrix}$ gegeben.
+Davon wird das totale Differential gebildet: 
+\[
+    \dot{\vec{x}} = \vec{x}_u \cdot \dot{u} + \vec{x}_v \cdot \dot{v}
+\]
+Um die Länge des Vektors (Längenelement) zu erhalten, muss man diesen im ersten Schritt quadrieren:
+\[
+    (\dot{\vec{x}})^2 = g_{11} \dot{u}^2 + 2 g_{12} \dot{u} \dot{v} + g_{22} \dot{v}^2
+\]
+Das einzelne Längenelement ist somit:
+\[
+    \diff s = \sqrt{g_{11} \diff u^2 + 2 g_{12} \diff u \diff v + g_{22} \diff v^2}
+\]
+Summiert man nun alle $\diff s$ über die Kurve, so ergibt dies das Integral für die gesamte Länge:
+\[
+    s = \int\limits_{a}^{b} \sqrt{g_{11} \dot{u}^2 + 2 g_{12} \dot{u} \dot{v} + g_{22} \dot{v}^2} \diff t
+\]
+
+
+\example{Flächenberechnung}
+Es sei eine parametrisierte Fläche als Funktion $\vec{S}(u,v) = \begin{pmatrix}
+    x(u,v)\\
+    y(u,v)\\
+    z(u,v)
+\end{pmatrix}$ gegeben.
+Das Flächenelement lässt sich aus einem Parallelogramm der beiden partiellen Ableitungsvektoren bilden, 
+was dem Betrag des Kreuzproduktes bzw. der Determinante entspricht:
+\[
+    \diff S = \sqrt{\abs{\det\abs{g_{ij}}}}\diff u \diff v = \sqrt{g_{11}g_{22} - g_{12}^2} \diff u \diff v = \abs{\frac{\partial \vec{S}}{\partial u} \times \frac{\partial \vec{S}}{\partial v}} \diff u \diff v
+\]
+Daraus ergibt sich die Fläche über das Doppelintegral:
+\[
+    S = \iint\limits_{v_1\, u_1}^{v_2\, u_2} \sqrt{g_{11}g_{22} - g_{12}^2} \diff u \diff v
+\]
+
+
 % DONE: Längenintegrale (3D)
 % TODO: Längenintegrale (2D)
 \subsection{Längenintegrale}
@@ -43,7 +102,7 @@ $$
 Die Bestimmung der Länge einer Kurve kann in folgende Schritte unterteilt werden:
 \begin{enumerate}
     \item \myul{\textbf{Funktion in die Parameterdarstellung überführen (sofern nicht gegeben):}}
-    \item[] Dafür wird einer der Parameter (z.B. $x$ oder $\theta$) $=t$ gesetzt und die anderen Parameter ebenfals als Funktion von $t$ ausgedrückt.
+    \item[] Dafür wird einer der Parameter (z.B. $x$ oder $\theta$) $=t$ gesetzt und die anderen Parameter ebenfalls als Funktion von $t$ ausgedrückt.
     \item \myul{\textbf{Integral aufstellen:}}
     \item[] Das Integral in der Form $ \iiint \diff s $ wird mit $\frac{\diff t}{\diff t}$ erweitert.
     \item \myul{\textbf{Das Integral lösen}}
@@ -108,18 +167,6 @@ Parametrisierung bei vertikaler Rotationsachse und vertikaler Verschiebungsricht
 \]
 
 Bei $c = 1$ \textrightarrow\ Voller Meter bei einer Kurve % TODO: Check this
-
-
-\subsubsection{1. metrischer Tensor} % TODO: elaborate...
-Beim 1. metrischen Tensor (oder auch \textbf{1. Fundamentalmatrix}) handelt es sich um eine Parameter abhängige Matrix, welche aus den Skalarprodukten
-der partiellen Ableitungsvektoren nach den Parametern besteht.
-\[
-    g_{ij} = \frac{\partial \vec{S}}{\partial u_i} \dotp \frac{\partial \vec{S}}{\partial u_j}
-\]
-% \subsubsection{Freie Fläche} % DONE: check if this is needed... --> it isn't :)
-% \[
-%     \underset{\rm 2D}{(u_1; u_2)} \longrightarrow \underset{\rm 3D}{(x(u_1; u_2); y(u_1; u_2); z(u_1; u_2))}
-% \]
 
 
 
