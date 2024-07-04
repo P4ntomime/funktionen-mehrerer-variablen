@@ -98,7 +98,7 @@ $$
     = \underbrace{\diff r^2 + r^2 \diff \varphi^2 + \diff z^2}_{\text{Zylindrisch}}
     = \underbrace{\diff r^2 + r^2 \diff \theta^2 + r^2 \sin^2 \theta \diff \phi^2}_{\text{Sphärisch}}
 $$
-\subsubsection{Länge einer Funktion}
+\subsubsection{Kurvenintegrale 1. Art: Länge einer Funktion}
 Die Bestimmung der Länge einer Kurve kann in folgende Schritte unterteilt werden:
 \begin{enumerate}
     \item \myul{\textbf{Funktion in die Parameterdarstellung überführen (sofern nicht gegeben):}}
@@ -120,6 +120,22 @@ Dazu werden die oben genannten Schritte abgearbeitet:
     \item Integral lösen
     \item[] $\frac{\diff x}{\diff t}$, $\frac{\diff y}{\diff t}$ und $\frac{\diff z}{\diff t}$ ausrechnen, einsetzen, integrieren.
 \end{enumerate}
+
+\subsubsection{Kurvenintegral 2. Art}
+Beim Kurvenintegral 2. Art wird nicht die tatsächliche Länge einer Funktion, sondern die Länge deren Projektion auf eine Achse bestimmt.
+Dazu wird stat über alle Koordinatenrichtungen nur über eine der Koordinaten integriert.
+
+Es folgen einige Paare von Kurvenintegralen 2. Art entlang einer Kontur $K$ für Funktionen in expliziter Form und in Parameterdarstellung.
+
+\myul{2D, Projektion auf x:}
+\[
+    \int\limits_{K}f(x)dx = \int_{t_0}^{T}\vec{f}(x(t), y(t)) \cdot x'(t) \cdot dt
+\]
+
+\myul{3D, Projektion auf x:}
+\[
+    \int\limits_{K}f(x, y)dx = \int_{t_0}^{T}\vec{f}(x(t), y(t), z(t)) \cdot x'(t) \cdot dt
+\]
 
 
 % DONE: Flächenintegrale (2D, 3D)
