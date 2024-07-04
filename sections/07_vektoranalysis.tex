@@ -1,9 +1,5 @@
 \section{Vektoranalysis}
-% TODO: Skalarer Durchfluss (?)
-% TODO: Spezialfälle (?)
-% TODO: Vektor Längenelement (?)
 
-% TODO: Vektorfelder
 \subsection{Vektorfelder}
 Das Vektorfeld \[\vec{V}:\mathbb{R}^n \rightarrow \mathbb{R}^n\] weist jedem Punkt $P \in \mathbb{R}^n$ einen Vektor $\vec{v} \in \mathbb{R}^n$ zu.
 Die Notation eines Vektorfelds ist gleich deren eines Vektors, wobei Vektorfelder üblicherweise gross geschrieben werden.
@@ -32,6 +28,46 @@ und resultiert in einem Vektorfeld.
     \item Zudem kann der Gradient auch als $\grad \phi$ geschrieben werden.
 \end{itemize}
 
+\subsubsection{Verschiedene Koordinatensysteme}
+\myul{\textbf{Kartesisch:}}
+\[
+    \boxed{
+        \grad V
+        = \nabla V
+        = \begin{pmatrix}
+            \frac{\partial V}{\partial x}\\
+            \frac{\partial V}{\partial y}\\
+            \frac{\partial V}{\partial z}\\
+        \end{pmatrix}
+    }
+\]
+
+\myul{\textbf{Zylindrisch:}}
+\[
+    \boxed{
+        \grad V
+        = \nabla V
+        = \begin{pmatrix}
+            \frac{\partial V}{\partial r}\\
+            \frac{1}{r} \frac{\partial V}{\partial \varphi}\\
+            \frac{\partial V}{\partial z}\\
+        \end{pmatrix}
+    }
+\]
+
+\myul{\textbf{Sphärisch:}}
+\[
+    \boxed{
+        \grad V
+        = \nabla V
+        = \begin{pmatrix}
+            \frac{\partial V}{\partial r}\\
+            \frac{1}{r} \frac{\partial V}{\partial \theta}\\
+            \frac{1}{r \sin \theta} \frac{\partial V}{\partial \phi}\\
+        \end{pmatrix}
+    }
+\]
+
 \subsection{Vektorgradient}
 Die Definition des Gradienten eines Vektorfeldes $\vec{V}: \mathbb{R}^n \to \mathbb{R}^m$ lautet
 \[ \frac{\partial \vec{V}}{\partial \vec{a}} = \vec{a} \dotp \grad \vec{V}, \]
@@ -56,8 +92,8 @@ berechnet werden kann.
     \item Die Notation $\nabla \dotp \vec{V}$ ist nicht nur falsch, sondern zudem bereits durch die Divergenz besetzt.
 \end{itemize}
 
-\subsection{Divergenz}
-Die Divergenz eines Vektorfelds
+\subsection{Divergenz (Volumenableitung)}
+Die Divergenz oder Volumenableitung eines Vektorfelds
 \[
 \begin{aligned}
     \nabla \dotp \vec{V}(\vec{x})
@@ -82,47 +118,46 @@ ist ein Skalarfeld, das beschreibt, wie stark das Vektorfeld an einem gegebenen 
 \medskip
 Eine alternative und gut visualisierbare Definition der Divergenz, ist in zwei dimensionen
 \[
-    \div \vec{V} = \nabla\dotp\vec{V}  = \lim_{A \to 0}\frac{\oint_{C = \partial A} \vec{V}(\vec{x}) \dotp \hat{x} \diff \vec{x}}{A},
+    \div \vec{V} = \nabla\dotp\vec{V}  = \lim_{A \to 0}\frac{\oint\limits_{C = \partial A} \vec{V} \dotp \hat{n} \diff s}{A},
 \]
-wobei $A$ eine Fläche und $C$ dessen Kontur darstellt.
+wobei $A$ eine Fläche mit den Normalen $\hat{n}$ und $C$ dessen Kontur darstellt.
 
-Verallgemeinert für die Anwendung in mehr als 2 Dimensionen lautet die Definitin
+Verallgemeinert für die Anwendung in mehr als 2 Dimensionen lautet die Definition
 \[
-    \nabla\dotp\vec{V} = \div \vec{V} = \lim_{\Omega \to 0}\frac{\oint_{C = \partial \Omega}\vec{V}(\vec{x}) \dotp \hat{x} \diff \vec{x}}{\Omega},
+    \nabla\dotp\vec{V} = \div \vec{V} = \lim_{\Omega \to 0}\frac{\oint\limits_{C = \partial \Omega}\vec{V} \dotp \hat{n} \diff s}{\Omega},
 \]
 wobei $\Omega$ ein Bereich im Raum $\mathbb{R}^n$ und C dessen Kontur in $\mathbb{R}^{n-1}$ ist.
 
 \subsubsection{Verschiedene Koordinatensysteme}
-% TODO: gerade kein bock 
 \myul{\textbf{Kartesisch:}}
 \[
     \boxed{
         \div \vec{V}
-        = \nabla\dotp\vec{V}
-        = \underbrace{%
-            \left\lgroup%
-                \frac{\partial}{\partial x};\frac{\partial}{\partial y};\frac{\partial}{\partial z}%
-            \right\rgroup}_{\nabla} \dotp 
-        \begin{pmatrix}
-            V_x \\ V_y \\ V_z
-        \end{pmatrix}
+        = \nabla \dotp \vec{V}
         = \frac{\partial V_x}{\partial x} + \frac{\partial V_y}{\partial y} + \frac{\partial V_z}{\partial z}
     }
 \]
 
-% TODO: gerade kein bock
-\myul{\textbf{Zylinderkoordinaten:}}
+\myul{\textbf{Zylindrisch:}}
 \[
     \boxed{
-        \div \vec{V} = \frac{1}{r} \frac{\partial}{\partial r} (rV_r) + \frac{1}{r} \frac{\partial V_\varphi}{\partial \varphi} + \frac{\partial V_z}{\partial z}
+        \div \vec{V}
+        = \nabla \dotp \vec{V}
+        = \begin{pmatrix}
+            \frac{1}{r} \frac{\partial (r \cdot V_r)}{\partial r} + \frac{1}{r} \frac{\partial V_\varphi}{\partial \varphi} + \frac{\partial V_z}{\partial z}\\
+        \end{pmatrix}
     }
 \]
 
-% TODO: doublecheck this!!
-\myul{\textbf{Kugelkoordinaten:}}
-% \[
-%     \frac{1}{r^2}\frac{\partial}{\partial r} (r^2 V_r) + \frac{1}{r\sin\vartheta}\frac{\partial}{\partial \vartheta} (\sin\vartheta V_\vartheta) + \frac{1}{r\sin\vartheta}\frac{\partial V_\varphi}{\partial \varphi}
-% \]
+\myul{\textbf{Sphärisch:}}
+\[
+    \boxed{
+        \div \vec{V}
+        = \nabla \dotp \vec{V}
+        = \frac{1}{r^2} \frac{\partial (r^2 \cdot V_r)}{\partial r} + \frac{1}{r \sin \theta} \frac{\partial (\sin \theta \cdot V_\theta)}{\partial \theta} + \frac{1}{r \sin \theta} \frac{\partial V_\phi}{\partial \phi}
+    }
+\]
+
 
 \subsection[Laplace Operator Delta]{Laplace Operator $\Delta$}
 Der Laplaceoperator ist nichts anderes als die Divergenz des Gradienten eines Skalarfelds und vergleichbar mit der zweiten Ableitung.
@@ -185,6 +220,14 @@ Die Rotation eines Vektorfelds, auch Curl genannt, beschreibt, wie stark ein Vek
 berechnet.
 Der resultierende Vektor ist dabei die Rotationsachse, wobei die Rechte-Hand-Regel gilt.
 
+Wie bei der Divergenz kann auch hier zur Hilfe der Verständlichkeit ein Limitsatz als Definition beigezogen werden.
+So sei
+\[
+    \nabla\times\vec{V} = \rot \vec{V} = \hat{n} \lim_{S \to 0}\frac{\oint\limits_{C = \partial S}\vec{V} \dotp \diff \vec{l}}{S},
+\]
+wobei $S$ ein planare Testfläche mit normale $\hat{n}$ und C dessen Kontur ist. 
+
+
 Der Curl ist grundsätzlich nur in drei Raumdimensionen definiert.
 Wenn die Rotation eines auf der Ebene $z=0$ definierten Vektorfelds berechnet werden soll, kann die obige Formel mit $V_z = 0$ angepasst werden:
 \[
@@ -209,6 +252,48 @@ Wenn die Rotation eines auf der Ebene $z=0$ definierten Vektorfelds berechnet we
     \1 Mit dem Curl-Operator kann z.B. elegant beschrieben werden, dass Wirbel im E-Feld auf zeitliche Änderungen im magnetischen Feld zurückzuführen sind:
         \2[] $\nabla \times \vec{E} = -\frac{\partial \vec{H}}{\partial t}$
 \end{outline}
+
+
+\subsubsection{Verschiedene Koordinatensysteme}
+\myul{\textbf{Kartesisch:}}
+\[
+    \boxed{
+        \rot \vec{V}
+        = \nabla \times \vec{V}
+        = \begin{pmatrix}
+            \frac{\partial V_z}{\partial y} - \frac{\partial V_y}{\partial z}\\
+            \frac{\partial V_x}{\partial z} - \frac{\partial V_z}{\partial x}\\
+            \frac{\partial V_y}{\partial x} - \frac{\partial V_x}{\partial y}\\
+        \end{pmatrix}
+    }
+\]
+
+\myul{\textbf{Zylindrisch:}}
+\[
+    \boxed{
+        \rot \vec{V}
+        = \nabla \times \vec{V}
+        = \begin{pmatrix}
+            \frac{1}{r}\frac{\partial V_z}{\partial \phi} - \frac{\partial V_\phi}{\partial z}\\
+            \frac{\partial V_r}{\partial z} - \frac{\partial V_z}{\partial r}\\
+            \frac{1}{r} \left(\frac{\partial (r \cdot V_\phi)}{\partial r} - \frac{\partial V_r}{\partial \phi}\right)\\
+        \end{pmatrix}
+    }
+\]
+
+\myul{\textbf{Sphärisch:}}
+\[
+    \boxed{
+        \rot \vec{V}
+        = \nabla \times \vec{V}
+        = \begin{pmatrix}
+            \frac{1}{r \sin \theta} \left(\frac{\partial (V_\phi \cdot \sin \theta)}{\partial \theta} - \frac{\partial V_\theta}{\partial \phi}\right)\\
+            \frac{1}{r} \left(\frac{1}{\sin \theta} \frac{\partial V_r}{\partial \phi} - \frac{\partial (r \cdot V_\phi)}{\partial r}\right)\\
+            \frac{1}{r} \left(\frac{\partial (r \cdot V_\theta)}{\partial r} - \frac{\partial V_r}{\partial \theta}\right)\\
+        \end{pmatrix}
+    }
+\]
+
 
 \subsection[Rechenregeln mit Nabla]{Rechenregeln mit $\nabla$}
 Für das dalegen der Rechenregeln werden die folgenden Platzhalter verwendet:
