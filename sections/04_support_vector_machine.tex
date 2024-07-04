@@ -24,7 +24,7 @@ $y_j$ $\in $ \{$\pm 1$\} klassifiziert die jeweiligen Datenvektoren
     $\boxed{\vec{w}^{tr}\cdot\vec{x}+b=0}$ \\
     $\vec{w}$: Normalenvektor, $\vec{w} \in \mathbb{R}^d$ und $\vec{w} \neq 0$\\
     $b$: Konstante, $b \in \mathbb{R}$\\
-    Dimmension der Hyperebene $= d-1$\\
+    Dimension der Hyperebene $= d-1$\\
     Abstand der Hyperebene zum Ursprung: $\frac{\left\lvert b \right\rvert }{\left\lvert \vec{w}\right\rvert }$
     \medskip
 
@@ -65,7 +65,7 @@ Zusammengesetzt aus dem primalen Problem und den Nebenbedingungen.\\
 
 \myul{\textbf{Stationaritätsbedingungen:}}\\
 Aus der Bedingung, dass $\grad(L) = 0$ sein muss, lassen sich folgende Formeln ableiten:
-$\boxed{grad_{\left\{\vec{w}^{tr},b\right\}}\left(L(\vec{w}^{tr},b,\vec{\alpha})\right)=\vec{0}} \Leftrightarrow 
+$\boxed{\grad_{\left\{\vec{w}^{tr},b\right\}}\left(L(\vec{w}^{tr},b,\vec{\alpha})\right)=\vec{0}} \Leftrightarrow 
 \boxed{\vec{w}=\sum_{j=1}^N\alpha_jy_j\vec{x}_j} \text{ und }
 \boxed{\sum_{j=1}^N\alpha_jy_j=0}$\\
 %\myul{\textbf{Lagrange-Funktion mit den Dualvariablen $\alpha_j$:}}\\
@@ -88,7 +88,8 @@ $\boxed{L(\vec{\alpha})=\sum_{j=1}^N\alpha_j-\underbrace{\frac12\sum_{j,j'=1}^N\
         \end{itemize}
     \end{minipage}\hfill
     \begin{minipage}[c]{0.33\columnwidth}
-        \includegraphics[width=\columnwidth]{images/SVM_2.png}
+        \input{tikz/svm_2.tex}
+        % \includegraphics[width=\columnwidth]{images/SVM_2.png}
     \end{minipage}
     
     \item \myul{\textbf{Nebenbedingungen, Es muss gelten:}}
