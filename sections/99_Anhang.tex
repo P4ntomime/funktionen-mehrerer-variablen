@@ -1,0 +1,141 @@
+\section{Anhang}
+
+\subsection{Trigonometrie}
+\begingroup
+\renewcommand{\arraystretch}{2}
+\setlength{\tabcolsep}{0mm}
+\scalebox{0.33}{
+\Huge
+\begin{tabularx}{3\columnwidth}{rp{1mm}V{3}*{17}{C}}
+    \rowcolor{subsectioncolor!30}$\bm{\alpha}$\phantom{${}^{\circ}$} && $0$ & $\dfrac{\pi}{6\mathstrut}$ & $\dfrac{\pi}{4}$ & $\dfrac{\pi}{3}$ & $\dfrac{\pi}{2}$ & $\dfrac{2\pi}{3}$ & $\dfrac{3\pi}{4}$ & $\dfrac{5\pi}{6}$ & $\pi$ & $\dfrac{7\pi}{6}$ & $\dfrac{5\pi}{4}$ & $\dfrac{4\pi}{3}$ & $\dfrac{3\pi}{2}$ & $\dfrac{5\pi}{3}$ & $\dfrac{7\pi}{4}$ & $\dfrac{11\pi}{6}$ & $2\pi$ \\\hline
+    \rowcolor{subsectioncolor!30}$\bm{\alpha^\circ}$ && \phantom{${}^\circ$}$0^\circ$ & $30^\circ$ & $45^\circ$ & $60^\circ$ & $90^\circ$ & $120^\circ$ & $135^\circ$ & $150^\circ$ & $180^\circ$ & $210^\circ$ & $225^\circ$ & $240^\circ$ & $270^\circ$ & $300^\circ$ & $315^\circ$ & $330^\circ$ & $360^\circ$ \\\hline
+    $\bm{\sin(\alpha)}$ && $0$ & $\dfrac{1}{2\mathstrut}$ & $\dfrac{\sqrt{2}}{2}$ & $\dfrac{\sqrt{3}}{2}$ & $1$ & $\dfrac{\sqrt{3}}{2}$ & $\dfrac{\sqrt{2}}{2}$ & $\dfrac{1}{2}$ & $0$ & $-\dfrac{1}{2}$ & $-\dfrac{\sqrt{2}}{2}$ & $-\dfrac{\sqrt{3}}{2}$ & $-1$ & $-\dfrac{\sqrt{3}}{2}$ & $-\dfrac{\sqrt{2}}{2}$ & $-\dfrac{1}{2}$ & $0$ \\\hline
+    $\bm{\cos(\alpha)}$ && $1$ & $\dfrac{\sqrt{3}}{2\mathstrut}$ & $\dfrac{\sqrt{2}}{2}$ & $\dfrac{1}{2}$ & $0$ & $-\dfrac{1}{2}$ & $-\dfrac{\sqrt{2}}{2}$ & $-\dfrac{\sqrt{3}}{2}$ & $-1$ & $-\dfrac{\sqrt{3}}{2}$ & $-\dfrac{\sqrt{2}}{2}$ & $-\dfrac{1}{2}$ & $0$ & $\dfrac{1}{2}$ & $\dfrac{\sqrt{2}}{2}$ & $\dfrac{\sqrt{3}}{2}$ & $1$ \\\hline
+    $\bm{\tan(\alpha)}$ && $0$ & $\dfrac{\sqrt{3}}{3\mathstrut}$ & $1$ & $\sqrt{3}$ & $\pm\infty$ & $-\sqrt{3}$ & $-1$ & $-\dfrac{\sqrt{3}}{3}$ & $0$ & $\dfrac{\sqrt{3}}{3}$ & $1$ & $\sqrt{3}$ & $\pm\infty$ & $-\sqrt{3}$ & $-1$ & $-\dfrac{\sqrt{3}}{3}$ & $0$ \\\hline
+    $\bm{\cot(\alpha)}$ && $\pm\infty$ & $\sqrt{3}$ & $1$ & $\dfrac{\sqrt{3}}{3\mathstrut}$ & $0$ & $-\dfrac{\sqrt{3}}{3}$ & $-1$ & $-\sqrt{3}$ & $\pm\infty$ & $\sqrt{3}$ & $1$ & $\dfrac{\sqrt{3}}{3}$ & $0$ & $-\dfrac{\sqrt{3}}{3}$ & $-1$ & $-\sqrt{3}$ & $\pm\infty$ \\
+\end{tabularx}}
+\endgroup
+
+% DONE: sinus und cosinus regeln hinzufügen
+% DONE: sinus und cosinus in komplexer Darstellung
+\subsubsection{Komplexe Darstellung}
+		
+\begin{minipage}{0.48\linewidth}
+$$ \sin(x) = \frac{e^{\jj x} - e^{-\jj x}}{2\jj } $$ 
+\end{minipage}	
+\hfill
+\begin{minipage}{0.48\linewidth}
+$$ \cos(x) = \frac{e^{\jj x} + e^{-\jj x}}{2} $$ 
+\end{minipage}		
+
+
+
+\subsubsection{Beziehungen zwischen $\sin(x)$ und $\cos(x)$}
+\begin{tabular}{ll}
+$\sin(-a) = -\sin(a)$ & $\cos(-a) = \cos(a)$ \\
+$\sin(\pi - a) = \sin(a)$ & $\cos(\pi -a) = - \cos(a)$ \\		
+$\sin(\pi + a) = -\sin(a)$ & $\cos(\pi + a) = - \cos(a)$ \\	
+$\sin\left\lgroup \frac{\pi}{2} - a \right\rgroup = \sin\left\lgroup \frac{\pi}{2} + a \right\rgroup = \cos(a)$ \\
+$\cos\left\lgroup \frac{\pi}{2} - a \right\rgroup = - \cos\left\lgroup \frac{\pi}{2} + a \right\rgroup = \sin(a)$	 
+\end{tabular}
+
+
+\subsubsection{Additionstheoreme}
+
+$\sin(a \pm b) = \sin(a) \cdot \cos(b) \pm \cos(a) \cdot \sin(b)$ \\
+$\cos(a \pm b) = \cos(a) \cdot \cos(b) \mp \sin(a) \cdot \sin(b) $ \\
+$\tan(a \pm b) = \frac{\tan(a) \pm \tan(b)}{1 \mp \tan(a) \cdot \tan(b)}$
+
+\subsubsection{Produkte}
+$\sin(a) \cdot \sin(b) = \frac{1}{2} \big( \cos(a-b) - \cos(a+b) \big) $ \\
+$\cos(a) \cdot \cos(b) = \frac{1}{2} \big( \cos(a-b) + \cos(a+b) \big) $ \\	
+$\sin(a) \cdot \cos(b) = \frac{1}{2} \big( \sin(a-b) + \sin(a+b) \big) $
+
+
+
+\subsubsection{Summen und Differenzen}
+
+$\sin(a) + \sin(b) = 2 \cdot \sin \big( \frac{a+b}{2} \big) \cdot \cos \big( \frac{a-b}{2} \big)$ \\
+$\sin(a) - \sin(b) = 2 \cdot \sin \big( \frac{a-b}{2} \big) \cdot \cos \big( \frac{a+b}{2} \big)$ \\
+$\cos(a) + \cos(b) = 2 \cdot \cos \big( \frac{a+b}{2} \big) \cdot \cos \big( \frac{a-b}{2} \big)$ \\
+$\cos(a) - \cos(b) = -2 \cdot \sin \big( \frac{a+b}{2} \big) \cdot \sin \big( \frac{a-b}{2} \big)$ \\
+$\tan(a) \pm \tan(b) = \frac{\sin(a \pm b)}{\cos(a) \cdot \cos(b)}$ 
+    
+
+    
+    
+\subsubsection{Winkelvielfache und Halbwinkel}
+$\sin(2a) = 2 \, \sin(a) \cdot \cos(a)$ \\
+$\sin(3a) = 3 \, \sin(a) -4 \, \sin^3(a)$ \\ 
+$\sin(4a) = 8 \, \cos^3(a) \cdot \sin(a) - 4 \, \cos(a) \cdot \sin(a)$
+
+$\cos(2a) = \cos^2(a) - \sin^2(a)$ \\
+$\cos(3a) = 4 \, \cos^3(a) -3 \, \cos(a)$ \\ 
+$\cos(4a) = 8 \, \cos^4(a) - 8 \, \cos^2(a) + 1$
+
+$\sin \big( \frac{a}{2} \big) = \sqrt{\frac{1}{2}(1-\cos(a))} $ \qquad $\cos \big( \frac{a}{2} \big) = \sqrt{\frac{1}{2}(1+\cos(a))} $ 
+
+
+\subsubsection{Potenzen}
+$\sin^2(a) = \frac{1}{2}(1-\cos(2a))$ \\	
+$\sin^3(a) = \frac{1}{4}(3\, \sin(a) - \sin(3a))$ \\	
+$\sin^4(a) = \frac{1}{8}(\cos(4a) -4 \, \cos(2a) +3)$
+
+$\cos^2(a) = \frac{1}{2}(1+\cos(2a))$ \\	
+$\cos^3(a) = \frac{1}{4}(\cos(3a) + 3 \, \cos(a))$ \\	
+$\cos^4(a) = \frac{1}{8}(\cos(4a) +4 \, \cos(2a) +3)$ 
+
+
+
+% TODO: allenfalls sinh und cosh hinzufügen
+
+
+% DONE: Ableitungsregeln
+\subsection{Ableitungsregeln}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{ll}
+    Produktregel    & $ (f(x) \cdot g(x))' = f'(x) \cdot g(x) + f(x) \cdot g'(x) $ \\
+    Quotientenregel & $ \left\lgroup \frac{u(x)}{v(x)} \right\rgroup  ' = \frac{u'(x) \cdot v(x) - u(x) \cdot v'(x)}{v(x) ^2}$ \\
+    Kettenregel     & $ g(f(x))' =  g'(f(x)) \cdot f'(x)$
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+
+
+% DONE: Ableitungen hinzufügen
+\subsection{Ableitungen}
+
+\begin{minipage}[t]{0.48\columnwidth}
+    \begin{tabular}{c c}
+        \toprule
+        \textbf{Funktion $\boldsymbol{f(x)$}} & \textbf{Ableitung $\frac{\diff f(x)}{\diff x}$} \\
+        \midrule
+        $1$             & $0$ \\
+        $0$             & $0$ \\
+        $\frac{1}{x}$   & $-\frac{1}{x^2}$ \\
+        $x^a$           & $a \cdot x^{a-1}$ \\
+        $\sqrt{x}$      & $\frac{1}{2 \sqrt{x}}$ \\
+        $e^x$           & $e^x$ \\
+        $\ln(x)$        & $\frac{1}{x}$\\
+        \bottomrule
+    \end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    \begin{tabular}{c c}
+        \toprule
+        \textbf{Funktion $\boldsymbol{f(x)$}} & \textbf{Ableitung $\frac{\diff f(x)}{\diff x}$} \\
+        \midrule
+        $\sin(x)$       & $\cos(x)$ \\
+        $\cos(x)$        & $- \sin(x)$ \\
+        $\tan(x)$       & $\frac{1}{\cos^2(x)} = 1 + \tan^2(x)$ \\
+        $\arcsin(x)$    & $\frac{1}{\sqrt{1 - x^2}}$ \\
+        $\arccos(x)$    & $- \frac{1}{\sqrt{1 - x^2}}$ \\
+        $\arctan(x)$    & $\frac{1}{1 + x^2}$ \\
+        $a^x$           & $\ln(a) \cdot a^x$\\
+        \bottomrule
+    \end{tabular}
+\end{minipage}
+
+
+% TODO: Wichtige Seiten im Bronstein
+
