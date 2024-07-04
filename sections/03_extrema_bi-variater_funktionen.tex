@@ -176,27 +176,27 @@ $\boxed{\begin{array}{llll}
 \subsection{Extrema von Funktionen zweier Variablen mit NB finden}
 
 \begin{enumerate}[itemsep=1ex]
-    \item \textbf{Nebenbedingung (NB) in Standartform bringen:}\\
+    \item \textbf{Nebenbedingung (NB) in Standardform bringen:}\\
     \begin{minipage}[t]{0.4\linewidth}
-        Standartform: $n(x, y) \stackrel{!}{=} 0$
+        Standardform: $n(x, y) \stackrel{!}{=} 0$
     \end{minipage}\hfill
     \begin{minipage}[t]{0.58\linewidth}
             \textcolor{gray}{Nebenbedingung: $x + y = 1$}\\
-            \textcolor{gray}{Standartform der Nebenbedingung: $x + y - 1 = 0$}
+            \textcolor{gray}{Standardform der Nebenbedingung: $x + y - 1 = 0$}
     \end{minipage}
 
 
-    \item \textbf{Lagrancge-Funktion $\mathcal{L}$ aufstellen:}\\
-    $\mathcal{L}(x, y, \lambda) =
+    \item \textbf{Lagrange-Funktion $\mathrm{L}$ aufstellen:}\\
+    $\mathrm{L}(x, y, \lambda) =
     f(x, y) + \lambda \cdot n(x, y) \,\,\,\,\,\,$ \textcolor{gray}{Am besten gleich ausmultiplizieren}
     
 
-    \item \textbf{Gradient der Lagrancge-Funktion $\mathcal{L}$ Null-setzten und kritische Stellen finden:}\\
-    $\nabla \mathcal{L}=
+    \item \textbf{Gradient der Lagrange-Funktion $\mathrm{L}$ Null-setzten und kritische Stellen finden:}\\
+    $\nabla \mathrm{L}=
     \begin{pmatrix}
-        \mathcal{L}_x\\
-        \mathcal{L}_y\\
-        \mathcal{L}_\lambda
+        \mathrm{L}_x\\
+        \mathrm{L}_y\\
+        \mathrm{L}_\lambda
     \end{pmatrix} \stackrel{!}{=}
     \begin{pmatrix}
         0\\
@@ -211,16 +211,16 @@ $\boxed{\begin{array}{llll}
     \item \textbf{Zweite Partielle Ableitungen bestimmen:}\\
     \begin{minipage}[t]{0.4\linewidth}
         $\begin{aligned}
-            \mathcal{L}_{\lambda \lambda} &\stackrel{!}{=} 0\\
-            \mathcal{L}_{xx} &= \dots\\
-            \mathcal{L}_{yy} &= \dots\\
+            \mathrm{L}_{\lambda \lambda} &\stackrel{!}{=} 0\\
+            \mathrm{L}_{xx} &= \dots\\
+            \mathrm{L}_{yy} &= \dots\\
         \end{aligned}$
     \end{minipage}\hfill
     \begin{minipage}[c]{0.58\linewidth}
         $\begin{aligned}
-            \mathcal{L}_{\lambda x} &= \mathcal{L}_{x\lambda} = n_x = \dots\\
-            \mathcal{L}_{\lambda y} &= \mathcal{L}_{y\lambda} = n_y =\dots\\
-            \mathcal{L}_{xy} &= \mathcal{L}_{yx} = \dots\\
+            \mathrm{L}_{\lambda x} &= \mathrm{L}_{x\lambda} = n_x = \dots\\
+            \mathrm{L}_{\lambda y} &= \mathrm{L}_{y\lambda} = n_y =\dots\\
+            \mathrm{L}_{xy} &= \mathrm{L}_{yx} = \dots\\
         \end{aligned}$
     \end{minipage}
 
@@ -231,17 +231,17 @@ $\boxed{\begin{array}{llll}
         $\overline{\mathbf{H}}(x_0,y_0)$ &$=$&
         $\left(
             \begin{matrix}
-                {{\mathcal{L}_{\lambda\lambda}(x_0, y_0)}}&{{\mathcal{L}_{\lambda x}(x_0, y_0)}}&{{\mathcal{L}_{\lambda y}(x_0, y_0)}}\\
-                {{\mathcal{L}_{x\lambda}(x_0, y_0)}}&{{\mathcal{L}_{xx}(x_0, y_0)}}&{{\mathcal{L}_{xy}(x_0, y_0)}}\\
-                {{\mathcal{L}_{y\lambda}(x_0, y_0)}}&{{\mathcal{L}_{yx}(x_0, y_0)}}&{{\mathcal{L}_{yy}(x_0, y_0)}}\\
+                {{\mathrm{L}_{\lambda\lambda}(x_0, y_0)}}&{{\mathrm{L}_{\lambda x}(x_0, y_0)}}&{{\mathrm{L}_{\lambda y}(x_0, y_0)}}\\
+                {{\mathrm{L}_{x\lambda}(x_0, y_0)}}&{{\mathrm{L}_{xx}(x_0, y_0)}}&{{\mathrm{L}_{xy}(x_0, y_0)}}\\
+                {{\mathrm{L}_{y\lambda}(x_0, y_0)}}&{{\mathrm{L}_{yx}(x_0, y_0)}}&{{\mathrm{L}_{yy}(x_0, y_0)}}\\
             \end{matrix}
         \right)$\\
         &$=$&
         $\left(
             \begin{matrix}
                 {{0}}&{{n_{x}(x_0, y_0)}}&{{n_{y}(x_0, y_0)}}\\
-                {{n_{x}(x_0, y_0)}}&{{\mathcal{L}_{xx}(x_0, y_0)}}&{{\mathcal{L}_{xy}(x_0, y_0)}}\\
-                {{n_{y}(x_0, y_0)}}&{{\mathcal{L}_{yx}(x_0, y_0)}}&{{\mathcal{L}_{yy}(x_0, y_0)}}\\
+                {{n_{x}(x_0, y_0)}}&{{\mathrm{L}_{xx}(x_0, y_0)}}&{{\mathrm{L}_{xy}(x_0, y_0)}}\\
+                {{n_{y}(x_0, y_0)}}&{{\mathrm{L}_{yx}(x_0, y_0)}}&{{\mathrm{L}_{yy}(x_0, y_0)}}\\
             \end{matrix}
         \right)$
         
@@ -267,27 +267,27 @@ $\boxed{\begin{array}{llll}
 \subsection{Extrema von Funktionen mehrerer Variablen mit NB finden}
 
 \begin{enumerate}[itemsep=1ex]
-    \item \textbf{Nebenbedingung (NB) in Standartform bringen:}\\
+    \item \textbf{Nebenbedingung (NB) in Standardform bringen:}\\
     \begin{minipage}[t]{0.4\columnwidth}
-        Standartform: $n(x, y, ... , t) \stackrel{!}{=} 0$
+        Standardform: $n(x, y, ... , t) \stackrel{!}{=} 0$
     \end{minipage}\hfill
     \begin{minipage}[t]{0.6\columnwidth}
     \end{minipage}
 
 
-    \item \textbf{Lagrancge-Funktion $\mathcal{L}$ aufstellen:}\\
-    $\mathcal{L}(x, y, ..., t, \lambda) =
+    \item \textbf{Lagrange-Funktion $\mathrm{L}$ aufstellen:}\\
+    $\mathrm{L}(x, y, ..., t, \lambda) =
     f(x, y, ..., t) + \lambda \cdot n(x, y, ..., t) \,\,\,\,\,\,$ \textcolor{gray}{Am besten gleich ausmultiplizieren}
     
 
-    \item \textbf{Gradient der Lagrancge-Funktion $\mathcal{L}$ Null-setzten und kritische Stellen finden:}
-    $\nabla \mathcal{L}=
+    \item \textbf{Gradient der Lagrange-Funktion $\mathrm{L}$ Null-setzten und kritische Stellen finden:}
+    $\nabla \mathrm{L}=
     \begin{pmatrix}
-        \mathcal{L}_x\\
-        \mathcal{L}_y\\
+        \mathrm{L}_x\\
+        \mathrm{L}_y\\
         \vdots \\
-        \mathcal{L}_t\\
-        \mathcal{L}_\lambda
+        \mathrm{L}_t\\
+        \mathrm{L}_\lambda
     \end{pmatrix} \stackrel{!}{=}
     \begin{pmatrix}
         0\\
@@ -306,24 +306,24 @@ $\boxed{\begin{array}{llll}
 
     \begin{tabular}{lllll}
         $\begin{matrix}
-        \mathcal{L}_{\lambda \lambda} \stackrel{!}{=} 0\\
-        \mathcal{L}_{xx} = \dots\\
-        \mathcal{L}_{yy} = \dots\\
+        \mathrm{L}_{\lambda \lambda} \stackrel{!}{=} 0\\
+        \mathrm{L}_{xx} = \dots\\
+        \mathrm{L}_{yy} = \dots\\
         \vdots \\
-        \mathcal{L}_{tt} = \dots\\
+        \mathrm{L}_{tt} = \dots\\
         \end{matrix}$
         &$\,\,\,\,\,\,\,\,$&
         $\begin{matrix}
-        \mathcal{L}_{\lambda x} = \mathcal{L}_{x\lambda} = n_x = \dots\\
-        \mathcal{L}_{\lambda y} = \mathcal{L}_{y\lambda} = n_y =\dots\\
+        \mathrm{L}_{\lambda x} = \mathrm{L}_{x\lambda} = n_x = \dots\\
+        \mathrm{L}_{\lambda y} = \mathrm{L}_{y\lambda} = n_y =\dots\\
         \vdots \\
-        \mathcal{L}_{\lambda t} = \mathcal{L}_{t\lambda} = n_t =\dots\\
+        \mathrm{L}_{\lambda t} = \mathrm{L}_{t\lambda} = n_t =\dots\\
         \end{matrix}$
         &$\,\,\,\,\,\,\,\,$&
         $\begin{matrix}
-        \mathcal{L}_{xy} = \mathcal{L}_{yx}\\
-        \mathcal{L}_{xt} = \mathcal{L}_{tx}\\
-        \mathcal{L}_{yt} = \mathcal{L}_{ty}\\
+        \mathrm{L}_{xy} = \mathrm{L}_{yx}\\
+        \mathrm{L}_{xt} = \mathrm{L}_{tx}\\
+        \mathrm{L}_{yt} = \mathrm{L}_{ty}\\
         \vdots \\
         \end{matrix}$
     \end{tabular}
@@ -333,21 +333,21 @@ $\boxed{\begin{array}{llll}
         $\overline{\mathbf{H}}(\crd{x_0,y_0,\ldots t_0})$ &$=$&
         $\left(
             \begin{matrix}
-                {{\mathcal{L}_{\lambda\lambda}(\crd{...})}}&{{\mathcal{L}_{\lambda x}(\crd{...})}}&{{\mathcal{L}_{\lambda y}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{\lambda t}(\crd{...})}}\\
-                {{\mathcal{L}_{x\lambda}(\crd{...})}}&{{\mathcal{L}_{xx}(\crd{...})}}&{{\mathcal{L}_{xy}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{xt}(\crd{...})}}\\
-                {{\mathcal{L}_{y\lambda}(\crd{...})}}&{{\mathcal{L}_{yx}(\crd{...})}}&{{\mathcal{L}_{yy}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{yt}(\crd{...})}}\\
+                {{\mathrm{L}_{\lambda\lambda}(\crd{...})}}&{{\mathrm{L}_{\lambda x}(\crd{...})}}&{{\mathrm{L}_{\lambda y}(\crd{...})}}&{\cdots }&{{\mathrm{L}_{\lambda t}(\crd{...})}}\\
+                {{\mathrm{L}_{x\lambda}(\crd{...})}}&{{\mathrm{L}_{xx}(\crd{...})}}&{{\mathrm{L}_{xy}(\crd{...})}}&{\cdots }&{{\mathrm{L}_{xt}(\crd{...})}}\\
+                {{\mathrm{L}_{y\lambda}(\crd{...})}}&{{\mathrm{L}_{yx}(\crd{...})}}&{{\mathrm{L}_{yy}(\crd{...})}}&{\cdots }&{{\mathrm{L}_{yt}(\crd{...})}}\\
                 {\vdots }&{\vdots }&{\vdots }&{\ddots }&{\vdots }\\
-                {{\mathcal{L}_{t\lambda}(\crd{...})}}&{{\mathcal{L}_{tx}(\crd{...})}}&{{\mathcal{L}_{ty}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{tt}(\crd{...})}}\\
+                {{\mathrm{L}_{t\lambda}(\crd{...})}}&{{\mathrm{L}_{tx}(\crd{...})}}&{{\mathrm{L}_{ty}(\crd{...})}}&{\cdots }&{{\mathrm{L}_{tt}(\crd{...})}}\\
             \end{matrix}
         \right)$\\
         &$=$&
         $\left(
             \begin{matrix}
                 {{0}}&{{n_{x}(\crd{...})}}&{{n_{y}(\crd{...})}}&{\cdots }&{{n_{t}(\crd{...})}}\\
-                {{n_{x}(\crd{...})}}&{{\mathcal{L}_{xx}(\crd{...})}}&{{\mathcal{L}_{\lambda y}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{xt}(\crd{...})}}\\
-                {{n_{y}(\crd{...})}}&{{\mathcal{L}_{yx}(\crd{...})}}&{{\mathcal{L}_{yy}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{yt}(\crd{...})}}\\
+                {{n_{x}(\crd{...})}}&{{\mathrm{L}_{xx}(\crd{...})}}&{{\mathrm{L}_{\lambda y}(\crd{...})}}&{\cdots }&{{\mathrm{L}_{xt}(\crd{...})}}\\
+                {{n_{y}(\crd{...})}}&{{\mathrm{L}_{yx}(\crd{...})}}&{{\mathrm{L}_{yy}(\crd{...})}}&{\cdots }&{{\mathrm{L}_{yt}(\crd{...})}}\\
                 {\vdots }&{\vdots }&{\vdots }&{\ddots }&{\vdots }\\
-                {{n_{t}(\crd{...})}}&{{\mathcal{L}_{tx}(\crd{...})}}&{{\mathcal{L}_{ty}(\crd{...})}}&{\cdots }&{{\mathcal{L}_{tt}(\crd{...})}}\\
+                {{n_{t}(\crd{...})}}&{{\mathrm{L}_{tx}(\crd{...})}}&{{\mathrm{L}_{ty}(\crd{...})}}&{\cdots }&{{\mathrm{L}_{tt}(\crd{...})}}\\
             \end{matrix}
         \right)$
     \end{tabular}
