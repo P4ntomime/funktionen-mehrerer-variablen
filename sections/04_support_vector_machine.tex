@@ -67,12 +67,13 @@ Zusammengesetzt aus dem primalen Problem und den Nebenbedingungen.\\
 Aus der Bedingung, dass $\grad(L) = 0$ sein muss, lassen sich folgende Formeln ableiten:
 $\boxed{\grad_{\left\{\vec{w}^{tr},b\right\}}\left(L(\vec{w}^{tr},b,\vec{\alpha})\right)=\vec{0}} \Leftrightarrow 
 \boxed{\vec{w}=\sum_{j=1}^N\alpha_jy_j\vec{x}_j} \text{ und }
-\boxed{\sum_{j=1}^N\alpha_jy_j=0}$\\
+\boxed{\sum_{j=1}^N\alpha_jy_j=0}$
+
 %\myul{\textbf{Lagrange-Funktion mit den Dualvariablen $\alpha_j$:}}\\
 %$\boxed{L(\vec{w}^{tr},b,\vec{\alpha})=\sum_{j=1}^N\alpha_j-\underbrace{\frac12\sum_{j,j'=1}^N\alpha_j\alpha_j,y_jy_j,\vec{x}_j^{tr}\cdot\vec{x}_j}_{\frac{1}{2}\vec{w}^{tr}\cdot\vec{w}}:=L(\vec{\alpha})\quad , \alpha_j\geq0}$
 \myul{\textbf{Das duale Problem:}}\\
 Die oben erhaltenen Summen können nun in die Lagrange-Fkt. eingesetzt werden. Daraus entsteht\\
-$\boxed{L(\vec{\alpha})=\sum_{j=1}^N\alpha_j-\underbrace{\frac12\sum_{j,j'=1}^N\alpha_j\alpha_{j'} \space y_jy_{j'} \space \vec{x}_j^{tr}\cdot\vec{x}_{j'}}_{=\frac12 \vec{w}^{tr} \cdot \vec{w}}\quad\to\quad\max!\quad\mathrm{s.t.}\quad\alpha_j\geq0\wedge\sum_{j=1}^N\alpha_jy_j=0}$\\
+$\boxed{L(\vec{\alpha})=\sum_{j=1}^N\alpha_j-\underbrace{\frac12\sum_{j,j'=1}^N\alpha_j\alpha_{j'} \space y_jy_{j'} \space \vec{x}_j^{tr}\cdot\vec{x}_{j'}}_{=\frac12 \vec{w}^{tr} \cdot \vec{w}}\quad\to\quad\max!\quad\mathrm{s.t.}\quad\alpha_j\geq0\wedge\sum_{j=1}^N\alpha_jy_j=0}$
 
 \myul{\textbf{Vorgehen zum lösen des dualen Optimierungsproblems:}}
 
@@ -128,7 +129,7 @@ Sollte ein Datensatz von nicht linear trennbaren Datenpunkten vorliegen, so muss
 Dadurch werden die Punkte oft in höhere Dimensionen gebracht.
 Das Finden einer geeigneten Transformation liegt nicht im Ramen dieses Moduls.
 
-Der einzige Unterschied zu der Methode zum linearen trennen von Datenpunkten ist dann, dass stat mit den Datenpunkten $\vec{x}_i$ mit deren durch $\varphi$ transformierten gegenstücken $\vec{\varphi}(\vec{x}_i)$ gerechnet wird.\\
+Der einzige Unterschied zu der Methode zum linearen trennen von Datenpunkten ist dann, dass stat mit den Datenpunkten $\vec{x}_i$ mit deren durch $\varphi$ transformierten gegenstücken $\vec{\varphi}(\vec{x}_i)$ gerechnet wird.
 
 \subsubsection{Transformiertes duales Optimierungsproblem}
 \myul{\textbf{Nebenbedingungen, Es muss gelten:}}
@@ -138,12 +139,15 @@ Der einzige Unterschied zu der Methode zum linearen trennen von Datenpunkten ist
     \end{itemize}
 $\boxed{L(\vec{\alpha})=\sum_{j=1}^N\alpha_j-\frac{1}{2}\sum_{j,j'=1}^N\alpha_j \cdot \alpha_{j'} \cdot \space y_j \cdot y_{j'} \cdot \space \underbrace{\vec{z}_j^{\text{ $tr$}} \bullet  \vec{z}_{j'}}_{\text{Kernel}} \quad\to\quad\max!}$
 
-\subsubsection{Kernelfunktionen («Kernel-Trick»)}
+\subsubsection{Kernelfunktionen (\txtqt{Kernel-Trick})}
 $\boxed{K\left( \vec{x}_j ; \vec{x}_{j'}\right) = \vec{z}_j^{\text{ $tr$}}\bullet\vec{z}_{j'}=\vec{\varphi}(\vec{x}_j) \bullet \vec{\varphi}(\vec{x}_{j'})}$
 
 $\boxed{\vec{w}=\sum_{j=1}^N\alpha_j \cdot y_j \cdot \vec{\varphi}(\vec{x}_j)}$
 
 $\boxed{\sum_{j=1}^N\alpha_j \cdot y_j \cdot K\Big(\vec{x}_j;\vec{x}^{\text{ *}} \Big)+b>0\Longrightarrow\vec{x}^{\text{ *}}}$ gehört zur Klasse $y = +1$\\
 $\boxed{\sum_{j=1}^N\alpha_j \cdot y_j \cdot K\Big(\vec{x}_j;\vec{x}^{\text{ *}} \Big)+b<0\Longrightarrow\vec{x}^{\text{ *}}}$ gehört zur Klasse $y = -1$\\
-$\vec{x}^*$ steht für Test-Daten\\\\
+$\vec{x}^*$ steht für Test-Daten
+
+\medskip
 \textcolor{gray}{Lösungsweg: gleiches Vorgehen wie beim linearen Fall.}
+
