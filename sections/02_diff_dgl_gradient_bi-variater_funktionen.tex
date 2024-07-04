@@ -33,13 +33,36 @@ Wenn \cor{$f_{xx}, f_{yy}, f_{xy}$ \& $f_{yx}$} \textbf{stetig} (sprungfrei) sin
          
 \subsection{Gradient (Nabla-Operator)}\label{section:diff_dgl_gradient_bivar:gradient}
 Spaltenvektor mit partiellen Ableitungen
-\[
-    \tikznode{grad}{\nabla} f = \begin{pmatrix}
+
+\begin{center}
+    \myul{\textbf{Kartesisch}}
+
+    $\displaystyle\tikznode{grad}{\nabla} f = \begin{pmatrix}
         \frac{\partial f^{\mathstrut}}{\partial^{\mathstrut} x}\\
         \frac{\partial f^{\mathstrut}}{\partial^{\mathstrut} y}\\
         \vdots      % TODO: reformat vdots. They look like shit
-    \end{pmatrix} \hat{=} \text{Vektorfeld}
-\]
+    \end{pmatrix} \hat{=} \text{Vektorfeld}$
+
+    \medskip
+    \myul{\textbf{Zylindrisch}}
+
+    $\nabla f(r, \varphi, z) = \begin{pmatrix}
+        \frac{\partial f}{\partial r} \\
+        \frac{1}{r}\frac{\partial f}{\partial \varphi} \\
+        \frac{\partial f}{\partial z}
+    \end{pmatrix}$
+
+    \medskip
+    \myul{\textbf{Sphärisch}}
+
+    $\nabla f(r, \theta, \phi) = \begin{pmatrix}
+        \frac{\partial f}{\partial r} \\
+        \frac{1}{r} \frac{\partial f}{\partial \theta} \\
+        \frac{1}{r \sin\theta} \frac{\partial f}{\partial \phi}
+    \end{pmatrix}$
+\end{center}
+
+
 
 % TODO: some TikZ. Might not be needed and could be removed if unnecessary
 \begin{tikzpicture}[overlay, remember picture, >={Latex}]
