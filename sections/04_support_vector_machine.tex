@@ -1,7 +1,10 @@
 \newpage
 \section{Support Vector Machine (SVM)}
+Die Support Vector Machine kann verwendet werden, um ein Modell für das Zuordnen von Daten zu entwickeln.
+Dadurch wird ein Satz von Punkten, deren Klassifizierung bekannt ist, so linear getrennt, dass der Abstand von der trennenden Geraden zu den beiden Punktegruppen maximal wird.
+Es resultiert eine einfache Gleichung, mit der sich neue Daten klassifizieren lassen.
 
-\subsection{Lineare Trennbarkeit von Daten}
+\subsection{Linear Trennbare Daten}
 \subsubsection{Allgemeines}
 
 \myul{\textbf{Datenpunkte:}} (2D Beispiel)\\
@@ -71,6 +74,8 @@ $\boxed{grad_{\left\{\vec{w}^{tr},b\right\}}\left(L(\vec{w}^{tr},b,\vec{\alpha})
 Die oben erhaltenen Summen können nun in die Lagrange-Fkt. eingesetzt werden. Daraus entsteht\\
 $\boxed{L(\vec{\alpha})=\sum_{j=1}^N\alpha_j-\underbrace{\frac12\sum_{j,j'=1}^N\alpha_j\alpha_{j'} \space y_jy_{j'} \space \vec{x}_j^{tr}\cdot\vec{x}_{j'}}_{=\frac12 \vec{w}^{tr} \cdot \vec{w}}\quad\to\quad\max!\quad\mathrm{s.t.}\quad\alpha_j\geq0\wedge\sum_{j=1}^N\alpha_jy_j=0}$
 
+\newcolumn
+
 \myul{\textbf{Vorgehen zum lösen des dualen Optimierungsproblems:}}
 
 \begin{enumerate}
@@ -117,3 +122,11 @@ $\boxed{L(\vec{\alpha})=\sum_{j=1}^N\alpha_j-\underbrace{\frac12\sum_{j,j'=1}^N\
                 $\boxed{\vec{w}^{tr}\cdot\vec{x}_{...} + b = -1} \Leftrightarrow  \boxed{b = -1 -\vec{w}^{tr}\cdot\vec{x}_{...} = ...}$
         \end{itemize}
 \end{enumerate}
+
+
+\subsection{Nicht linear Trennbare Daten}
+Sollte ein Datensatz von nicht linear trennbaren Datenpunkten vorliegen, so muss dieser durch eine Transformation linear trennbar gemacht werden.
+Dadurch werden die Punkte oft in höhere Dimensionen gebracht.
+Das Finden einer geeigneten Transformation liegt nicht im Ramen dieses Moduls.
+
+Der einzige Unterschied zu der Methode zum linearen trennen von Datenpunkten ist dann, dass stat mit den Datenpunkten $\vec{x}_i$ mit deren durch $\varphi$ transformierten gegenstücken $\vec{\varphi}(\vec{x}_i)$ gerechnet wird.
