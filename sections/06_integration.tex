@@ -29,49 +29,63 @@ Der Satz von Fubini besagt, dass die Reihenfolge der Integrationen vertauscht we
 \]
 
 
-\subsection{1. metrischer Tensor} % TODO: Vereinheitlichung d. Variablen und Funktionen
-Beim 1. metrischen Tensor (oder auch\textbf{erste Fundamentalmatrix}, \textbf{erste Fundamentalform}, \textbf{metrische Grundform}) 
-handelt es sich um eine Parameter abhängige Matrix, welche aus den Skalarprodukten der partiellen Ableitungsvektoren nach den Parametern besteht.
+\subsection{Erster Metrischer Tensor} % TODO: Vereinheitlichung d. Variablen und Funktionen
+Der 1. metrische Tensor (oder auch \textbf{erste Fundamentalmatrix}, \textbf{erste Fundamentalform}, \textbf{metrische Grundform})
+beschreibt den Zusammenhang zwischen einer Kurve oder Fläche im Parameterraum zum Raum, in dem sie sich befindet (z.B. 2D-Fläche im 3D-Raum).
+Er besteht aus den Skalarprodukten der partiellen Ableitungsvektoren nach den Parametern.
 \[
     g_{ij} = \frac{\partial \vec{S}}{\partial u_i} \dotp \frac{\partial \vec{S}}{\partial u_j}
 \]
-
-Teilweise werden die Einträge auch folgendermassen abgekürzt: $E = g_{11}$, $F = g_{12} = g_{21}$, $G = g_{22}$.
-Daraus entsteht die Matrix: $\begin{pmatrix}
+Folglich ergibt sich die Matrix: $\begin{pmatrix}
     E & F\\
     F & G
+\end{pmatrix} = \begin{pmatrix}
+    g_{11} & g_{12}\\
+    g_{21} & g_{22}
 \end{pmatrix}$
 
-Sie wird für die Längenberechnung von Kurven, sowie Flächen von komplexeren Funktionen benötigt.
-Mittels der Differentialschreibweise lässt sich ein Längenelement einer Kurve wie folgt berechnen:
-\[
-    \diff s^2 = E \diff u^2 + 2F \diff u \diff v + G \diff v^2
-\]
+Die Einträge dieser Matrix werden benötigt, um Längen- oder Flächen(elemente) zu berechnen.
+
+% TODO: subsubsection Flächen-, Längen- & Winkelerhaltung (Siehe Moodle Woche 11)
 
 \example{Längenberechnung}
-Eine Kurve ist als $\vec{X}(t) = \begin{pmatrix}x(t)\\y(t)\end{pmatrix}$ gegeben.
-
-Das Längenelement ist somit: $\diff l^2 = E \diff x^2 + 2F \diff x \diff y + G \diff y^2$
-
-Um Die Länge zu berechnen, wird über die Längenelemente integriert:
+Eine Flächenkurve sei als $\vec{x}(t) = \begin{pmatrix}
+    u(t)\\
+    v(t)
+\end{pmatrix}$ gegeben.
+Davon wird das totale Differential gebildet: 
 \[
-    l = \int\limits_a^b \sqrt{E \dot{x}(t)^2 + 2F \dot{x}(t) \dot{y}(t) + G \dot{y}(t)^2} \diff t
+    \dot{\vec{x}} = \vec{x}_u \cdot \dot{u} + \vec{x}_v \cdot \dot{v}
 \]
+Um die Länge des Vektors (Längenelement) zu erhalten, muss man diesen im ersten Schritt quadrieren:
+\[
+    (\dot{\vec{x}})^2 = g_{11} \dot{u}^2 + 2 g_{12} \dot{u} \dot{v} + g_{22} \dot{v}^2
+\]
+Das einzelne Längenelement ist somit:
+\[
+    \diff s = \sqrt{g_{11} \diff u^2 + 2 g_{12} \diff u \diff v + g_{22} \diff v^2}
+\]
+Summiert man nun alle $\diff s$ über die Kurve, so ergibt dies das Integral für die gesamte Länge:
+\[
+    s = \int\limits_{a}^{b} \sqrt{g_{11} \dot{u}^2 + 2 g_{12} \dot{u} \dot{v} + g_{22} \dot{v}^2} \diff t
+\]
+
 
 \example{Flächenberechnung}
-Analog der Längenberechnung kann dieses Vorgehen auch für Flächen bzw. Flächenelemente gemacht werden, wobei das Flächenelement leicht anders ist:
+Es sei eine parametrisierte Fläche als Funktion $\vec{S}(u,v) = \begin{pmatrix}
+    x(u,v)\\
+    y(u,v)\\
+    z(u,v)
+\end{pmatrix}$ gegeben.
+Das Flächenelement lässt sich aus einem Parallelogramm der beiden partiellen Ableitungsvektoren bilden, 
+was dem Betrag des Kreuzproduktes bzw. der Determinante entspricht:
 \[
-    \diff S = \sqrt{EG - F^2} \diff u \diff v = \sqrt{\det|g_{ij}|} \diff u \diff v = \abs{\frac{\partial \vec{S}}{\partial u} \times \frac{\partial \vec{S}}{\partial v}} \diff u \diff v
+    \diff S = \sqrt{\abs{\det\abs{g_{ij}}}}\diff u \diff v = \sqrt{g_{11}g_{22} - g_{12}^2} \diff u \diff v = \abs{\frac{\partial \vec{S}}{\partial u} \times \frac{\partial \vec{S}}{\partial v}} \diff u \diff v
 \]
-dann über zwei Parameter integriert werden muss.
+Daraus ergibt sich die Fläche über das Doppelintegral:
 \[
-    A = \iint\limits_B \sqrt{EG - F^2} \diff u \diff v
+    S = \iint\limits_{v_1\, u_1}^{v_2\, u_2} \sqrt{g_{11}g_{22} - g_{12}^2} \diff u \diff v
 \]
-
-% \subsubsection{Freie Fläche} % DONE: check if this is needed... --> it isn't :)
-% \[
-%     \underset{\rm 2D}{(u_1; u_2)} \longrightarrow \underset{\rm 3D}{(x(u_1; u_2); y(u_1; u_2); z(u_1; u_2))}
-% \]
 
 
 % DONE: Längenintegrale (3D)
