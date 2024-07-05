@@ -1,66 +1,45 @@
 
 \section{Anwendungen}
 
-% TODO: Integralsatz von Gauss
 \subsection{Integralsatz von Gauss}
+Der Integralsatz von Gauss 
 \[
-    \boxed{\int\limits_{(V)} \div \vec{A} \diff V = \oint\limits_{(S) = \partial V} \vec{A} \dotp \diff \vec{S}}
+    \boxed{\int\limits_{V} \nabla \dotp \vec{A} \diff V = \oint\limits_{S = \partial V} \vec{A} \dotp \diff \vec{S}}
 \]
-Fluss durch eingeschlossenen Körper = Gesamter Fluss durch geschlossenen Rand des Körpers
+beschreibt, dass die aufintegrierte Divergenz in einem Körper gleich dem Fluss durch die Kontur dieses Körpers sein muss.
 
-% DONE: Poisson-Gleichung (Laplace-Gleichung) -- two subsections?
+
+\subsection{Integralsatz von Stokes}
+Der Integralsatz von Stokes
+\[
+    \boxed{\int\limits_{S} \rot \vec{A} \dotp \hat{n} \diff S = \oint\limits_{C = \partial S} \vec{A} \dotp \diff \vec{r}}
+\]
+sagt aus, dass durch das Integrieren eines Vektorfelds $\vec{A}$ entlang der Kontur $C$ einer Fläche $S$ auf die mittleren Verwirbelungen im Innern der Fläche geschlossen werden kann.
+
+Die Normale $\hat{n}$ und die Integrationsrichtung $\vec{r}$ müssen dabei die Rechte-Hand-Regel erfüllen.
+
+
 \subsection{Poisson-Gleichung (Laplace-Gleichung)}
-
-\myul{\textbf{Kartesisch}}
-
-$\boxed{\Delta \phi
-    = \div\left\lgroup\grad(\phi)\right\rgroup
-    = \nabla^2 \phi
-    = \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} + \frac{\partial^2 \phi}{\partial z^2}
-    = f(\vec{r})}$
-\begin{tabular}{O<{:} l}
-    \Delta & Laplace-Operator\\
-    \phi & Potentialfeld\\
-    f(\vec{r}) & Quellfunktion
-\end{tabular}
-
-\medskip
-\myul{\textbf{Zylindrisch}}
-
-$\boxed{%
-\nabla^2 V =%
- \frac{1}{r}\frac{\partial}{\partial r}\left\lgroup r\frac{\partial V}{\partial r} \right\rgroup 
-+ \frac{1}{r^2}\frac{\partial^2}{\partial \varphi^2} 
-+ \frac{\partial^2 V}{\partial z^2}}$
-
-\medskip
-\myul{\textbf{Sphärisch}}
-
-$\boxed{%
-\nabla^2 V =%
-\frac{1}{r^2}\frac{\partial}{\partial r}\left\lgroup r^2 \frac{\partial V}{\partial r} \right\rgroup 
-+ \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left\lgroup \sin\theta \frac{\partial V}{\partial\theta} \right\rgroup 
-+ \frac{1}{r^2\sin^2\theta}\frac{\partial^2 V}{\partial\phi^2}}$
+Die Poisson-Gleichung
+\[
+    \boxed{\Delta \phi (\vec{r})
+    = f(\vec{r})}
+    \hspace{1em}\text{oder}\hspace{1em}
+    \boxed{\nabla^2 \phi (\vec{r})
+    = f(\vec{r})}
+\]
+findet in der Physik oft Anwendung. $\phi$ beschreibt dabei ein skalares Potentialfeld, $f$ wird Quellenfunktion genannt und $\vec{r}$ ist ein beliebiger Stützvektor.
 
 \subsubsection{Laplace-Gleichung}
-$\boxed{\Delta \phi = f = 0}$ \textrightarrow\ Spezialfall der Poisson-Gleichung ohne äussere Quellfunktion
+Die Laplace-Gleichung
+\[\boxed{\Delta \phi = f = 0}\] 
+ist der Spezialfall der Poisson-Gleichung, bei dem keine Quellenfunktion $f$ besteht.
+
 
 % TODO: Green'sche Funktion / Green'scher Satz
-% TODO: Beispiel Poisson-Gleichung
-% TODO: Integralsatz von Stokes
-\subsection{Integralsatz von Stokes}
-\[
-    \boxed{\oint\limits_{\scriptscriptstyle (C) = \partial S} \vec{A} \dotp \diff \vec{r} = \int\limits_{\scriptscriptstyle (S)} \rot \vec{A} \dotp \diff \vec{S}}
-\]
-$\partial S$ \textbf{muss} anhand Rechter-Hand-Regel orientiert sein.
+\subsection{Green'sche Funktion}
+Die Green'sche Funktion (auch Green'scher Satz) ...
 
-Stokes sagt aus, dass die Summe der Verwirbelungen in einer Fläche, der Summe der Vektoren dessen Randes entsprechen.
-% XXX: vector for evaluating purposes. Rest of vectors might be replaced by this
-% Testvector: $\vec{V}\quad\tikz{\node[inner sep=0pt, minimum width=1pt, minimum height=1pt](a){$V$};\draw[line width=0.3pt]($(a.north west)!0.5!(a.north) + (0, 1pt)$) -- ($(a.north)!0.75!(a.north east)+(0,1pt)$) -- ++(-1pt,1pt);}$
 
 % TODO: Anwengungen: Maxwell-Gleichungen
-\subsection{Anwendungen: Maxwell-Gleichungen}
-% TODO: Koordinatensysteme Geografisch
-
-\crd{--TBD--}
-
+\subsection{Maxwell-Gleichungen}

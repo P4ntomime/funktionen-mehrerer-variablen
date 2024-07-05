@@ -97,7 +97,7 @@ Die Divergenz oder Volumenableitung eines Vektorfelds
 \[
 \begin{aligned}
     \nabla \dotp \vec{V}(\vec{x})
-    &= \begin{pmatrix} \frac{\partial}{\partial x_1} & \frac{\partial}{\partial x_2} & \dots & \frac{\partial}{\partial x_n} \end{pmatrix}^T \dotp \begin{pmatrix} v_1(\vec{x}) & v_2(\vec{x}) & \dots & v_n(\vec{x}) \end{pmatrix} \\
+    &= \begin{pmatrix} \frac{\partial}{\partial x_1} & \frac{\partial}{\partial x_2} & \dots & \frac{\partial}{\partial x_n} \end{pmatrix}^T \dotp \begin{pmatrix} v_1(\vec{x}) & v_2(\vec{x}) & \dots & v_n(\vec{x}) \end{pmatrix}^T \\
     &= \frac{\partial v_1}{\partial x_1}(\vec{x}) + \frac{\partial v_2}{\partial x_2}(\vec{x}) + \dots + \frac{\partial v_n}{\partial x_n}(\vec{x})
 \end{aligned}
 \]
@@ -143,9 +143,7 @@ wobei $\Omega$ ein Bereich im Raum $\mathbb{R}^n$ und C dessen Kontur in $\mathb
     \boxed{
         \div \vec{V}
         = \nabla \dotp \vec{V}
-        = \begin{pmatrix}
-            \frac{1}{r} \frac{\partial (r \cdot V_r)}{\partial r} + \frac{1}{r} \frac{\partial V_\varphi}{\partial \varphi} + \frac{\partial V_z}{\partial z}\\
-        \end{pmatrix}
+        = \frac{1}{r} \frac{\partial (r \cdot V_r)}{\partial r} + \frac{1}{r} \frac{\partial V_\varphi}{\partial \varphi} + \frac{\partial V_z}{\partial z}
     }
 \]
 
@@ -163,9 +161,44 @@ wobei $\Omega$ ein Bereich im Raum $\mathbb{R}^n$ und C dessen Kontur in $\mathb
 Der Laplaceoperator ist nichts anderes als die Divergenz des Gradienten eines Skalarfelds und vergleichbar mit der zweiten Ableitung.
 Folglich gilt
 \[
-    \Delta \phi = \nabla \dotp (\nabla \phi) = \nabla^2 \phi = \frac{\partial^2 \varphi_1}{\partial x_1^2} + \frac{\partial^2 \varphi_2}{\partial x_2^2} + \dots + \frac{\partial^2 \varphi_n}{\partial x_n^2},
+    \Delta V(x_1 \dots x_n) 
+    = \nabla \dotp (\nabla V(x_1 \dots x_n)) 
+    = \nabla^2 V(x_1 \dots x_n) 
+    = \frac{\partial^2 V}{\partial x_1^2} + \frac{\partial^2 V}{\partial x_2^2} + \dots + \frac{\partial^2 V}{\partial x_n^2},
 \]
 wobei das Resultat ein Skalarfeld ist.
+
+\subsubsection{Verschiedene Koordinatensysteme}
+\myul{\textbf{Kartesisch:}}
+\[
+    \boxed{
+        \Delta V(x, y, z)
+        = \frac{\partial^2 V}{\partial x^2} 
+        + \frac{\partial^2 V}{\partial y^2} 
+        + \frac{\partial^2 V}{\partial z^2}
+    }
+\]
+
+\myul{\textbf{Zylindrisch:}}
+\[
+    \boxed{
+        \Delta V(r, \varphi, z) 
+        = \frac{1}{r}\frac{\partial}{\partial r}\left\lgroup r\frac{\partial V}{\partial r} \right\rgroup 
+        + \frac{1}{r^2}\frac{\partial^2 V}{\partial \varphi^2} 
+        + \frac{\partial^2 V}{\partial z^2}
+    }
+\]
+
+\myul{\textbf{Sphärisch:}}
+\[
+    \boxed{
+        \Delta V(r, \theta, \phi)=
+        \frac{1}{r^2}\frac{\partial}{\partial r}\left\lgroup r^2 \frac{\partial V}{\partial r} \right\rgroup 
+        + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left\lgroup \sin\theta \frac{\partial V}{\partial\theta} \right\rgroup 
+        + \frac{1}{r^2\sin^2\theta}\frac{\partial^2 V}{\partial\phi^2}
+ }
+\]
+
 
 \subsection[Rotation eines Vektorfelds (rot, curl)]{Rotation eines Vektorfelds ($\rot$, $\curl$)}
 Die Rotation eines Vektorfelds, auch Curl genannt, beschreibt, wie stark ein Vektorfeld um einen gegebenen Punkt ``rotiert'' und wird als
