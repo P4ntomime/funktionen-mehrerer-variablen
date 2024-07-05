@@ -1,0 +1,15 @@
+\begin{tikzpicture}[x=2.5mm, y=2.5mm, >=Latex]
+    \draw[->] (0,0) -- (0,9) node[above] {$x_2$};
+    \draw[->] (0,0) -- (9,0) node[right] {$x_1$};
+
+    \fill[green] (0,0) circle (2pt) node[above right, text=green] {$A$};
+    \fill[blue] (0,3) circle (2pt) node[above right, text=blue] {$B$};
+    \fill[green] (3,6) circle (2pt) node[above right, text=green] {$C$};
+    \fill[green] (7,3) circle (2pt) node[above right, text=green] {$D$};
+    \node[text=red, inner sep=0pt] (egal) at (5,1) {egal};
+    \draw[->, red] (egal) to [out=0, in=-90, looseness=1.25] (7,2.5);
+
+    \node[inner sep=0pt, text=blue] at (1.5,-1) {$y=1$};
+    \node[inner sep=0pt, text=green] at (6.5,-1) {$y=-1$};
+\end{tikzpicture}
+

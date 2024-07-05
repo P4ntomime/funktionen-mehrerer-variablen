@@ -8,8 +8,11 @@
 \]
 Fluss durch eingeschlossenen Körper = Gesamter Fluss durch geschlossenen Rand des Körpers
 
-% TODO: Poisson-Gleichung (Laplace-Gleichung) -- two subsections?
+% DONE: Poisson-Gleichung (Laplace-Gleichung) -- two subsections?
 \subsection{Poisson-Gleichung (Laplace-Gleichung)}
+
+\myul{\textbf{Kartesisch}}
+
 $\boxed{\Delta \phi
     = \div\left\lgroup\grad(\phi)\right\rgroup
     = \nabla^2 \phi
@@ -20,6 +23,24 @@ $\boxed{\Delta \phi
     \phi & Potentialfeld\\
     f(\vec{r}) & Quellfunktion
 \end{tabular}
+
+\medskip
+\myul{\textbf{Zylindrisch}}
+
+$\boxed{%
+\nabla^2 V =%
+ \frac{1}{r}\frac{\partial}{\partial r}\left\lgroup r\frac{\partial V}{\partial r} \right\rgroup 
++ \frac{1}{r^2}\frac{\partial^2}{\partial \varphi^2} 
++ \frac{\partial^2 V}{\partial z^2}}$
+
+\medskip
+\myul{\textbf{Sphärisch}}
+
+$\boxed{%
+\nabla^2 V =%
+\frac{1}{r^2}\frac{\partial}{\partial r}\left\lgroup r^2 \frac{\partial V}{\partial r} \right\rgroup 
++ \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left\lgroup \sin\theta \frac{\partial V}{\partial\theta} \right\rgroup 
++ \frac{1}{r^2\sin^2\theta}\frac{\partial^2 V}{\partial\phi^2}}$
 
 \subsubsection{Laplace-Gleichung}
 $\boxed{\Delta \phi = f = 0}$ \textrightarrow\ Spezialfall der Poisson-Gleichung ohne äussere Quellfunktion
