@@ -153,14 +153,14 @@ $f_a$ und $f_b$ sind die partiellen Ableitungen der Funktion $f(a, b)$ nach $a$ 
 \medskip
 
 \myul{\bf{Beispiele zur Veranschaulichung:}}\\
-Es soll die Oberfläche der Funktion $ f(x, y) $ im Bereich $ x \in [x_1, x_2], y \in [y_1, y-2] $ bestimmt werden.
+Es soll die Oberfläche der Funktion $ f(x, y) $ im Bereich $ x \in [x_1, x_2], y \in [y_1, y_2] $ bestimmt werden.
 Das entsprechende integral lautet:
 $$ S = \int_{y_1}^{y_2} \int_{x_1}^{x_2} \sqrt{(f_{x})^2 + (f_{y})^2 + 1} \diff x \diff y $$
 
-Wäre die Funktion $f$ stat in kartesischen in polaren oder sphärischen Koordinaten formuliert, ändern sich lediglich die Namen der Variablen. 
-Folglich ist das zu einer in sphärischen Koordinaten definierten Fkt. $f(\theta, \phi)$ gehörende Integral
-$$ S = \int_{\phi_1}^{\phi_2} \int_{\theta_1}^{\theta_2} \sqrt{(f_{\theta})^2 + (f_{\phi})^2 + 1} \diff \theta \diff \phi $$
-sehr leicht aufzustellen.
+% Wäre die Funktion $f$ stat in kartesischen in polaren oder sphärischen Koordinaten formuliert, ändern sich lediglich die Namen der Variablen. 
+% Folglich ist das zu einer in sphärischen Koordinaten definierten Fkt. $f(\theta, \phi)$ gehörende Integral
+% $$ S = \int_{\phi_1}^{\phi_2} \int_{\theta_1}^{\theta_2} \sqrt{(f_{\theta})^2 + (f_{\phi})^2 + 1} \diff \theta \diff \phi $$
+% sehr leicht aufzustellen.
 
 
 \subsubsection{Allgemeine Wendelfläche}
@@ -260,11 +260,19 @@ Hinweis: Damit die Flächenelemente leichter erkennbar und die Formeln entsprech
         \hline
         \bf{Allgemein} & \bf{Kartesische Koordinaten} & \bf{Zylinderkoordinaten} & \bf{Kugelkoordinaten} \\
         \hline
+        \multicolumn{4}{|l|}{\bf{Oberfläche eines Körpers $K$ (Senkrecht zu $\hat{a}_r$)}} \\
+        \hline
+        \bigstrut[tb]$ S = \iint\limits_{K} \diff S $ & 
+        \textsl{Siehe metrischer Tensor}&%$ = \iint \diff x \diff y \diff z $ &
+        $ = \iint r \diff \varphi \diff z $ &
+        $ = \iint r^2 \sin \theta \diff \theta \diff \phi $ \\
+        \hline
+
         \multicolumn{4}{|l|}{\bf{Volumen eines Körpers $K$}} \\
         \hline
         \bigstrut[tb]$ V = \iiint\limits_{K} \diff V $ & 
         $ = \iiint \diff x \diff y \diff z $ &
-        $ = \iiint r \diff r \diff \phi \diff z $ &
+        $ = \iiint r \diff r \diff \varphi \diff z $ &
         $ = \iiint r^2 \sin \theta \diff \theta \diff \phi \diff r $ \\
         \hline
 
@@ -272,7 +280,7 @@ Hinweis: Damit die Flächenelemente leichter erkennbar und die Formeln entsprech
         \hline
         \bigstrut[tb]$ I_z = \iiint\limits_{K} r^2 \diff V $ & 
         $ = \iiint (x^2 + y^2) \diff x \diff y \diff z $ &
-        $ = \iiint (r^2) r \diff r \diff \phi \diff z $ &
+        $ = \iiint (r^2) r \diff r \diff \varphi \diff z $ &
         $ = \iiint (r^2 \sin^2 \theta) r^2 sin \theta \diff \theta \diff \phi \diff r $ \\
         \hline
 
@@ -280,7 +288,7 @@ Hinweis: Damit die Flächenelemente leichter erkennbar und die Formeln entsprech
         \hline
         \bigstrut[tb]$ M = \iiint\limits_{K} \varrho \diff V $ & 
         $ = \iiint \varrho (x, y, z) \diff x \diff y \diff z $ &
-        $ = \iiint \varrho (r, \phi, z) r \diff r \diff \phi \diff z $ &
+        $ = \iiint \varrho (r, \varphi, z) r \diff r \diff \varphi \diff z $ &
         $ = \iiint \varrho (r, \theta, \phi) r^2 sin \theta \diff \theta \diff \phi \diff r $ \\
         \hline
 
@@ -288,17 +296,17 @@ Hinweis: Damit die Flächenelemente leichter erkennbar und die Formeln entsprech
         \hline
         $ x_{S} = \frac{\strut \iiint\limits_{K} x \diff V}{V} $ & 
         $ = \frac{\iiint (x) \diff x \diff y \diff z}{V} $ &
-        $ = \frac{\iiint (r \cos \phi) r \diff r \diff \phi \diff z}{V} $ &
+        $ = \frac{\iiint (r \cos \varphi) r \diff r \diff \varphi \diff z}{V} $ &
         $ = \frac{\iiint (r \sin \theta \cos \phi) r^2 sin \theta \diff \theta \diff \phi \diff r}{V} $ \\
 
         \bigstrut[tb]$ y_{S} = \frac{\iiint\limits_{K} y \diff V}{V} $ & 
         $ = \frac{\iiint (y) \diff x \diff y \diff z}{V} $ &
-        $ = \frac{\iiint (r \sin \phi) r \diff r \diff \phi \diff z}{V} $ &
+        $ = \frac{\iiint (r \sin \varphi) r \diff r \diff \varphi \diff z}{V} $ &
         $ = \frac{\iiint (r \sin \theta \sin \phi) r^2 sin \theta \diff \theta \diff \phi \diff r}{V} $ \\
 
         \bigstrut[tb]$ z_{S} = \frac{\iiint\limits_{K} z \diff V}{V} $ & 
         $ = \frac{\iiint (z) \diff x \diff y \diff z}{V} $ &
-        $ = \frac{\iiint (z) r \diff r \diff \phi \diff z}{V} $ &
+        $ = \frac{\iiint (z) r \diff r \diff \varphi \diff z}{V} $ &
         $ = \frac{\iiint (r \cos \theta) r^2 sin \theta \diff \theta \diff \phi \diff r}{V} $ \\
         \hline
     \end{tabular}
