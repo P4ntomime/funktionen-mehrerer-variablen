@@ -4,10 +4,33 @@
 \subsection{Integralsatz von Gauss}
 Der Integralsatz von Gauss 
 \[
-    \boxed{\int\limits_{V} \nabla \dotp \vec{A} \diff V = \oint\limits_{S = \partial V} \vec{A} \dotp \diff \vec{S}}
+    \boxed{\oint\limits_{S = \partial V} \vec{A} \dotp \hat{n} \diff S = \int\limits_{V} \nabla \dotp \vec{A} \diff V}
 \]
 beschreibt, dass die aufintegrierte Divergenz in einem Körper gleich dem Fluss durch die Kontur dieses Körpers sein muss.
+Die Normale $\hat{n}$ steht dabei senkrecht auf dem Oberflächenelement $\diff S$ und zeigt nach aussen.
 
+\subsubsection{Green'sches Integraltheorem}
+Das Green'sche Integraltheorem (auch Satz von Green) 
+\[
+    \boxed{\oint\limits_{C = \partial S} \vec{A} \dotp \hat{n} \diff l = \iint\limits_{S} \left(\frac{\partial A_y}{\partial x}-\frac{\partial A_y}{\partial x}\right) \diff x \diff y }
+\]
+ist der zweidimensionale Spezialfall des Integralsatzes von Gauss. Auch hier zeigt die normale $\hat{n}$ nach aussen.
+
+\myul{\textbf{Green'sche Indentität Nr. 1}}
+Wird $\vec{A} = U_1 \nabla U_2$ eingesetzt, so resultiert aufgrund der Produktregel
+\[
+    \oint\limits_{S = \partial V} (U_1 \nabla U_2) \dotp \hat{n} \diff S = \int\limits_{V} (U_1 \nabla U_2 + \nabla U_1 \dotp \nabla U_2) \diff V.
+\]
+
+\myul{\textbf{Green'sche Indentität Nr. 2}}
+Wird $\vec{A} = U_1 \nabla U_2 - U_2 \nabla U_1 $ eingesetzt, so resultiert
+\[
+    \oint\limits_{S = \partial V} (U_1 \nabla U_2 - U_2 \nabla U_1) \dotp \hat{n} \diff S = \int\limits_{V} (U_1 \nabla U_2 - U_2 \nabla U_1) \diff V.
+\]
+Mit $U_1 = 1$ resultiert die etwas handlichere Indentität
+\[
+    \oint\limits_{S = \partial V} (\nabla U_2) \dotp \hat{n} \diff S = \int\limits_{V} (\nabla U_2) \diff V.
+\]
 
 \subsection{Integralsatz von Stokes}
 Der Integralsatz von Stokes
@@ -36,10 +59,41 @@ Die Laplace-Gleichung
 ist der Spezialfall der Poisson-Gleichung, bei dem keine Quellenfunktion $f$ besteht.
 
 
-% TODO: Green'sche Funktion / Green'scher Satz
-\subsection{Green'sche Funktion}
-Die Green'sche Funktion (auch Green'scher Satz) ...
+\subsection{Prinzip von d'Alambert}
+Das Prinzip von d'Alembert ist ein Vorgehen zum Lösen von Wellengleichungen.
+Die eindimensionale Wellengleichung
+\[
+    \frac{1}{c^2}\frac{\partial^2 u}{\partial t^2} - \frac{\partial^2 u}{\partial z^2}
+\]
+mit den Initialbedingungen
+\[
+    u(0, z) = f(z) 
+    \hspace{1em}\text{bzw.}\hspace{1em}
+    u(0, z) = f(z) \land \frac{\partial u}{\partial t} (0, z) = g(z)
+\]
+wird gelöst durch
+\[
+    u(t, z) = \frac{1}{2}(f(z + ct)+f(z-ct))
+    \hspace{1em}\text{bzw.}\hspace{1em}
+    u(t, z) = \frac{1}{2}(f(z + ct)+f(z-ct)) + \frac{1}{2c}\int_{z-ct}^{z+ct}g(s)ds.
+\]
 
 
-% TODO: Anwengungen: Maxwell-Gleichungen
 \subsection{Maxwell-Gleichungen}
+\subsubsection{Gausssches Gesetz}
+\[
+    \nabla \cdot \vec{E} = \frac{\rho}{\varepsilon_0}
+\]
+\subsubsection{Gausssches Gesetz des Magnetismus}
+\[
+    \nabla \cdot \vec{B} = 0
+\]
+\subsubsection{Induktionsgesetz}
+\[
+    \nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t}
+\]
+\subsubsection{Durchflutungsgesetz}
+\[
+    \nabla \times \vec{B} = \mu_0(\vec{J}+\varepsilon_0\frac{\partial \vec{E}}{\partial t})
+\]
+Zusammengesetzt aus dem \textbf{Ampèreschem Gesetz} $\nabla \times \vec{B} = \mu_0\vec{J}$ und Maxwells Erweiterung, der Verschiebungsstromdichte $\epsilon_0\frac{\partial \vec{E}}{\partial t}$.
