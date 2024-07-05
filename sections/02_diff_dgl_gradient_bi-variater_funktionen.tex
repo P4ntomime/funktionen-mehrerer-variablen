@@ -40,7 +40,7 @@ Spaltenvektor mit partiellen Ableitungen
     $\displaystyle\tikznode{grad}{\nabla} f = \begin{pmatrix}
         \frac{\partial f^{\mathstrut}}{\partial^{\mathstrut} x}\\
         \frac{\partial f^{\mathstrut}}{\partial^{\mathstrut} y}\\
-        \vdots      % TODO: reformat vdots. They look like shit
+        \vdots      % FIXME: reformat vdots. They look like shit
     \end{pmatrix} \hat{=} \text{Vektorfeld}$
 
     \medskip
@@ -63,8 +63,6 @@ Spaltenvektor mit partiellen Ableitungen
 \end{center}
 
 
-
-% TODO: some TikZ. Might not be needed and could be removed if unnecessary
 \begin{tikzpicture}[overlay, remember picture, >={Latex}]
     \node[inner sep=0pt, ellipse, fit=(grad), draw, densely dotted]{};
     \node[below left= 2mm and 5mm of grad] (gtext) {\txtqt{Gradient} / Nabla};
@@ -251,24 +249,33 @@ Bzw. für Kontourlinien: $f_{x}\diff x + f_{y}\diff y = 0$
 \end{tikzpicture}
 
 
-\subsection{TODO: Taylorreihe}
+\subsection{Taylor Approximation 2. Ordnung}
+Man erinnert sich an die Taylorreihe
+\[
+    f(x) = \sum_{n=0}^{\infty}\frac{f^{(n)}(x_0)}{n!}(\Delta x)^n
+\]
+in einer dimension. 
 
-\begin{tikzpicture}[>={Latex[width=1mm,
-                       length=1mm]}]
-    \draw[->] (-1,0) -- (3,0) node[below]{$x$};
-    \draw[->] (0,-0.5) -- (0,2) node[left]{$y$};
+Für höhere Dimensionen kann die Taylorreihe 2. Ordnung mit dem Nabla-Operator und der Hess Matrix als
+\[
+    f(x, y, \dots) \approx f(x_0, y_0, \dots) + \nabla f(x_0, y_0, \dots) \cdot \begin{pmatrix} \Delta x \\ \Delta y \\ \vdots \\ \end{pmatrix} + \frac{1}{2!} \begin{pmatrix} \Delta x & \Delta y & \dots \end{pmatrix} \vec{H} \begin{pmatrix} \Delta x \\ \Delta y \\ \vdots \\ \end{pmatrix}
+\]
+geschrieben werden.
 
-    % Schnitt
-    \draw[green] (-1,-0.5) -- (1, 0.75);
-\end{tikzpicture}
-
-
-\begin{ctabular}{r l}
-    $s(t) :$    &$P_0 + t \cdot \hat{v} \mid t\in \rreal$\\
-    $s(t) :$    &$f(x_0 + t \cdot \hat{v}_1\, ;\, y_0 + t \cdot \hat{v}_2)$\\
-    &\\
-    $\frac{\diff s(t)}{\diff t}=\dot{s}(t) :$&$t\mapsto\overbrace{\begin{pmatrix}x_0+t\cdot v_1\\y_0+t\cdot v_2\end{pmatrix}}^{\begin{pmatrix}x\\y\end{pmatrix}}\mapsto f(x,y)$
-\end{ctabular}
+% TODO: Was sollte das gewesen sein?
+% \begin{tikzpicture}[>={Latex[width=1mm,
+%                        length=1mm]}]
+%     \draw[->] (-1,0) -- (3,0) node[below]{$x$};
+%     \draw[->] (0,-0.5) -- (0,2) node[left]{$y$};
+%     % Schnitt
+%     \draw[green] (-1,-0.5) -- (1, 0.75);
+% \end{tikzpicture}
+% \begin{ctabular}{r l}
+%     $s(t) :$    &$P_0 + t \cdot \hat{v} \mid t\in \rreal$\\
+%     $s(t) :$    &$f(x_0 + t \cdot \hat{v}_1\, ;\, y_0 + t \cdot \hat{v}_2)$\\
+%     &\\
+%     $\frac{\diff s(t)}{\diff t}=\dot{s}(t) :$&$t\mapsto\overbrace{\begin{pmatrix}x_0+t\cdot v_1\\y_0+t\cdot v_2\end{pmatrix}}^{\begin{pmatrix}x\\y\end{pmatrix}}\mapsto f(x,y)$
+% \end{ctabular}
 
 
 \subsection{Richtungs-Ableitung}
@@ -295,7 +302,7 @@ Bzw. für Kontourlinien: $f_{x}\diff x + f_{y}\diff y = 0$
 
 \begin{minipage}[c]{.72\columnwidth}
     \begin{outline}
-        \1 $\alpha = \frac{\pi}{2}$ \textrightarrow\ rechter Winkel % TODO: fix \pi --> should be upright
+        \1 $\alpha = \frac{\pi}{2}$ \textrightarrow\ rechter Winkel
         \1 $\frac{\partial f}{\partial \hat{v}}$ extremal
             \2 $\alpha = 0$ (max):   $\nabla f \cdot\hat{v} > 0$ \textrightarrow\ \cbl{$\grad(f)$} liegt auf $\hat{v}$
             \2 $\alpha = \pi$ (min): $\nabla f \cdot\hat{v} < 0$ \textrightarrow\ \cbl{$\grad(f)$} liegt invers auf $\hat{v}$
