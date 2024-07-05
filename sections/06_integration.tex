@@ -28,13 +28,39 @@ Der Satz von Fubini besagt, dass die Reihenfolge der Integrationen vertauscht we
     \iint\limits_{y_1 x_1}^{\; y_2 x_2} f(x,y)\diff x \diff y = \iint\limits_{x_1 y_1}^{\; x_2 y_2} f(x,y)\diff y \diff x%\iint f(x, y) \diff x \diff y = \int \left\lgroup \int f(x, y) \diff x \right\rgroup \diff y = \int \left\lgroup \int f(x, y) \diff y \right\rgroup \diff x
 \]
 
+\subsection{Jacobi Matrix und Determinante}
+Die Jacobi-Matrix besteht aus den partiellen Ableitungen eines Vektorfelds nach den Parametern.
+\[
+    \mathbf{J}_{\vec{f}} = \begin{pmatrix}
+        \frac{\partial}{\partial x_1} f_1 & \frac{\partial}{\partial x_2} f_1 & \cdots & \frac{\partial}{\partial x_n} f_1\\
+        \frac{\partial}{\partial x_1} f_2 & \frac{\partial}{\partial x_2} f_2 & \cdots & \frac{\partial}{\partial x_n} f_2\\
+        \vdots & \vdots & \ddots & \vdots\\
+        \frac{\partial}{\partial x_1} f_m & \frac{\partial}{\partial x_2} f_m & \cdots & \frac{\partial}{\partial x_n} f_m
+    \end{pmatrix}
+\]
+Anhand der Jacobi-Matrix kann die Längen- und Flächenänderung bei einer Transformation berechnet werden.
+
+\subsubsection{Längenverzerrung}
+Die Längenverzerrung in eine Richtung $x_k$ ist definiert als: $\abs{\frac{\partial \vec{f}}{\partial x_k}} = \abs{\text{k. Spalte von }\mathbf{J}}$ 
+
+
+\subsubsection{Elementverzerrung (Flächen- / Volumenverzerrung)}
+Die Elementverzerrung ist definiert als: $\diff V' = \abs{\det \mathbf{J}}\cdot\diff V$ %da $\diff x_1 \diff x_2 \ldots \diff x_d = \det \mathbf{J} \diff u_1 \diff u_2 \ldots \diff u_d$
+
+
+\subsubsection{Längenelement}
+Ein Längenelement lässt sich ebenfalls aus der Jacobi Matrix berechnen:
+\[
+    \diff \vec{x}^2 = \diff\vec{x}\cdot\diff\vec{x} = (\diff\vec{u})^{\tr} \cdot (\mathbf{J}^{\tr} \cdot \mathbf{J}) \cdot (\diff\vec{u})
+\]
+
 
 \subsection{Erster Metrischer Tensor} % TODO: Vereinheitlichung d. Variablen und Funktionen
 Der 1. metrische Tensor (oder auch \textbf{erste Fundamentalmatrix}, \textbf{erste Fundamentalform}, \textbf{metrische Grundform})
 beschreibt den Zusammenhang zwischen einer Kurve oder Fläche im Parameterraum zum Raum, in dem sie sich befindet (z.B. 2D-Fläche im 3D-Raum).
 Er besteht aus den Skalarprodukten der partiellen Ableitungsvektoren nach den Parametern.
 \[
-    g_{ij} = \frac{\partial \vec{S}}{\partial u_i} \dotp \frac{\partial \vec{S}}{\partial u_j}
+    \boxed{g_{ij} = \frac{\partial \vec{S}}{\partial u_i} \dotp \frac{\partial \vec{S}}{\partial u_j} = \mathbf{J}^{\tr} \cdot \mathbf{J}}
 \]
 Folglich ergibt sich die Matrix: $\begin{pmatrix}
     E & F\\
@@ -45,30 +71,58 @@ Folglich ergibt sich die Matrix: $\begin{pmatrix}
 \end{pmatrix}$
 
 Die Einträge dieser Matrix werden benötigt, um Längen- oder Flächen(elemente) zu berechnen.
+Anhand der Einträge kann auch ausgesagt werden, ob eine Längen, Flächen und/oder Winkelerhaltung vorliegt:
 
-% TODO: subsubsection Flächen-, Längen- & Winkelerhaltung (Siehe Moodle Woche 11)
+\begin{minipage}[t]{0.33\columnwidth}
+    \centering
+    \myul{\textbf{Längenerhaltung}}
 
+    \medskip
+    $g_{ij} = \bm{I} = \begin{pmatrix}
+        1 & 0 \\
+        0 & 1 
+    \end{pmatrix}$
+\end{minipage}
+\begin{minipage}[t]{.33\columnwidth}
+    \centering
+    \myul{\textbf{Flächenerhaltung}}
+
+    \medskip
+    $\det (g_{ij}) = 1$
+\end{minipage}\hfill
+\begin{minipage}[t]{.33\columnwidth}
+    \centering
+    \myul{\textbf{Winkelerhaltung}}
+
+    \medskip
+    Diagnonale 1. Fundamentalform:
+    
+    $(g_{11} = g_{22}) \land (g_{12} = g_{21} = 0)$
+\end{minipage}
+
+
+% DONE: subsubsection Flächen-, Längen- & Winkelerhaltung (Siehe Moodle Woche 11)
 \example{Längenberechnung}
-Eine Flächenkurve sei als $\vec{x}(t) = \begin{pmatrix}
+Gegeben: Flächenkurve als $\vec{x}(t) = \begin{pmatrix}
     u(t)\\
     v(t)
-\end{pmatrix}$ gegeben.
-Davon wird das totale Differential gebildet: 
-\[
-    \dot{\vec{x}} = \vec{x}_u \cdot \dot{u} + \vec{x}_v \cdot \dot{v}
-\]
-Um die Länge des Vektors (Längenelement) zu erhalten, muss man diesen im ersten Schritt quadrieren:
-\[
-    (\dot{\vec{x}})^2 = g_{11} \dot{u}^2 + 2 g_{12} \dot{u} \dot{v} + g_{22} \dot{v}^2
-\]
+\end{pmatrix}$
+
+\medskip
+Totales Differential bilden: 
+\hfill\parbox{.5\columnwidth}{\centering $\displaystyle \diff s^2 = \dot{\vec{x}} = \vec{x}_u \cdot \dot{u} + \vec{x}_v \cdot \dot{v}$}
+
+\medskip
+Für Längenelement Pythagoras anwenden: 
+\hfill\parbox{.48\columnwidth}{\centering $\displaystyle (\dot{\vec{x}})^2 = g_{11} \dot{u}^2 + 2 g_{12} \dot{u} \dot{v} + g_{22} \dot{v}^2$}
+
+\medskip
 Das einzelne Längenelement ist somit:
-\[
-    \diff s = \sqrt{g_{11} \diff u^2 + 2 g_{12} \diff u \diff v + g_{22} \diff v^2}
-\]
-Summiert man nun alle $\diff s$ über die Kurve, so ergibt dies das Integral für die gesamte Länge:
-\[
-    s = \int\limits_{a}^{b} \sqrt{g_{11} \dot{u}^2 + 2 g_{12} \dot{u} \dot{v} + g_{22} \dot{v}^2} \diff t
-\]
+\hfill\parbox{.48\columnwidth}{\centering $\displaystyle \diff s = \sqrt{g_{11} \diff u^2 + 2 g_{12} \diff u \diff v + g_{22} \diff v^2}$}
+
+\medskip
+$\diff s$ integrieren, für Gesamtlänge: 
+\hfill\parbox{.48\columnwidth}{\centering $\displaystyle s = \int\limits_{a}^{b} \sqrt{g_{11} \dot{u}^2 + 2 g_{12} \dot{u} \dot{v} + g_{22} \dot{v}^2} \diff t$}
 
 
 \example{Flächenberechnung}
