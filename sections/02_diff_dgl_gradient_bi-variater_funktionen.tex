@@ -35,37 +35,40 @@ Wenn \cor{$f_{xx}, f_{yy}, f_{xy}$ \& $f_{yx}$} \textbf{stetig} (sprungfrei) sin
 Spaltenvektor mit partiellen Ableitungen
 
 \begin{center}
-    \myul{\textbf{Kartesisch}}
-
-    $\displaystyle\tikznode{grad}{\nabla} f = \begin{pmatrix}
+\begin{minipage}{0.35\columnwidth}
+    \myul{\textbf{Kartesisch}}\\
+    $\text{Vektorfeld} = \displaystyle\tikznode{grad}{\nabla} f = 
+    \begin{pmatrix}
         \frac{\partial f^{\mathstrut}}{\partial^{\mathstrut} x}\\
         \frac{\partial f^{\mathstrut}}{\partial^{\mathstrut} y}\\
         \vdots      % FIXME: reformat vdots. They look like shit
-    \end{pmatrix} \hat{=} \text{Vektorfeld}$
-
-    \medskip
-    \myul{\textbf{Zylindrisch}}
+    \end{pmatrix}$
+\end{minipage}
+\begin{minipage}{0.3\columnwidth}
+    \myul{\textbf{Zylindrisch}}\\
 
     $\nabla f(r, \varphi, z) = \begin{pmatrix}
         \frac{\partial f}{\partial r} \\
         \frac{1}{r}\frac{\partial f}{\partial \varphi} \\
         \frac{\partial f}{\partial z}
     \end{pmatrix}$
-
-    \medskip
-    \myul{\textbf{Sphärisch}}
+\end{minipage}
+\begin{minipage}{0.3\columnwidth}
+    \myul{\textbf{Sphärisch}}\\
 
     $\nabla f(r, \theta, \phi) = \begin{pmatrix}
         \frac{\partial f}{\partial r} \\
         \frac{1}{r} \frac{\partial f}{\partial \theta} \\
         \frac{1}{r \sin\theta} \frac{\partial f}{\partial \phi}
     \end{pmatrix}$
+\end{minipage}
 \end{center}
 
 
 \begin{tikzpicture}[overlay, remember picture, >={Latex}]
     \node[inner sep=0pt, ellipse, fit=(grad), draw, densely dotted]{};
-    \node[below left= 2mm and 5mm of grad] (gtext) {\txtqt{Gradient} / Nabla};
+    \node[below left= 2mm and 3mm of grad] (gtext) {\txtqt{Gradient} /};
+    \node[below left= 4.5mm and 6mm of grad](gtext) {Nabla};
     \draw[->, rounded corners] (gtext.east) -| ($(grad.south)+(0,-1mm)$);
 \end{tikzpicture}
 
