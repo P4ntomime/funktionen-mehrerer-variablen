@@ -1,4 +1,3 @@
-\newpage
 \section{Extrema von Funktionen finden} \label{section:extrema_bivar}
 \myul{\textbf{Stationäritätsbedingung:}} $\nabla f \stackrel{!}{=} \vec{0}$
 
@@ -368,3 +367,25 @@ $\boxed{\begin{array}{llll}
 
 \end{enumerate}
 
+\subsection{Weiszfeld-Iteration}
+Der Weiszfeld-Algorithmus ist ein iteratives Verfahren zur Berechnung des
+geometrischen Medians eines Punktemenge im $\mathbb{R}^m$. Der geometrische
+Median ist der Punkt $\vec{x}$ der die Summe der gewichteten euklidischen Abstände
+zu gegebenen Punkten $\vec{p}_j$ minimiert:
+\begin{center}
+    \boxed{ f(\vec{x}) = \sum_{j=1}^{N} r_j w_j = \sum_{j=1}^{N} \parallel \vec{x} - \vec{p}_j \parallel w_j \rightarrow min! }
+\end{center}
+\vspace{0.1cm}
+Dabei ist $r_j = \parallel \vec{x} - \vec{p}_j \parallel$ der euklidische Abstand und $w_j \geq 0$ das \textbf{Gewicht} des Punktes $\vec{p}_j$.
+
+\vspace{0.1cm}
+Statt die Minimumsbedingung direkt zu lösen, nutzt man die stationäre Bedingung:
+\vspace{0.1cm}
+
+\begin{center}
+    $\boxed{ \sum_{j = 1}^{N} \frac{\vec{x}-\vec{p}_j}{\parallel \vec{x} - \vec{p}_j \parallel}w_j = \vec{0} }
+    \Leftrightarrow \boxed{\vec{x}^{\, (k+1)} = \frac{\sum_{j = 1}^{N} \frac{w_j}{\parallel \vec{x}^{\, (k)} - \vec{p}_j \parallel} \vec{p}_j}{\sum_{j = 1}^{N} \frac{w_j}{\parallel \vec{x}^{\, (k)} - \vec{p}_j \parallel}}}$
+\end{center}
+
+Im oberen Schritt sieht man die Umformung von der stationären Bedingung zur Weiszfeld-Iteration. $\vec{x}^{\,(k)}$ sei
+der aktuelle Schätzwert. $\vec{x}^{\,(k + 1)}$ ist der folgende Schätzwert.
