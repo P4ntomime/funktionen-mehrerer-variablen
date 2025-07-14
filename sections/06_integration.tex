@@ -39,6 +39,17 @@ Die Jacobi-Matrix besteht aus den partiellen Ableitungen eines Vektorfelds nach 
 \]
 Anhand der Jacobi-Matrix kann die Längen- und Flächenänderung bei einer Transformation berechnet werden.
 
+\subsubsection{Transformation}
+Koordinatensysteme können mit der Jacobi-Matrix allgemein in andere Systeme transformiert werden.
+
+$T:(u, v) \xrightarrow{\text{T}} (x(u,v), y(u,v))$
+
+Eine Transformation könnte dann beispielsweise wie folgt aussehen:
+\[
+    \diff x\diff y=\det(\mathbf{J}_T(u,v))\diff u \diff v,
+\]
+dabei ist $\det(\mathbf{J}_T(u,v))$ der Skalierungsfaktor.
+
 \subsubsection{Längenverzerrung}
 Die Längenverzerrung in eine Richtung $x_k$ ist definiert als: $\abs{\frac{\partial \vec{f}}{\partial x_k}} = \abs{\text{k. Spalte von }\mathbf{J}}$ 
 
